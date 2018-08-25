@@ -1,7 +1,6 @@
-# microservices-reference-application(BookStore)
+# microservices-reference-application (BookStore)
 
-` Polygot micro services reference bookstore application using Docker, Kubernetes and Istio
-`
+`Polygot micro services reference bookstore application using Docker, Kubernetes and Istio`
 
 ## Micro Services with language and framework
 
