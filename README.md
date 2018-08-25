@@ -1,8 +1,8 @@
 # microservices-reference-application (BookStore)
 
-`Polygot micro services reference bookstore application using Docker, Kubernetes and Istio`
+> Polygot micro services reference bookstore application using Docker, Kubernetes and Istio
 
-## Micro Services with language and framework
+## Micro services with language and framework
 
 1. Frontend App - Angular(Typescript)
 2. BookService - Java(Spring boot)
@@ -12,7 +12,7 @@
 6. RatingServie - Go(Gin)
 7. RecomandationService - Python(Flask)
 
-## Technology Stack
+## Technology stack
 
 1. Google Cloud
 2. Docker and Kubernetes/Openshift
