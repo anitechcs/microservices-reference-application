@@ -1,6 +1,6 @@
 # Microservices Reference Application(BookStore)
 
-> Polygot micro services reference bookstore application using Docker, Kubernetes and Istio
+> Polyglot micro services reference application using opensource technology stack like Docker, Kubernetes and Istio
 
 The mian purpose of this repository is to demonstrate a polygot micoservices reference architecture and best practices for containerized environments like Kubernetes. You can find an implementation showing all mordern day requirements you would expect from your platform using fully opensource technology stack. The core benefit of putting this repo is to have a open architecture and keep it up to date with the help of community.
 
