@@ -10,9 +10,11 @@ I was designing an architecture for one of our next generation internal applicat
 ## System Architecture
 [TBD]
 
-## Micro Services with Language and Framework
+## Demonstration Video
+[TBD]
 
-1. Frontend App - Angular(Typescript)
+## Micro Services with Language and Framework
+1. Boostore Frontend App - Angular(Typescript)
 2. BookService - Java(Spring boot)
 3. OrderService - Java(Spring boot)
 4. ReviewService - NodeJS(Express)
@@ -21,7 +23,6 @@ I was designing an architecture for one of our next generation internal applicat
 7. RecomandationService - Python(Flask)
 
 ## Technology Stack
-
 - Docker
 - Kubernetes/Openshift
 - Istio/Kiali
