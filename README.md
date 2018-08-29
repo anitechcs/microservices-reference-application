@@ -1,11 +1,11 @@
 # Microservices Reference Application(BookStore)
 
-> Polyglot micro services reference application using opensource technology stack like Docker, Kubernetes and Istio
+> Polyglot microservices reference application using opensource technology stack like Docker, Kubernetes and Istio
 
-The mian purpose of this repository is to demonstrate a polygot micoservices reference architecture and best practices for containerized environments like Kubernetes. You can find an implementation showing all mordern day requirements you would expect from your platform using fully opensource technology stack. The core benefit of putting this repo is to have a open architecture and keep it up to date with the help of community.
+The mian purpose of this repository is to demonstrate a polyglot micoservices reference architecture and best practices for containerized environments like Kubernetes. You can find an reference implementation showing all mordern day requirements you would expect from your platform using fully opensource technology stack. The core motivation behind putting together this repo is to have a open architecture, keep it up to date and relevant with the help of community.
 
 ## Motivation Behind Creating this Repo?
-I was designing an architecture for one of our next generation internal application. The more I thought about the architecture, I realize how important is having an open architecture which can evolve based on current industry trends, best practices and open ideas from the awesome community. We are using this repository as our architecture playground for all of our products and I hope it can definely help many organization who are trying to adopt microservices. Having a adoptable and forward proof technology architecture is very critical for growing business now-a-days.
+I was designing an architecture for one of our next generation internal application. The more I thought about the architecture, I realize how important is to have an open architecture which can evolve based on current industry trends, best practices and open ideas from the awesome community. We are using this repository as our architecture playground for all of our products and I hope it can definely help many organization who are trying to adopt microservices. Having a adoptable and future proof technology architecture is very critical for growing business now-a-days.
 
 ## System Architecture
 [TBD]
@@ -22,19 +22,20 @@ I was designing an architecture for one of our next generation internal applicat
 
 ## Technology Stack
 
-1. Google Cloud
-2. Docker and Kubernetes/Openshift
-3. SpringBoot
-4. Express
-5. Flask
-6. Gin
-7. Istio
-8. Angular
-9. Keyclok
-10. Promethius
-11. Grafana
-12. Helm
-13. Kafka
+- Docker
+- Kubernetes/Openshift
+- Istio/Kiali
+- SpringBoot
+- ExpressJS
+- Flask
+- Gin
+- Angular
+- Keyclok
+- Prometheus
+- Grafana
+- Helm
+- Kafka
+- Elasticsearch
 
 ## Expected Features
 - Cloud Native
