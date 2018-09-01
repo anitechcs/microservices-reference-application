@@ -22,11 +22,11 @@ import { ShopModule } from './shop/shop.module';
     SharedModule,
     ShopModule
   ],
-  declarations: [AppComponent],
   providers: [
     // ANGULAR MATERIAL SLIDER FIX
     { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig }
   ],
+  declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

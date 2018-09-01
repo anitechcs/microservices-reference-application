@@ -34,6 +34,7 @@ import { ShopSideNavFilterDirective } from './directives/shop-side-nav-filter.di
 
 // SERVICES
 import { LoaderService } from './services/loader.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   imports: [
@@ -74,7 +75,8 @@ import { LoaderService } from './services/loader.service';
     ShopSideNavFilterDirective
   ],
   providers: [
-    LoaderService
+    LoaderService,
+    AuthService
   ],
   entryComponents: [LoaderComponent],
 })

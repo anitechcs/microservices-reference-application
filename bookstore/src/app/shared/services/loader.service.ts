@@ -16,7 +16,8 @@ export class LoaderService {
   }
 
   public close() {
-    if(this.dialogRef)
+    if (this.dialogRef) {
       this.dialogRef.close();
+    }
   }
 }

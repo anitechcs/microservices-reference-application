@@ -105,11 +105,10 @@
   }
 }
 
-
 .full-gradient-bg {
-  background-image: -webkit-linear-gradient(330deg, #6caafd, #1fe4d4, #6caafd, #ff73bb, #ffa76d, #ff3c6d);
-  background-image: -o-linear-gradient(330deg,#6caafd, #1fe4d4, #6caafd, #ff73bb, #ffa76d, #ff3c6d);
-  background-image: linear-gradient(120deg, #6caafd, #1fe4d4, #6caafd, #ff73bb, #ffa76d, #ff3c6d);
+  background-image: -webkit-linear-gradient(330deg, #6caafd, #1fe4d4);
+  background-image: -o-linear-gradient(330deg,#6caafd, #1fe4d4);
+  background-image: linear-gradient(120deg, #6caafd, #1fe4d4);
   background-repeat: no-repeat;
   -webkit-background-size: 800% 400%;
   background-size: 800% 400%;
@@ -148,12 +147,4 @@
   100% {
     background-position: 0 50%;
   }
-}
-
-.loading-account {
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  text-shadow: 1px 1px gray;
-  font-family: Arial, Helvetica, sans-serif;
 }
