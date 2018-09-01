@@ -1,0 +1,54 @@
+/*---- Chats -----*/
+.chat-sidenav {
+  width: 15rem;
+  border-right: 1px solid rgba(0, 0, 0, .12)
+}
+.chat-sidebar-toolbar,
+.chat-toolbar,
+.chat-sidebar-toolbar .mat-toolbar-row,
+.chat-toolbar .mat-toolbar-row {
+  min-height: 56px !important;
+  height: 56px !important;
+}
+.chats-wrap .conversations-hold .single-conversation {
+  overflow: hidden;
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+.chats-wrap .conversations-hold .single-conversation .toolbar-avatar {
+  vertical-align: bottom;
+  margin-right: 1rem;
+}
+.chats-wrap .conversations-hold .single-conversation .chat-username {
+  margin: 0 0 .625rem;
+  font-size: .875rem;
+}
+.chats-wrap .conversations-hold .single-conversation .conversation-msg {
+  padding: .48rem .94rem;
+  display: inline-block;
+  border-radius: 4px;
+}
+.chats-wrap .conversations-hold .single-conversation.sender .conversation-msg {
+  background: #ffffff;
+}
+
+.chats-wrap .conversations-hold .single-conversation .chat-date {
+  font-size: 11px;
+  padding: 2px;
+  margin: 0;
+  clear: both;
+}
+.chats-wrap .chat-input-actions {
+  padding: .6rem;
+}
+
+[dir=rtl] {
+  .chat-sidenav {
+    border-right: none;
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .chats-wrap .conversations-hold .single-conversation .toolbar-avatar {
+    margin-right: 0;
+    margin-left: 1rem;
+  }
+}

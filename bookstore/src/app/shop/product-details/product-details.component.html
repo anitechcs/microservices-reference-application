@@ -1,0 +1,51 @@
+<div class="product-details-wrap m-333" fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap="wrap">
+  <div fxLayout="row" fxFlex="100" class="mb-05">
+    <button mat-icon-button class="text-muted" routerLink="/shop"><mat-icon>chevron_left</mat-icon> <span >Back to Shop</span></button>
+    <span fxFlex></span>
+    <span fxFlex="20px"></span>
+    <button mat-raised-button color="primary" routerLink="/shop/cart">
+      <mat-icon>shopping_cart</mat-icon> Cart ({{cartData?.itemCount}})</button>
+  </div>
+  <div fxFlex.lt-md="auto" fxFlex="50" class="product-photos-wrap">
+    <div class="gallery-thumbnails" [@animate]="{value:'*',params:{delay: '100ms', x:'-100px'}}">
+      <img class="mat-elevation-z1" [ngClass]="{'active': image.state === '1'}" *ngFor="let image of photoGallery" [src]="image.url"
+        (click)="changeState(image)">
+    </div>
+    <div class="gallery-photo" [@animate]="{value:'*',params:{delay: '100ms', y:'50px'}}">
+      <img class="mat-elevation-z2" *ngFor="let image of photoGallery" [src]="image.url" alt="" [@fadeInOut]="image.state">
+    </div>
+  </div>
+
+  <div fxFlex="50" class="product-content-wrap" [@animate]="{value:'*',params:{delay: '100ms', x:'50px'}}">
+    <div class="product-rating" *ngIf="product?.ratings?.rating">
+      <!--<star-rating-comp [rating]="product?.ratings?.rating" [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'">
+      </star-rating-comp>-->
+      <small class="text-muted">{{product?.ratings?.rating}} ({{product?.ratings?.ratingCount}})</small>
+    </div>
+    <h1 class="title">{{product?.name}}</h1>
+    <div class="main-info mb-1">
+      <p class="mb-05" [ngStyle]="{maxWidth: '450px'}">{{product?.description}}</p>
+      <p class="text-muted p-line"><strong>Category:</strong> <span class="mat-color-default">{{product?.category}}</span></p>
+      <p class="text-muted p-line"><strong>Tags:</strong> <span *ngFor="let t of product.tags"><span class="mat-color-default">{{t}}</span> </span></p>
+    </div>
+    <div class="product-options">
+      <div class="opt-radio mb-1">
+        <label class="option-label text-muted">Choose an option: </label>
+        <mat-radio-group fxLayout="column" fxLayoutGap="5px">
+          <mat-radio-button  [value]="'opt1'">Option 1</mat-radio-button>
+          <mat-radio-button  [value]="'opt2'">Option 2</mat-radio-button>
+          <mat-radio-button  [value]="'opt3'">Option 3</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="opt-quantity mb-1">
+        <label class="option-label text-muted" for="quantity">Quantity: </label>
+        <input class="quantity-input default-bg" id="quantity" name="quantity" type="number" [(ngModel)]="quantity">
+      </div>
+    </div>
+    <div fxLayout="row">
+      <button mat-raised-button color="accent" (click)="addToCart()"><mat-icon>add_shopping_cart</mat-icon> Add to Cart</button>
+      <span fxFlex="8px"></span>
+      <button mat-raised-button color="primary" routerLink="/shop"><mat-icon>chevron_left</mat-icon> Back to Shop</button>
+    </div>
+  </div>
+</div>
