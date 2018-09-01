@@ -1,11 +1,10 @@
-<div class="app-admin-wrap" [dir]='layoutConf.dir'>
+<div class="app-admin-wrap">
 
   <!-- ONLY REQUIRED FOR **TOP** NAVIGATION LAYOUT -->
   <app-header-top [notificPanel]="notificationPanel"></app-header-top>
 
   <!-- Main Container -->
   <mat-sidenav-container
-  [dir]='layoutConf.dir'
   class="app-admin-container app-side-nav-container mat-drawer-transition"
   [ngClass]="{
     'navigation-top': layoutConf.navigationPos === 'top',

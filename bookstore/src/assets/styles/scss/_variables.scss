@@ -1,3 +1,6 @@
+// Import material theming functions
+@import '~@angular/material/theming';
+
 // General
 $transitionDuration: 300ms !default;
 $gutter: 1rem !default;
@@ -28,3 +31,14 @@ $headings-font-family:   inherit !default;
 $headings-font-weight:   400 !default;
 $headings-line-height:   1.1 !default;
 $headings-color:         inherit !default;
+
+
+// Copy the palettes from your selected theme (usually theme.scss).
+$app-primary: mat-palette($mat-deep-purple);
+$app-accent:  mat-palette($mat-amber, A200, A100, A400);
+$app-warn:    mat-palette($mat-pink);
+
+// Create your Sass color vars (will be available in all the project)
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);
