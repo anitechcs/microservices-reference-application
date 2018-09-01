@@ -29,7 +29,6 @@ import { HeaderTopComponent } from './components/header-top/header-top.component
 // ALL TIME REQUIRED
 import { ShopLayoutComponent } from './components/layouts/shop-layout/shop-layout.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
-import { AppComfirmComponent } from './services/app-confirm/app-confirm.component';
 import { AppLoaderComponent } from './services/app-loader/app-loader.component';
 
 // DIRECTIVES
@@ -44,7 +43,6 @@ import { EgretSideNavToggleDirective } from './directives/egret-side-nav-toggle.
 import { ThemeService } from './services/theme.service';
 import { LayoutService } from './services/layout.service';
 import { AuthGuard } from './services/auth.guard';
-import { AppConfirmService } from './services/app-confirm/app-confirm.service';
 import { AppLoaderService } from './services/app-loader/app-loader.service';
 
 
@@ -52,7 +50,6 @@ const classesToInclude = [
   HeaderTopComponent,
   NotificationsComponent,
   ShopLayoutComponent,
-  AppComfirmComponent,
   AppLoaderComponent,
   FontSizeDirective,
   ScrollToDirective,
@@ -86,12 +83,11 @@ const classesToInclude = [
     MatRippleModule,
     MatDialogModule
   ],
-  entryComponents: [AppComfirmComponent, AppLoaderComponent],
+  entryComponents: [AppLoaderComponent],
   providers: [
     ThemeService,
     LayoutService,
     AuthGuard,
-    AppConfirmService,
     AppLoaderService
   ],
   declarations: classesToInclude,
