@@ -18,8 +18,8 @@
 
   <div fxFlex="50" class="product-content-wrap" [@animate]="{value:'*',params:{delay: '100ms', x:'50px'}}">
     <div class="product-rating" *ngIf="product?.ratings?.rating">
-      <!--<star-rating-comp [rating]="product?.ratings?.rating" [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'">
-      </star-rating-comp>-->
+      <star-rating [rating]="product?.ratings?.rating" [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'">
+      </star-rating>
       <small class="text-muted">{{product?.ratings?.rating}} ({{product?.ratings?.ratingCount}})</small>
     </div>
     <h1 class="title">{{product?.name}}</h1>

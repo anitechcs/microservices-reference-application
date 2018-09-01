@@ -24,10 +24,10 @@ export class ProductDB {
         'nulla laboris',
         'pariatur consequat'
       ],
-      'photo': '../../../../assets/images/products/speaker-1.jpg',
+      'photo': '../../../../assets/imgs/products/speaker-1.jpg',
       'gallery': [
-        '../../../../assets/images/products/speaker-1.jpg',
-        '../../../../assets/images/products/speaker-2.jpg'
+        '../../../../assets/imgs/products/speaker-1.jpg',
+        '../../../../assets/imgs/products/speaker-2.jpg'
       ],
       'badge': {
         'text': '20% off',
@@ -58,10 +58,10 @@ export class ProductDB {
         'consectetur dolor',
         'est proident'
       ],
-      'photo': '../../../../assets/images/products/speaker-2.jpg',
+      'photo': '../../../../assets/imgs/products/speaker-2.jpg',
       'gallery': [
-        '../../../../assets/images/products/speaker-1.jpg',
-        '../../../../assets/images/products/speaker-2.jpg'
+        '../../../../assets/imgs/products/speaker-1.jpg',
+        '../../../../assets/imgs/products/speaker-2.jpg'
       ],
       'badge': {
         'text': 'Sale',
@@ -92,12 +92,12 @@ export class ProductDB {
         'magna eu',
         'sint quis'
       ],
-      'photo': '../../../../assets/images/products/headphone-2.jpg',
+      'photo': '../../../../assets/imgs/products/headphone-2.jpg',
       'gallery': [
-        '../../../../assets/images/products/headphone-1.jpg',
-        '../../../../assets/images/products/headphone-2.jpg',
-        '../../../../assets/images/products/headphone-3.jpg',
-        '../../../../assets/images/products/headphone-4.jpg'
+        '../../../../assets/imgs/products/headphone-1.jpg',
+        '../../../../assets/imgs/products/headphone-2.jpg',
+        '../../../../assets/imgs/products/headphone-3.jpg',
+        '../../../../assets/imgs/products/headphone-4.jpg'
       ],
       'badge': {
         'text': '-40%',
@@ -128,10 +128,10 @@ export class ProductDB {
         'ad minim',
         'duis exercitation'
       ],
-      'photo': '../../../../assets/images/products/watch-1.jpg',
+      'photo': '../../../../assets/imgs/products/watch-1.jpg',
       'gallery': [
-        '../../../../assets/images/products/watch-1.jpg',
-        '../../../../assets/images/products/watch-2.jpg'
+        '../../../../assets/imgs/products/watch-1.jpg',
+        '../../../../assets/imgs/products/watch-2.jpg'
       ],
       'badge': {
         'text': '',
@@ -162,10 +162,10 @@ export class ProductDB {
         'excepteur non',
         'aliquip eu'
       ],
-      'photo': '../../../../assets/images/products/watch-2.jpg',
+      'photo': '../../../../assets/imgs/products/watch-2.jpg',
       'gallery': [
-        '../../../../assets/images/products/watch-1.jpg',
-        '../../../../assets/images/products/watch-2.jpg'
+        '../../../../assets/imgs/products/watch-1.jpg',
+        '../../../../assets/imgs/products/watch-2.jpg'
       ],
       'badge': {
         'text': '',
@@ -196,12 +196,12 @@ export class ProductDB {
         'adipisicing exercitation',
         'esse incididunt'
       ],
-      'photo': '../../../../assets/images/products/headphone-3.jpg',
+      'photo': '../../../../assets/imgs/products/headphone-3.jpg',
       'gallery': [
-        '../../../../assets/images/products/headphone-1.jpg',
-        '../../../../assets/images/products/headphone-2.jpg',
-        '../../../../assets/images/products/headphone-3.jpg',
-        '../../../../assets/images/products/headphone-4.jpg'
+        '../../../../assets/imgs/products/headphone-1.jpg',
+        '../../../../assets/imgs/products/headphone-2.jpg',
+        '../../../../assets/imgs/products/headphone-3.jpg',
+        '../../../../assets/imgs/products/headphone-4.jpg'
       ],
       'badge': {
         'text': '',
@@ -232,12 +232,12 @@ export class ProductDB {
         'veniam laboris',
         'nulla sunt'
       ],
-      'photo': '../../../../assets/images/products/headphone-4.jpg',
+      'photo': '../../../../assets/imgs/products/headphone-4.jpg',
       'gallery': [
-        '../../../../assets/images/products/headphone-1.jpg',
-        '../../../../assets/images/products/headphone-2.jpg',
-        '../../../../assets/images/products/headphone-3.jpg',
-        '../../../../assets/images/products/headphone-4.jpg'
+        '../../../../assets/imgs/products/headphone-1.jpg',
+        '../../../../assets/imgs/products/headphone-2.jpg',
+        '../../../../assets/imgs/products/headphone-3.jpg',
+        '../../../../assets/imgs/products/headphone-4.jpg'
       ],
       'badge': {
         'text': '',
@@ -268,10 +268,10 @@ export class ProductDB {
         'incididunt nulla',
         'ullamco qui'
       ],
-      'photo': '../../../../assets/images/products/iphone-2.jpg',
+      'photo': '../../../../assets/imgs/products/iphone-2.jpg',
       'gallery': [
-        '../../../../assets/images/products/iphone-1.jpg',
-        '../../../../assets/images/products/iphone-2.jpg'
+        '../../../../assets/imgs/products/iphone-1.jpg',
+        '../../../../assets/imgs/products/iphone-2.jpg'
       ],
       'badge': {
         'text': '',
@@ -301,10 +301,10 @@ export class ProductDB {
         'eiusmod mollit',
         'irure adipisicing'
       ],
-      'photo': '../../../../assets/images/products/iphone-1.jpg',
+      'photo': '../../../../assets/imgs/products/iphone-1.jpg',
       'gallery': [
-        '../../../../assets/images/products/iphone-1.jpg',
-        '../../../../assets/images/products/iphone-2.jpg'
+        '../../../../assets/imgs/products/iphone-1.jpg',
+        '../../../../assets/imgs/products/iphone-2.jpg'
       ],
       'badge': {
         'text': '',
@@ -335,12 +335,12 @@ export class ProductDB {
         'eu excepteur',
         'incididunt aute'
       ],
-      'photo': '../../../../assets/images/products/headphone-1.jpg',
+      'photo': '../../../../assets/imgs/products/headphone-1.jpg',
       'gallery': [
-        '../../../../assets/images/products/headphone-1.jpg',
-        '../../../../assets/images/products/headphone-2.jpg',
-        '../../../../assets/images/products/headphone-3.jpg',
-        '../../../../assets/images/products/headphone-4.jpg'
+        '../../../../assets/imgs/products/headphone-1.jpg',
+        '../../../../assets/imgs/products/headphone-2.jpg',
+        '../../../../assets/imgs/products/headphone-3.jpg',
+        '../../../../assets/imgs/products/headphone-4.jpg'
       ],
       'badge': {
         'text': '',
@@ -370,10 +370,10 @@ export class ProductDB {
         'nulla laboris',
         'pariatur consequat'
       ],
-      'photo': '../../../../assets/images/products/speaker-1.jpg',
+      'photo': '../../../../assets/imgs/products/speaker-1.jpg',
       'gallery': [
-        '../../../../assets/images/products/speaker-1.jpg',
-        '../../../../assets/images/products/speaker-2.jpg'
+        '../../../../assets/imgs/products/speaker-1.jpg',
+        '../../../../assets/imgs/products/speaker-2.jpg'
       ],
       'badge': {
         'text': '20% off',
@@ -404,10 +404,10 @@ export class ProductDB {
         'consectetur dolor',
         'est proident'
       ],
-      'photo': '../../../../assets/images/products/speaker-2.jpg',
+      'photo': '../../../../assets/imgs/products/speaker-2.jpg',
       'gallery': [
-        '../../../../assets/images/products/speaker-1.jpg',
-        '../../../../assets/images/products/speaker-2.jpg'
+        '../../../../assets/imgs/products/speaker-1.jpg',
+        '../../../../assets/imgs/products/speaker-2.jpg'
       ],
       'badge': {
         'text': 'Sale',
@@ -438,12 +438,12 @@ export class ProductDB {
         'magna eu',
         'sint quis'
       ],
-      'photo': '../../../../assets/images/products/headphone-2.jpg',
+      'photo': '../../../../assets/imgs/products/headphone-2.jpg',
       'gallery': [
-        '../../../../assets/images/products/headphone-1.jpg',
-        '../../../../assets/images/products/headphone-2.jpg',
-        '../../../../assets/images/products/headphone-3.jpg',
-        '../../../../assets/images/products/headphone-4.jpg'
+        '../../../../assets/imgs/products/headphone-1.jpg',
+        '../../../../assets/imgs/products/headphone-2.jpg',
+        '../../../../assets/imgs/products/headphone-3.jpg',
+        '../../../../assets/imgs/products/headphone-4.jpg'
       ],
       'badge': {
         'text': '-40%',
@@ -474,10 +474,10 @@ export class ProductDB {
         'ad minim',
         'duis exercitation'
       ],
-      'photo': '../../../../assets/images/products/watch-1.jpg',
+      'photo': '../../../../assets/imgs/products/watch-1.jpg',
       'gallery': [
-        '../../../../assets/images/products/watch-1.jpg',
-        '../../../../assets/images/products/watch-2.jpg'
+        '../../../../assets/imgs/products/watch-1.jpg',
+        '../../../../assets/imgs/products/watch-2.jpg'
       ],
       'badge': {
         'text': '',
@@ -508,10 +508,10 @@ export class ProductDB {
         'excepteur non',
         'aliquip eu'
       ],
-      'photo': '../../../../assets/images/products/watch-2.jpg',
+      'photo': '../../../../assets/imgs/products/watch-2.jpg',
       'gallery': [
-        '../../../../assets/images/products/watch-1.jpg',
-        '../../../../assets/images/products/watch-2.jpg'
+        '../../../../assets/imgs/products/watch-1.jpg',
+        '../../../../assets/imgs/products/watch-2.jpg'
       ],
       'badge': {
         'text': '',
@@ -542,12 +542,12 @@ export class ProductDB {
         'adipisicing exercitation',
         'esse incididunt'
       ],
-      'photo': '../../../../assets/images/products/headphone-3.jpg',
+      'photo': '../../../../assets/imgs/products/headphone-3.jpg',
       'gallery': [
-        '../../../../assets/images/products/headphone-1.jpg',
-        '../../../../assets/images/products/headphone-2.jpg',
-        '../../../../assets/images/products/headphone-3.jpg',
-        '../../../../assets/images/products/headphone-4.jpg'
+        '../../../../assets/imgs/products/headphone-1.jpg',
+        '../../../../assets/imgs/products/headphone-2.jpg',
+        '../../../../assets/imgs/products/headphone-3.jpg',
+        '../../../../assets/imgs/products/headphone-4.jpg'
       ],
       'badge': {
         'text': '',
@@ -578,12 +578,12 @@ export class ProductDB {
         'veniam laboris',
         'nulla sunt'
       ],
-      'photo': '../../../../assets/images/products/headphone-4.jpg',
+      'photo': '../../../../assets/imgs/products/headphone-4.jpg',
       'gallery': [
-        '../../../../assets/images/products/headphone-1.jpg',
-        '../../../../assets/images/products/headphone-2.jpg',
-        '../../../../assets/images/products/headphone-3.jpg',
-        '../../../../assets/images/products/headphone-4.jpg'
+        '../../../../assets/imgs/products/headphone-1.jpg',
+        '../../../../assets/imgs/products/headphone-2.jpg',
+        '../../../../assets/imgs/products/headphone-3.jpg',
+        '../../../../assets/imgs/products/headphone-4.jpg'
       ],
       'badge': {
         'text': '',
@@ -614,10 +614,10 @@ export class ProductDB {
         'incididunt nulla',
         'ullamco qui'
       ],
-      'photo': '../../../../assets/images/products/iphone-2.jpg',
+      'photo': '../../../../assets/imgs/products/iphone-2.jpg',
       'gallery': [
-        '../../../../assets/images/products/iphone-1.jpg',
-        '../../../../assets/images/products/iphone-2.jpg'
+        '../../../../assets/imgs/products/iphone-1.jpg',
+        '../../../../assets/imgs/products/iphone-2.jpg'
       ],
       'badge': {
         'text': '',
@@ -647,10 +647,10 @@ export class ProductDB {
         'eiusmod mollit',
         'irure adipisicing'
       ],
-      'photo': '../../../../assets/images/products/iphone-1.jpg',
+      'photo': '../../../../assets/imgs/products/iphone-1.jpg',
       'gallery': [
-        '../../../../assets/images/products/iphone-1.jpg',
-        '../../../../assets/images/products/iphone-2.jpg'
+        '../../../../assets/imgs/products/iphone-1.jpg',
+        '../../../../assets/imgs/products/iphone-2.jpg'
       ],
       'badge': {
         'text': '',
@@ -681,12 +681,12 @@ export class ProductDB {
         'eu excepteur',
         'incididunt aute'
       ],
-      'photo': '../../../../assets/images/products/headphone-1.jpg',
+      'photo': '../../../../assets/imgs/products/headphone-1.jpg',
       'gallery': [
-        '../../../../assets/images/products/headphone-1.jpg',
-        '../../../../assets/images/products/headphone-2.jpg',
-        '../../../../assets/images/products/headphone-3.jpg',
-        '../../../../assets/images/products/headphone-4.jpg'
+        '../../../../assets/imgs/products/headphone-1.jpg',
+        '../../../../assets/imgs/products/headphone-2.jpg',
+        '../../../../assets/imgs/products/headphone-3.jpg',
+        '../../../../assets/imgs/products/headphone-4.jpg'
       ],
       'badge': {
         'text': '',

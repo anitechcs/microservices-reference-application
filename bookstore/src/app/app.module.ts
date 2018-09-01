@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { StarRatingModule } from 'angular-star-rating';
 import { ShopModule } from './shop/shop.module';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ShopModule } from './shop/shop.module';
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: false }),
+    StarRatingModule.forRoot(),
     SharedModule,
     ShopModule
   ],

@@ -104,7 +104,7 @@
                 <div class="actions">
                   <div class="price-rating">
                     <div class="product-rating" *ngIf="viewMode === 'grid-view'">
-                      <!--<star-rating-comp [rating]="product.ratings.rating" [starType]="'svg'" [readOnly]="true" [size]="'small'" [staticColor]="'ok'"></star-rating-comp>-->
+                      <star-rating [rating]="product.ratings.rating" [starType]="'svg'" [readOnly]="true" [size]="'small'" [staticColor]="'ok'"></star-rating>
                       <small class="text-muted">({{product.ratings.ratingCount}})</small>
                     </div>
                     <div class="price">
@@ -126,7 +126,7 @@
                 <div class="more-info">
                   <div class="more-actions mb-1">
                     <div class="product-rating">
-                      <!--<star-rating-comp [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'" [rating]="4.63"></star-rating-comp>-->
+                      <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'" [rating]="4.63"></star-rating>
                       <small class="text-muted">(140)</small>
                     </div>
                     <span fxFlex></span>

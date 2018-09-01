@@ -3,9 +3,9 @@
     <div class="topnav">
       <!-- App Logo -->
       <div class="topbar-branding">
-        <img src="assets/images/logo.png" alt="" class="app-logo">
+        <img src="assets/imgs/logo.png" alt="" class="app-logo">
       </div>
-
+      <span>BOOKSTORE</span>
       <span fxFlex></span>
       <!-- End Navigation -->
 
@@ -46,7 +46,7 @@
       </button>
       <!-- Top left user menu -->
       <button mat-icon-button [matMenuTriggerFor]="accountMenu" class="topbar-button-right mr-1 img-button">
-        <img src="assets/images/face-7.jpg" alt="">
+        <img src="assets/imgs/face-7.jpg" alt="">
       </button>
       <mat-menu #accountMenu="matMenu">
         <button mat-menu-item [routerLink]="['/profile/overview']">
@@ -58,15 +58,6 @@
           <span>Sign out</span>
         </button>
       </mat-menu>
-      <!-- Mobile screen menu toggle -->
-      <button
-      mat-icon-button
-      class="mr-1"
-      (click)="toggleSidenav()"
-      *ngIf="layoutConf.isMobile">
-        <mat-icon>menu</mat-icon>
-      </button>
-
     </div>
   </div>
 </div>

@@ -56,7 +56,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     MatSnackBarModule,
     MatListModule,
     MatSidenavModule,
-    StarRatingModule,
+    StarRatingModule.forChild(),
     NgxPaginationModule,
     NgxDatatableModule,
     RouterModule,

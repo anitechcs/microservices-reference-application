@@ -1,21 +1,18 @@
-$black-87-opacity: rgba(0,0,0, .87);
-
-// You can define colors here (using http://mcg.mbitson.com)
 $mat-primary: (
-    50 : #e5eff4,
-    100 : #bdd7e3,
-    200 : #92bdd0,
-    300 : #66a3bd,
-    400 : #458fae,
-    500 : #247ba0,
-    600 : #207398,
-    700 : #1b688e,
-    800 : #165e84,
-    900 : #0d4b73,
-    A100 : #a6d8ff,
-    A200 : #73c2ff,
-    A400 : #40acff,
-    A700 : #26a1ff,
+    50 : #fce4ec,
+    100 : #f8bcd0,
+    200 : #f48fb1,
+    300 : #f06292,
+    400 : #ec407a,
+    500 : #e91e63,
+    600 : #e61a5b,
+    700 : #e31651,
+    800 : #df1247,
+    900 : #d90a35,
+    A100 : #ffffff,
+    A200 : #ffd0d8,
+    A400 : #ff9dae,
+    A700 : #ff8498,
     contrast: (
         50 : #000000,
         100 : #000000,
@@ -35,31 +32,31 @@ $mat-primary: (
 );
 
 $mat-accent: (
-    50 : #fffaef,
-    100 : #fff4d8,
-    200 : #ffecbe,
-    300 : #ffe4a4,
-    400 : #ffdf91,
-    500 : #ffd97d,
-    600 : #ffd575,
-    700 : #ffcf6a,
-    800 : #ffca60,
-    900 : #ffc04d,
-    A100 : #ffffff,
-    A200 : #ffffff,
-    A400 : #fffbf3,
-    A700 : #fff1da,
+    50 : #eceff1,
+    100 : #cfd8dc,
+    200 : #b0bec5,
+    300 : #90a4ae,
+    400 : #78919c,
+    500 : #607d8b,
+    600 : #587583,
+    700 : #4e6a78,
+    800 : #44606e,
+    900 : #334d5b,
+    A100 : #abe1ff,
+    A200 : #78ceff,
+    A400 : #45bcff,
+    A700 : #2bb3ff,
     contrast: (
         50 : #000000,
         100 : #000000,
         200 : #000000,
         300 : #000000,
         400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
         A100 : #000000,
         A200 : #000000,
         A400 : #000000,
@@ -67,19 +64,17 @@ $mat-accent: (
     )
 );
 
-
-
 // mandatory stuff for theming
 $egret-primary: mat-palette($mat-primary);
 $egret-accent:  mat-palette($mat-accent);
 
 // include the custom theme components into a theme object
-$egret-theme: mat-light-theme($egret-primary, $egret-accent);
+$egret-theme: mat-dark-theme($egret-primary, $egret-accent);
 
 $primary-dark: darken( map-get($mat-primary, 500), 8% );
 
 // include the custom theme object into the angular material theme
-.egret-blue {
+.egret-dark-pink {
     @include angular-material-theme($egret-theme);
 
     .mat-bg-primary,
@@ -100,21 +95,89 @@ $primary-dark: darken( map-get($mat-primary, 500), 8% );
     .sidenav-hold .sidenav li.open > a > span {
         color: map-get($mat-primary, 500) !important;
     }
+    .sidebar-panel .sidebar-list-item.open > .mat-list-item-content > a > span,
+    .sidebar-panel .sidebar-list-item.open .sub-menu .mat-list-item.selected a {
+        font-weight: 500;
+    }
     .topnav ul.menu > li > div.open > a,
-    .topnav ul.menu > li > div.open > div,
     .sidebar-panel .sidebar-list-item.open > .mat-list-item-content > .sub-menu,
     .sidenav-hold .sidenav li.open a .mat-icon:not(.menu-caret),
     .list-item-active {
         border-color: map-get($mat-primary, 500) !important;
     }
+    .ngx-datatable.material,
+    .messages-wrap .inbox-hold {
+        background: transparent !important;
+    }
     .sidebar-panel {
-        background: url('../../assets/images/sidebar-bg.jpg') no-repeat;
+        background: url('assets/imgs/sidebar-bg-dark.jpg') no-repeat;
+    }
+    .header-topnav,
+    .topnav ul ul,
+    .app-user .app-user-name,
+    .sidebar-panel .sidebar-list-item mat-icon:not(.menu-caret),
+    .ngx-datatable.material *,
+    .ql-snow .ql-picker,
+    .ngx-pagination a, .ngx-pagination button {
+        color: white !important;
+    }
+    .text-muted {
+        color: rgba(255, 255, 255, .54) !important;
+    }
+
+    .ql-snow .ql-stroke  {
+        stroke: #ffffff;
+    }
+    .ql-snow .ql-fill {
+        fill: #ffffff;
+    }
+    .ql-toolbar.ql-snow,
+    .ql-toolbar.ql-snow + .ql-container.ql-snow {
+        border-color: rgba(255, 255, 255, 0.12) !important;
+    }
+
+    .sidebar-panel .navigation-hold,
+    .message-item.open .message-head,
+    .ngx-datatable.material .datatable-header,
+    .bg-white,
+    .cal-month-view .cal-cell-row:hover,
+    .chats-wrap .conversations-hold .single-conversation.sender .conversation-msg,
+    .cal-day-view .cal-hour:nth-child(odd),
+    &.collapsed-menu .sidebar-panel .sidebar-list-item.open .sub-menu,
+    .ngx-pagination a:hover, .ngx-pagination button:hover,
+    .product-container .products-pagination .ngx-pagination .current {
+        background: rgba(66, 66, 66, 0.92) !important;
     }
     .sidebar-compact ul.submenu,
+    .topnav ul li ul li:hover,
+    .topnav ul li ul li.open,
     .default-bg {
-        background: #ffffff !important;
+        background: #424242;
+        color: #ffffff;
     }
-    /* Hopscotch Tour */ 
+    .header-topnav,
+    .topnav ul ul,
+    .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover,
+    .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group,
+    .cal-month-view .cal-cell-row .cal-cell:hover,
+    .cal-month-view .cal-cell.cal-has-events.cal-open,
+    .cal-week-view .cal-day-headers .cal-header:hover,
+    .cal-week-view .cal-day-headers .cal-drag-over,
+    .cal-day-view .cal-hour-segment:hover,
+    .cal-day-view .cal-drag-over .cal-hour-segment {
+        background: #333 !important;
+    }
+    .cal-month-view .cal-day-cell:not(:last-child),
+    .cal-month-view .cal-days,
+    .cal-week-view .cal-day-headers .cal-header:not(:last-child),
+    .cal-week-view .cal-day-headers,
+    .cal-month-view .cal-days .cal-cell-row,
+    .cal-day-view .cal-hour:not(:last-child) .cal-hour-segment,
+    .cal-day-view .cal-hour:last-child :not(:last-child) .cal-hour-segment {
+        border-color: #000 !important;
+    }
+
+    /* Hopscotch Tour */
     div.hopscotch-bubble {
         border-color: $primary-dark;
     }
@@ -169,6 +232,6 @@ $primary-dark: darken( map-get($mat-primary, 500), 8% );
         color: #f44336;
     }
     .mat-color-default {
-        color: rgba(0, 0, 0, 0.87);
+        color: #ffffff;
     }
 }
