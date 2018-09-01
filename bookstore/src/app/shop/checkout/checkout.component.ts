@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CountryDB } from '../../shared/fake-db/countries';
 import { ShopService, CartItem } from '../../shared/services/shop.service';
-import { egretAnimations } from '../../shared/animations/egret-animations';
+import { AppAnimations } from '../../shared/animations/animations';
 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss'],
-  animations: egretAnimations
+  animations: AppAnimations
 })
 export class CheckoutComponent implements OnInit {
   public cart: CartItem[];
@@ -90,7 +90,7 @@ export class CheckoutComponent implements OnInit {
       shippingAddress = this.checkoutFormAlt.value;
     }
 
-    console.log(billingAddress, shippingAddress, this.paymentMethod)
+    console.log(billingAddress, shippingAddress, this.paymentMethod);
   }
 
 }

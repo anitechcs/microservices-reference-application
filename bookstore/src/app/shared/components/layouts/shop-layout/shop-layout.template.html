@@ -32,10 +32,6 @@
         <router-outlet></router-outlet>
       </div>
     </div>
-    <!-- View overlay for mobile navigation -->
-    <div class="sidebar-backdrop"
-    [ngClass]="{'visible': layoutConf.sidebarStyle !== 'closed' && layoutConf.isMobile}"
-    (click)="closeSidebar()"></div>
 
     <!-- Notificaation bar -->
     <mat-sidenav #notificationPanel mode="over" class="" position="end">

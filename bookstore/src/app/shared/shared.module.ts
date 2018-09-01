@@ -23,31 +23,17 @@ import {
   MatDialogModule
 } from '@angular/material';
 
-// ONLY REQUIRED FOR **TOP** NAVIGATION LAYOUT
-import { HeaderTopComponent } from './components/header-top/header-top.component';
-
-// ALL TIME REQUIRED
+// COMPONENTS
 import { ShopLayoutComponent } from './components/layouts/shop-layout/shop-layout.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
-import { AppLoaderComponent } from './services/app-loader/app-loader.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { HeaderTopComponent } from './components/header-top/header-top.component';
 
 // DIRECTIVES
 import { ShopSideNavFilterDirective } from './directives/shop-side-nav-filter.directive';
 
 // SERVICES
-import { ThemeService } from './services/theme.service';
-import { LayoutService } from './services/layout.service';
-import { AuthGuard } from './services/auth.guard';
-import { AppLoaderService } from './services/app-loader/app-loader.service';
-
-
-const classesToInclude = [
-  HeaderTopComponent,
-  NotificationsComponent,
-  ShopLayoutComponent,
-  AppLoaderComponent,
-  ShopSideNavFilterDirective
-];
+import { LoaderService } from './services/loader.service';
 
 @NgModule({
   imports: [
@@ -73,14 +59,23 @@ const classesToInclude = [
     MatRippleModule,
     MatDialogModule
   ],
-  entryComponents: [AppLoaderComponent],
-  providers: [
-    ThemeService,
-    LayoutService,
-    AuthGuard,
-    AppLoaderService
+  exports: [
+    HeaderTopComponent,
+    NotificationsComponent,
+    ShopLayoutComponent,
+    LoaderComponent,
+    ShopSideNavFilterDirective
   ],
-  declarations: classesToInclude,
-  exports: classesToInclude
+  declarations: [
+    HeaderTopComponent,
+    NotificationsComponent,
+    ShopLayoutComponent,
+    LoaderComponent,
+    ShopSideNavFilterDirective
+  ],
+  providers: [
+    LoaderService
+  ],
+  entryComponents: [LoaderComponent],
 })
 export class SharedModule { }

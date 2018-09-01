@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-notifications',
-  templateUrl: './notifications.component.html'
+  templateUrl: './notifications.component.html',
+  styleUrls: ['./notifications.component.scss']
 })
 export class NotificationsComponent implements OnInit {
   @Input() notificPanel;
@@ -27,7 +28,7 @@ export class NotificationsComponent implements OnInit {
     time: '12 min ago',
     route: '/charts',
     color: 'warn'
-  }]
+  }];
 
   constructor(private router: Router) {}
 

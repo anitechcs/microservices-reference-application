@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { egretAnimations } from '../../shared/animations/egret-animations';
+import { ActivatedRoute } from '@angular/router';
+import { AppAnimations } from '../../shared/animations/animations';
 import { ShopService, CartItem } from '../../shared/services/shop.service';
 import { MatSnackBar } from '@angular/material';
 import { Product } from '../../shared/models/product.model';
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss'],
-  animations: egretAnimations
+  animations: AppAnimations
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   public productID;
@@ -42,24 +42,24 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     this.productSub = this.shopService.getProductDetails(id)
     .subscribe(res => {
       this.product = res;
-      this.initGallery(this.product)
+      this.initGallery(this.product);
     }, err => {
       this.product = {
         _id: '',
         name: '',
         price: { sale: 0 }
       };
-    })
+    });
   }
   getCart() {
     this.shopService
     .getCart()
     .subscribe(cart => {
       this.cart = cart;
-    })
+    });
   }
   addToCart() {
-    let cartItem: CartItem = {
+    const cartItem: CartItem = {
       product: this.product,
       data: {
         quantity: this.quantity,
@@ -73,18 +73,18 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       this.cart = res;
       this.quantity = 1;
       this.snackBar.open('Product added to cart', 'OK', { duration: 4000 });
-    })
+    });
   }
 
   initGallery(product: Product) {
-    if(!product.gallery) {
+    if (!product.gallery) {
       return;
     }
     this.photoGallery = product.gallery.map(i => {
       return {
         url: i,
         state: '0'
-      }
+      };
     });
     if (this.photoGallery[0])  {
       this.photoGallery[0].state = '1';
@@ -99,11 +99,11 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         setTimeout(() => {
           p.state = '1';
           return p;
-        }, 290)
+        }, 290);
       }
       p.state = '0';
       return p;
-    })
+    });
   }
 
 }

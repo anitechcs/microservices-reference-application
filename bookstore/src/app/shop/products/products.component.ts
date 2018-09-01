@@ -2,17 +2,17 @@ import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { MatSnackBar, MatSidenav } from '@angular/material';
 import { ShopService, CartItem } from '../../shared/services/shop.service';
 import { Product } from '../../shared/models/product.model';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { Subscription, Observable } from 'rxjs';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { egretAnimations } from '../../shared/animations/egret-animations';
-import { AppLoaderService } from '../../shared/services/app-loader/app-loader.service';
+import { AppAnimations } from '../../shared/animations/animations';
+import { LoaderService } from '../../shared/services/loader.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
-  animations: [egretAnimations]
+  animations: [AppAnimations]
 })
 export class ProductsComponent implements OnInit, OnDestroy {
   public isSideNavOpen: boolean;
@@ -31,7 +31,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     private shopService: ShopService,
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
-    private loader: AppLoaderService
+    private loader: LoaderService
   ) { }
 
   ngOnInit() {
@@ -63,7 +63,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     });
   }
   addToCart(product) {
-    let cartItem: CartItem = {
+    const cartItem: CartItem = {
       product: product,
       data: {
         quantity: 1

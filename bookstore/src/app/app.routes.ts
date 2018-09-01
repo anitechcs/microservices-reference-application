@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { ShopLayoutComponent } from './shared/components/layouts/shop-layout/shop-layout.component';
-import { AuthGuard } from './shared/services/auth.guard';
 import { ProductsComponent } from './shop/products/products.component';
 import { ProductDetailsComponent } from './shop/product-details/product-details.component';
 import { CartComponent } from './shop/cart/cart.component';
@@ -15,7 +14,6 @@ export const rootRouterConfig: Routes = [
   {
     path: 'shop',
     component: ShopLayoutComponent,
-    canActivate: [ AuthGuard ],
     children: [
       {
         path: '',

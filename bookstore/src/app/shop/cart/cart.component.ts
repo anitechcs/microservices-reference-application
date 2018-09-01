@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ShopService, CartItem } from '../../shared/services/shop.service';
-import { egretAnimations } from '../../shared/animations/egret-animations';
+import { AppAnimations } from '../../shared/animations/animations';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
-  animations: [egretAnimations]
+  animations: [AppAnimations]
 })
 export class CartComponent implements OnInit {
   public cart: CartItem[];
@@ -26,21 +26,21 @@ export class CartComponent implements OnInit {
     .getCart()
     .subscribe(cart => {
       this.cart = cart;
-    })
+    });
   }
   removeProduct(cartItem) {
     this.shopService
     .removeFromCart(cartItem)
     .subscribe(res => {
       this.cart = res;
-    })
+    });
   }
   onQuantityChange() {
     this.subTotal = 0;
     this.cart.forEach(item => {
-      this.subTotal += (item.product.price.sale * item.data.quantity)
-    })
-    this.total = this.subTotal + (this.subTotal * (15/100))
+      this.subTotal += (item.product.price.sale * item.data.quantity);
+    });
+    this.total = this.subTotal + (this.subTotal * (15 / 100));
   }
 
 }
