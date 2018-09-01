@@ -10,7 +10,6 @@ import {
 import { Subscription } from 'rxjs';
 import { ObservableMedia } from '@angular/flex-layout';
 import { ThemeService } from '../../../services/theme.service';
-import PerfectScrollbar from 'perfect-scrollbar';
 import { LayoutService } from '../../../services/layout.service';
 import { filter } from 'rxjs/operators';
 
@@ -18,13 +17,11 @@ import { filter } from 'rxjs/operators';
   selector: 'app-shop-layout',
   templateUrl: './shop-layout.template.html'
 })
-export class ShopLayoutComponent implements OnInit, AfterViewInit {
+export class ShopLayoutComponent implements OnInit {
   public isModuleLoading: Boolean = false;
   private moduleLoaderSub: Subscription;
   private layoutConfSub: Subscription;
   private routerEventSub: Subscription;
-  private bodyPS: PerfectScrollbar;
-  private headerFixedBodyPS: PerfectScrollbar;
   public layoutConf: any = {};
 
   constructor(
@@ -58,34 +55,6 @@ export class ShopLayoutComponent implements OnInit, AfterViewInit {
     this.layout.adjustLayout(event);
   }
 
-  ngAfterViewInit() {
-    this.layoutConfSub = this.layout.layoutConf$.subscribe(change => {
-      this.initBodyPS(change)
-    })
-  }
-  initBodyPS(layoutConf:any = {}) {
-    if(layoutConf.navigationPos === 'side' && layoutConf.topbarFixed) {
-      if (this.bodyPS) this.bodyPS.destroy();
-      if (this.headerFixedBodyPS) this.headerFixedBodyPS.destroy();
-      this.headerFixedBodyPS = new PerfectScrollbar('.rightside-content-hold', {
-        suppressScrollX: true
-      });
-      this.scrollToTop('.rightside-content-hold');
-    } else {
-      if (this.bodyPS) this.bodyPS.destroy();
-      if (this.headerFixedBodyPS) this.headerFixedBodyPS.destroy();
-      this.bodyPS = new PerfectScrollbar('.main-content-wrap', {
-        suppressScrollX: true
-      });
-      this.scrollToTop('.main-content-wrap');
-    }
-  }
-  scrollToTop(selector: string) {
-    if(document) {
-      let element = <HTMLElement>document.querySelector(selector);
-      element.scrollTop = 0;
-    }
-  }
   ngOnDestroy() {
     if(this.moduleLoaderSub) {
       this.moduleLoaderSub.unsubscribe()
