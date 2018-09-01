@@ -32,12 +32,7 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { AppLoaderComponent } from './services/app-loader/app-loader.component';
 
 // DIRECTIVES
-import { FontSizeDirective } from './directives/font-size.directive';
-import { ScrollToDirective } from './directives/scroll-to.directive';
-import { AppDropdownDirective } from './directives/dropdown.directive';
-import { DropdownAnchorDirective } from './directives/dropdown-anchor.directive';
-import { DropdownLinkDirective } from './directives/dropdown-link.directive';
-import { EgretSideNavToggleDirective } from './directives/egret-side-nav-toggle.directive';
+import { ShopSideNavFilterDirective } from './directives/shop-side-nav-filter.directive';
 
 // SERVICES
 import { ThemeService } from './services/theme.service';
@@ -51,12 +46,7 @@ const classesToInclude = [
   NotificationsComponent,
   ShopLayoutComponent,
   AppLoaderComponent,
-  FontSizeDirective,
-  ScrollToDirective,
-  AppDropdownDirective,
-  DropdownAnchorDirective,
-  DropdownLinkDirective,
-  EgretSideNavToggleDirective
+  ShopSideNavFilterDirective
 ];
 
 @NgModule({
