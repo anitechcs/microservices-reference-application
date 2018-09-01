@@ -62,9 +62,6 @@ import { CheckoutComponent } from './checkout/checkout.component';
     RouterModule,
     SharedModule
   ],
-  exports: [
-    StarRatingModule
-  ],
   declarations: [
     ProductsComponent,
     ProductDetailsComponent,

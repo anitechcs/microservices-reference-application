@@ -71,13 +71,12 @@ export class LayoutService {
   }
 
   setLayoutFromQuery() {
-    let layoutConfString = getQueryParam('layout');
+    const layoutConfString = getQueryParam('layout');
     try {
       this.layoutConf = JSON.parse(layoutConfString);
     } catch (e) { }
   }
 
-  
   adjustLayout(options: IAdjustScreenOptions = {}) {
     let sidebarStyle: string;
     this.isMobile = this.isSm();

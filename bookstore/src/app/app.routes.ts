@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AdminLayoutComponent } from './shared/components/layouts/admin-layout/admin-layout.component';
+import { ShopLayoutComponent } from './shared/components/layouts/shop-layout/shop-layout.component';
 import { AuthGuard } from './shared/services/auth.guard';
 import { ProductsComponent } from './shop/products/products.component';
 import { ProductDetailsComponent } from './shop/product-details/product-details.component';
@@ -13,12 +13,12 @@ export const rootRouterConfig: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '',
-    component: AdminLayoutComponent,
-    /*canActivate: [ AuthGuard ],*/
+    path: 'shop',
+    component: ShopLayoutComponent,
+    canActivate: [ AuthGuard ],
     children: [
       {
-        path: 'shop',
+        path: '',
         component: ProductsComponent
       }, {
         path: 'products/:id',

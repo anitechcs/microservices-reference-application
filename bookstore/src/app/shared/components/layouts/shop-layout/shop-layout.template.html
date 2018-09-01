@@ -1,10 +1,8 @@
 <div class="app-admin-wrap" [dir]='layoutConf.dir'>
-  <!-- Header for top navigation layout -->
+
   <!-- ONLY REQUIRED FOR **TOP** NAVIGATION LAYOUT -->
-  <app-header-top
-    *ngIf="layoutConf.navigationPos === 'top'"
-    [notificPanel]="notificationPanel">
-  </app-header-top>
+  <app-header-top [notificPanel]="notificationPanel"></app-header-top>
+
   <!-- Main Container -->
   <mat-sidenav-container
   [dir]='layoutConf.dir'
@@ -22,13 +20,6 @@
 
     <!-- App content -->
     <div class="main-content-wrap">
-      <!-- Header for side navigation layout -->
-      <!-- ONLY REQUIRED FOR **SIDE** NAVIGATION LAYOUT -->
-      <app-header-side
-        *ngIf="layoutConf.navigationPos === 'side'"
-        [notificPanel]="notificationPanel">
-      </app-header-side>
-
       <div class="rightside-content-hold">
         <!-- View Loader -->
         <div class="view-loader" *ngIf="isModuleLoading">

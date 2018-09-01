@@ -1,39 +1,34 @@
 import { Component, OnInit, AfterViewInit, ViewChild, HostListener } from '@angular/core';
-import { 
-  Router, 
-  NavigationEnd, 
-  RouteConfigLoadStart, 
-  RouteConfigLoadEnd, 
-  ResolveStart, 
-  ResolveEnd 
+import {
+  Router,
+  NavigationEnd,
+  RouteConfigLoadStart,
+  RouteConfigLoadEnd,
+  ResolveStart,
+  ResolveEnd
 } from '@angular/router';
-import { Subscription } from "rxjs";
-import { MatSidenav } from '@angular/material';
-import { MediaChange, ObservableMedia } from "@angular/flex-layout";
-import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+import { ObservableMedia } from '@angular/flex-layout';
 import { ThemeService } from '../../../services/theme.service';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { LayoutService } from '../../../services/layout.service';
 import { filter } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-admin-layout',
-  templateUrl: './admin-layout.template.html'
+  selector: 'app-shop-layout',
+  templateUrl: './shop-layout.template.html'
 })
-export class AdminLayoutComponent implements OnInit, AfterViewInit {
+export class ShopLayoutComponent implements OnInit, AfterViewInit {
   public isModuleLoading: Boolean = false;
   private moduleLoaderSub: Subscription;
   private layoutConfSub: Subscription;
   private routerEventSub: Subscription;
-  private mediaSub: Subscription;
-  // private sidebarPS: PerfectScrollbar;
   private bodyPS: PerfectScrollbar;
   private headerFixedBodyPS: PerfectScrollbar;
   public layoutConf: any = {};
 
   constructor(
     private router: Router,
-    public translate: TranslateService,
     public themeService: ThemeService,
     private layout: LayoutService,
     private media: ObservableMedia
@@ -43,10 +38,6 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
     .subscribe((routeChange: NavigationEnd) => {
       this.layout.adjustLayout({ route: routeChange.url });
     });
-    
-    // Translator init
-    const browserLang: string = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
   }
   ngOnInit() {
     this.layoutConf = this.layout.layoutConf;
@@ -66,7 +57,7 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
   onResize(event) {
     this.layout.adjustLayout(event);
   }
-  
+
   ngAfterViewInit() {
     this.layoutConfSub = this.layout.layoutConf$.subscribe(change => {
       this.initBodyPS(change)
@@ -111,5 +102,5 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
       sidebarStyle: 'closed'
     })
   }
-  
+
 }
