@@ -21,10 +21,11 @@ I was designing an architecture for one of our next generation internal applicat
 1. Boostore Frontend App - Angular(Typescript)
 2. BookService - Java(Spring boot)
 3. OrderService - Java(Spring boot)
-4. ReviewService - NodeJS(Express)
-5. CategoryService - NodeJS(Express)
-6. RatingServie - Go(Gin)
-7. RecomandationService - Python(Flask)
+4. NotificationService - Kotlin(Spring boot webflux + Kafka)
+5. ReviewService - NodeJS(Express)
+6. CategoryService - NodeJS(Express)
+7. RatingServie - Go(Gin)
+8. RecomandationService - Python(Flask)
 
 ## Technology Stack
 
@@ -42,6 +43,7 @@ I was designing an architecture for one of our next generation internal applicat
 - Helm
 - Kafka
 - Elasticsearch
+- Redis
 
 ## Expected Features
 
@@ -81,5 +83,5 @@ Your valuable contribution is always precious for us to keep this repository up 
 ## Caution
 
 ```
-For simplicity we have created mono repo with all services source code. Never do that in your actual project, Use separate schema for individual services instead.
+For simplicity we have created mono repo with all services source code. Never do that in your actual project, use separate repository for individual services instead.
 ```
