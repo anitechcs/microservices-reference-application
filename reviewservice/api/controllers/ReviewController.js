@@ -37,7 +37,7 @@ exports.update_a_review = function(req, res) {
 
 exports.delete_a_review = function(req, res) {
     Review.remove({
-        _id: req.params.taskId
+        _id: req.params.reviewId
         }, function(err, review) {
         if (err)
             res.send(err);
