@@ -1,0 +1,32 @@
+{
+  "name": "reviewservice",
+  "version": "1.0.0",
+  "description": "Review Micro Service",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anitechcs/microservices-reference-application.git"
+  },
+  "keywords": [
+    "nodejs",
+    "micoservice",
+    "container"
+  ],
+  "author": "Tapas Jena<tapas.jena@anitechcs.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/anitechcs/microservices-reference-application/issues"
+  },
+  "homepage": "https://github.com/anitechcs/microservices-reference-application#readme",
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "nodemon": "^1.18.4"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.13"
+  }
+}
