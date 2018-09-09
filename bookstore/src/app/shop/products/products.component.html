@@ -17,7 +17,7 @@
               </ul>
             </mat-expansion-panel>
             <!-- Price -->
-            <mat-expansion-panel>
+            <mat-expansion-panel expanded="true">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   Price
@@ -31,7 +31,7 @@
               <mat-slider class="full-width pl-0" [formControl]="filterForm.controls['maxPrice']" [thumbLabel]="true" [max]="50" [min]="filterForm.controls['minPrice']?.value + 5"></mat-slider>
             </mat-expansion-panel>
             <!-- Ratings -->
-            <mat-expansion-panel>
+            <mat-expansion-panel expanded="true">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   Ratings

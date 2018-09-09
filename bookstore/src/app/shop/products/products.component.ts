@@ -1,12 +1,13 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { MatSnackBar, MatSidenav } from '@angular/material';
-import { ShopService, CartItem } from '../../shared/services/shop.service';
+import { ShopService } from '../../shared/services/shop.service';
 import { Product } from '../../shared/models/product.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AppAnimations } from '../../shared/animations/animations';
 import { LoaderService } from '../../shared/services/loader.service';
+import { CartItem } from '../../shared/models/cart.model';
 
 @Component({
   selector: 'app-products',

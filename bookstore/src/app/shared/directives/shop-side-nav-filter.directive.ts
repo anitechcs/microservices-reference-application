@@ -20,23 +20,24 @@ export class ShopSideNavFilterDirective implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if(this.screenSizeWatcher) {
+    if (this.screenSizeWatcher) {
       this.screenSizeWatcher.unsubscribe();
     }
   }
 
   updateSidenav() {
-    let self = this;
+    const self = this;
     setTimeout(() => {
       self.sideNav.opened = !self.isMobile;
       self.sideNav.mode = self.isMobile ? 'over' : 'side';
-    })
+    });
   }
+
   initSideNav() {
     this.isMobile = this.media.isActive('xs') || this.media.isActive('sm');
     this.updateSidenav();
     this.screenSizeWatcher = this.media.subscribe((change: MediaChange) => {
-      this.isMobile = (change.mqAlias == 'xs') || (change.mqAlias == 'sm');
+      this.isMobile = (change.mqAlias === 'xs') || (change.mqAlias === 'sm');
       this.updateSidenav();
     });
   }

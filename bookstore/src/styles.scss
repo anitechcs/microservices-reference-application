@@ -3,13 +3,13 @@
 // Prebuilt angular material theme
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-//  star-rating styles (Used in Shop app)
+//  star-rating styles
 @import "~css-star-rating/scss/star-rating.scss";
 
-// Main Variables File
+// Main variables file
 @import "assets/styles/scss/variables";
 
-// Open _main.scss and keep files which are required for your current layout.
+// Main scss files
 @import "assets/styles/scss/main";
 
 

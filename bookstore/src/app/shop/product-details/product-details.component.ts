@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppAnimations } from '../../shared/animations/animations';
-import { ShopService, CartItem } from '../../shared/services/shop.service';
+import { ShopService } from '../../shared/services/shop.service';
 import { MatSnackBar } from '@angular/material';
 import { Product } from '../../shared/models/product.model';
 import { Subscription } from 'rxjs';
+import { CartItem } from '../../shared/models/cart.model';
 
 @Component({
   selector: 'app-product-details',

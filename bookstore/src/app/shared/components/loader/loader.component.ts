@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 
 @Component({
@@ -6,12 +6,9 @@ import { MatDialogRef } from '@angular/material';
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.scss']
 })
-export class LoaderComponent implements OnInit {
+export class LoaderComponent {
   title;
-  message;
-  constructor(public dialogRef: MatDialogRef<LoaderComponent>) {}
-
-  ngOnInit() {
+  constructor(public dialogRef: MatDialogRef<LoaderComponent>) {
+    this.title = 'Loading..';
   }
-
 }

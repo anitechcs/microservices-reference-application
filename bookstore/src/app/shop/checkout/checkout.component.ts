@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CountryDB } from '../../shared/fake-db/countries';
-import { ShopService, CartItem } from '../../shared/services/shop.service';
+import { ShopService } from '../../shared/services/shop.service';
 import { AppAnimations } from '../../shared/animations/animations';
+import { CartItem } from '../../shared/models/cart.model';
 
 @Component({
   selector: 'app-checkout',

@@ -24,7 +24,7 @@ import {
 } from '@angular/material';
 
 // COMPONENTS
-import { ShopLayoutComponent } from './components/layouts/shop-layout/shop-layout.component';
+import { ShopLayoutComponent } from './components/shop-layout/shop-layout.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { HeaderTopComponent } from './components/header-top/header-top.component';

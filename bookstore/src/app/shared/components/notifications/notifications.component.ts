@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { NotificationsDB } from '../../../shared/fake-db/notifications';
 
 @Component({
   selector: 'app-notifications',
@@ -8,29 +9,12 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class NotificationsComponent implements OnInit {
   @Input() notificPanel;
+  notifications = [];
 
-  // Dummy notifications
-  notifications = [{
-    message: 'New contact added',
-    icon: 'assignment_ind',
-    time: '1 min ago',
-    route: '/inbox',
-    color: 'primary'
-  }, {
-    message: 'New message',
-    icon: 'chat',
-    time: '4 min ago',
-    route: '/chat',
-    color: 'accent'
-  }, {
-    message: 'Server rebooted',
-    icon: 'settings_backup_restore',
-    time: '12 min ago',
-    route: '/charts',
-    color: 'warn'
-  }];
-
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    const notificationDb = new NotificationsDB();
+    this.notifications = notificationDb.notifications;
+  }
 
   ngOnInit() {
     this.router.events.subscribe((routeChange) => {
@@ -39,8 +23,10 @@ export class NotificationsComponent implements OnInit {
         }
     });
   }
+
   clearAll(e) {
     e.preventDefault();
     this.notifications = [];
   }
+
 }

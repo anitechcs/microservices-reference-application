@@ -1,23 +1,12 @@
-
-import {throwError as observableThrowError,  Observable } from 'rxjs';
+import { throwError as observableThrowError,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { ProductDB } from '../fake-db/products';
-import { CountryDB } from '../fake-db/countries';
 import { Product } from '../models/product.model';
 import { FormGroup } from '@angular/forms';
-
 import { of, combineLatest } from 'rxjs';
 import { startWith, debounceTime, delay, map, switchMap } from 'rxjs/operators';
+import { CartItem } from '../models/cart.model';
 
-
-
-export interface CartItem {
-  product: Product;
-  data: {
-    quantity: number,
-    options?: any
-  };
-}
 
 @Injectable()
 export class ShopService {
@@ -32,46 +21,46 @@ export class ShopService {
   public cart: CartItem[] = [];
   public cartData = {
     itemCount: 0
-  }
+  };
   constructor() { }
   public getCart(): Observable<CartItem[]> {
-    return of(this.cart)
+    return of(this.cart);
   }
   public addToCart(cartItem: CartItem): Observable<CartItem[]> {
     let index = -1;
     this.cart.forEach((item, i) => {
-      if(item.product._id === cartItem.product._id) {
+      if (item.product._id === cartItem.product._id) {
         index = i;
       }
-    })
-    if(index !== -1) {
+    });
+    if (index !== -1) {
       this.cart[index].data.quantity += cartItem.data.quantity;
       this.updateCount();
-      return of(this.cart)
+      return of(this.cart);
     } else {
       this.cart.push(cartItem);
       this.updateCount();
-      return of(this.cart)
+      return of(this.cart);
     }
   }
   private updateCount() {
     this.cartData.itemCount = 0;
     this.cart.forEach(item => {
       this.cartData.itemCount += item.data.quantity;
-    })
+    });
   }
   public removeFromCart(cartItem: CartItem): Observable<CartItem[]> {
     this.cart = this.cart.filter(item => {
-      if(item.product._id == cartItem.product._id) {
+      if (item.product._id === cartItem.product._id) {
         return false;
       }
       return true;
     });
     this.updateCount();
-    return of(this.cart)
+    return of(this.cart);
   }
   public getProducts(): Observable<Product[]> {
-    let productDB = new ProductDB();
+    const productDB = new ProductDB();
     return of(productDB.products)
       .pipe(
         delay(500),
@@ -79,18 +68,18 @@ export class ShopService {
           this.products = data;
           return data;
         })
-      )
+      );
   }
   public getProductDetails(productID): Observable<Product> {
-    let productDB = new ProductDB();
-    let product = productDB.products.filter(p => p._id === productID)[0];
-    if(!product) {
+    const productDB = new ProductDB();
+    const product = productDB.products.filter(p => p._id === productID)[0];
+    if (!product) {
       return observableThrowError(new Error('Product not found!'));
     }
-    return of(product)
+    return of(product);
   }
   public getCategories(): Observable<any> {
-    let categories = ['speaker', 'headphone', 'watch', 'phone'];
+    const categories = ['speaker', 'headphone', 'watch', 'phone'];
     return of(categories);
   }
 
@@ -107,7 +96,7 @@ export class ShopService {
       switchMap(([products, filterData]) => {
         return this.filterProducts(products, filterData);
       })
-    )
+    );
 
   }
   /*
@@ -115,9 +104,8 @@ export class ShopService {
   * You should implement server side filtering instead.
   */
   private filterProducts(products: Product[], filterData): Observable<Product[]> {
-    let filteredProducts = products.filter(p => {
-      let isMatch: Boolean;
-      let match = {
+    const filteredProducts = products.filter(p => {
+      const match = {
         search: false,
         caterory: false,
         price: false,
@@ -154,7 +142,7 @@ export class ShopService {
         match.price = false;
       }
       // Rating filter
-      if(
+      if (
         p.ratings.rating >= filterData.minRating
         && p.ratings.rating <= filterData.maxRating
       ) {
@@ -163,12 +151,12 @@ export class ShopService {
         match.rating = false;
       }
 
-      for(let m in match) {
-        if(!match[m]) return false;
+      for (const m in match) {
+        if (!match[m]) { return false; }
       }
 
       return true;
-    })
-    return of(filteredProducts)
+    });
+    return of(filteredProducts);
   }
 }
