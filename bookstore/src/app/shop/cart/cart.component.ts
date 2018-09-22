@@ -39,7 +39,7 @@ export class CartComponent implements OnInit {
   onQuantityChange() {
     this.subTotal = 0;
     this.cart.forEach(item => {
-      this.subTotal += (item.product.price.sale * item.data.quantity);
+      this.subTotal += (item.book.price.sale * item.data.quantity);
     });
     this.total = this.subTotal + (this.subTotal * (15 / 100));
   }

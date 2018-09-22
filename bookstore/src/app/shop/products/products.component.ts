@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { MatSnackBar, MatSidenav } from '@angular/material';
 import { ShopService } from '../../shared/services/shop.service';
-import { Product } from '../../shared/models/product.model';
+import { Book } from '../../shared/models/book.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -21,7 +21,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   public currentPage: any;
   @ViewChild(MatSidenav) public sideNav: MatSidenav;
 
-  public products$: Observable<Product[]>;
+  public books$: Observable<Book[]>;
   public categories$: Observable<any>;
   public activeCategory = 'all';
   public filterForm: FormGroup;
@@ -42,12 +42,12 @@ export class ProductsComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.loader.open();
     });
-    this.products$ = this.shopService
+    this.books$ = this.shopService
       .getFilteredProduct(this.filterForm)
       .pipe(
-        map(products => {
+        map(books => {
           this.loader.close();
-          return products;
+          return books;
         })
       );
     this.getCart();
@@ -63,9 +63,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
       this.cart = cart;
     });
   }
-  addToCart(product) {
+  addToCart(book) {
     const cartItem: CartItem = {
-      product: product,
+      book: book,
       data: {
         quantity: 1
       }

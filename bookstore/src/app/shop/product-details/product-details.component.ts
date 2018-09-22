@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AppAnimations } from '../../shared/animations/animations';
 import { ShopService } from '../../shared/services/shop.service';
 import { MatSnackBar } from '@angular/material';
-import { Product } from '../../shared/models/product.model';
+import { Book } from '../../shared/models/book.model';
 import { Subscription } from 'rxjs';
 import { CartItem } from '../../shared/models/cart.model';
 
@@ -15,7 +15,7 @@ import { CartItem } from '../../shared/models/cart.model';
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   public productID;
-  public product: Product;
+  public book: Book;
   public quantity = 1;
   public cart: CartItem[];
   public cartData: any;
@@ -42,10 +42,10 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   getProduct(id) {
     this.productSub = this.shopService.getProductDetails(id)
     .subscribe(res => {
-      this.product = res;
-      this.initGallery(this.product);
+      this.book = res;
+      this.initGallery(this.book);
     }, err => {
-      this.product = {
+      this.book = {
         _id: '',
         name: '',
         price: { sale: 0 }
@@ -61,7 +61,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   }
   addToCart() {
     const cartItem: CartItem = {
-      product: this.product,
+      book: this.book,
       data: {
         quantity: this.quantity,
         options: {}
@@ -77,11 +77,11 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  initGallery(product: Product) {
-    if (!product.gallery) {
+  initGallery(book: Book) {
+    if (!book.gallery) {
       return;
     }
-    this.photoGallery = product.gallery.map(i => {
+    this.photoGallery = book.gallery.map(i => {
       return {
         url: i,
         state: '0'

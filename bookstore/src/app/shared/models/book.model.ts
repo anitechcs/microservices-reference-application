@@ -1,4 +1,4 @@
-export class Product {
+export class Book {
   public _id: string;
   public name: string;
   public description?: string;

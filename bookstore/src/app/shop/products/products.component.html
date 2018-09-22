@@ -80,7 +80,7 @@
           <!-- Product Box -->
           <div
           class="product-wrap"
-          *ngFor="let product of products$ | async | paginate: { itemsPerPage: 6, currentPage: currentPage }; let i = index;"
+          *ngFor="let product of books$ | async | paginate: { itemsPerPage: 6, currentPage: currentPage }; let i = index;"
           [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'50px'}}">
             <div class="product-inner default-bg">
               <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">

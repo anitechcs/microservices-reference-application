@@ -39,7 +39,7 @@ export class CheckoutComponent implements OnInit {
   calculateCost() {
     this.subTotal = 0;
     this.cart.forEach(item => {
-      this.subTotal += (item.product.price.sale * item.data.quantity);
+      this.subTotal += (item.book.price.sale * item.data.quantity);
     });
     this.total = this.subTotal + (this.subTotal * (15 / 100));
     if (this.shipping !== 'Free') {

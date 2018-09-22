@@ -1,7 +1,7 @@
-import { Product } from './product.model';
+import { Book } from './book.model';
 
 export interface CartItem {
-  product: Product;
+  book: Book;
   data: {
     quantity: number,
     options?: any

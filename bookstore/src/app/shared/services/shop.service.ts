@@ -1,7 +1,7 @@
 import { throwError as observableThrowError,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { BooksDB } from '../mock-data/books';
-import { Product } from '../models/product.model';
+import { Book } from '../models/book.model';
 import { FormGroup } from '@angular/forms';
 import { of, combineLatest } from 'rxjs';
 import { startWith, debounceTime, delay, map, switchMap } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { CategoriesDB } from '../mock-data/categories';
 
 @Injectable()
 export class ShopService {
-  public products: Product[] = [];
+  public books: Book[] = [];
   public initialFilters = {
     minPrice: 10,
     maxPrice: 40,
@@ -30,7 +30,7 @@ export class ShopService {
   public addToCart(cartItem: CartItem): Observable<CartItem[]> {
     let index = -1;
     this.cart.forEach((item, i) => {
-      if (item.product._id === cartItem.product._id) {
+      if (item.book._id === cartItem.book._id) {
         index = i;
       }
     });
@@ -52,7 +52,7 @@ export class ShopService {
   }
   public removeFromCart(cartItem: CartItem): Observable<CartItem[]> {
     this.cart = this.cart.filter(item => {
-      if (item.product._id === cartItem.product._id) {
+      if (item.book._id === cartItem.book._id) {
         return false;
       }
       return true;
@@ -60,18 +60,18 @@ export class ShopService {
     this.updateCount();
     return of(this.cart);
   }
-  public getProducts(): Observable<Product[]> {
+  public getProducts(): Observable<Book[]> {
     const booksDB = new BooksDB();
     return of(booksDB.books)
       .pipe(
         delay(500),
-        map((data: Product[]) => {
-          this.products = data;
+        map((data: Book[]) => {
+          this.books = data;
           return data;
         })
       );
   }
-  public getProductDetails(productID): Observable<Product> {
+  public getProductDetails(productID): Observable<Book> {
     const booksDB = new BooksDB();
     const books = booksDB.books.filter(p => p._id === productID)[0];
     if (!books) {
@@ -85,7 +85,7 @@ export class ShopService {
     return of(categoriesDB.categories);
   }
 
-  public getFilteredProduct(filterForm: FormGroup): Observable<Product[]> {
+  public getFilteredProduct(filterForm: FormGroup): Observable<Book[]> {
     return combineLatest(
       this.getProducts(),
       filterForm.valueChanges
@@ -105,8 +105,8 @@ export class ShopService {
   * If your data set is too big this may raise performance issue.
   * You should implement server side filtering instead.
   */
-  private filterProducts(products: Product[], filterData): Observable<Product[]> {
-    const filteredProducts = products.filter(p => {
+  private filterProducts(books: Book[], filterData): Observable<Book[]> {
+    const filteredBooks = books.filter(p => {
       const match = {
         search: false,
         caterory: false,
@@ -159,6 +159,6 @@ export class ShopService {
 
       return true;
     });
-    return of(filteredProducts);
+    return of(filteredBooks);
   }
 }
