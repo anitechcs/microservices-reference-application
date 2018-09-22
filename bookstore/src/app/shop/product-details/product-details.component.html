@@ -17,16 +17,16 @@
   </div>
 
   <div fxFlex="50" class="product-content-wrap" [@animate]="{value:'*',params:{delay: '100ms', x:'50px'}}">
-    <div class="product-rating" *ngIf="product?.ratings?.rating">
-      <star-rating [rating]="product?.ratings?.rating" [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'">
+    <div class="product-rating" *ngIf="book?.ratings?.rating">
+      <star-rating [rating]="book?.ratings?.rating" [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'">
       </star-rating>
-      <small class="text-muted">{{product?.ratings?.rating}} ({{product?.ratings?.ratingCount}})</small>
+      <small class="text-muted">{{book?.ratings?.rating}} ({{book?.ratings?.ratingCount}})</small>
     </div>
-    <h1 class="title">{{product?.name}}</h1>
+    <h1 class="title">{{book?.name}}</h1>
     <div class="main-info mb-1">
-      <p class="mb-05" [ngStyle]="{maxWidth: '450px'}">{{product?.description}}</p>
-      <p class="text-muted p-line"><strong>Category:</strong> <span class="mat-color-default">{{product?.category}}</span></p>
-      <p class="text-muted p-line"><strong>Tags:</strong> <span *ngFor="let t of product.tags"><span class="mat-color-default">{{t}}</span> </span></p>
+      <p class="mb-05" [ngStyle]="{maxWidth: '450px'}">{{book?.description}}</p>
+      <p class="text-muted p-line"><strong>Category:</strong> <span class="mat-color-default">{{book?.category}}</span></p>
+      <p class="text-muted p-line"><strong>Tags:</strong> <span *ngFor="let t of book.tags"><span class="mat-color-default">{{t}}</span> </span></p>
     </div>
     <div class="product-options">
       <div class="opt-radio mb-1">

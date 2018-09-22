@@ -1,6 +1,6 @@
 <div class="margin-333">
-    <table class="cart-table default-bg mat-elevation-z1" 
-    *ngIf="cart.length" 
+    <table class="cart-table default-bg mat-elevation-z1"
+    *ngIf="cart.length"
     [@animate]="{value:'*',params:{delay: '100ms', x:'-50px'}}">
       <thead>
         <tr>
@@ -15,15 +15,15 @@
       <tbody>
         <tr *ngFor="let item of cart">
           <td><button mat-icon-button color="warn" (click)="removeProduct(item)"><mat-icon>close</mat-icon></button> </td>
-          <td><img class="cart-thumbnail" [src]="item.product.photo" style="cursor: pointer" [routerLink]="['/shop/products', item.product._id]"></td>
-          <td><span style="cursor: pointer" [routerLink]="['/shop/products', item.product._id]">{{item.product.name}}</span></td>
-          <td>{{item.product.price.sale | currency}}</td>
+          <td><img class="cart-thumbnail" [src]="item.book.photo" style="cursor: pointer" [routerLink]="['/shop/books', item.book._id]"></td>
+          <td><span style="cursor: pointer" [routerLink]="['/shop/books', item.book._id]">{{item.book.name}}</span></td>
+          <td>{{item.book.price.sale | currency}}</td>
           <td><input class="quantity-input default-bg" id="quantity" min="1" name="quantity" type="number" (change)="onQuantityChange()" [(ngModel)]="item.data.quantity"></td>
-          <td>{{item.product.price.sale * item.data.quantity | currency}}</td>
+          <td>{{item.book.price.sale * item.data.quantity | currency}}</td>
         </tr>
       </tbody>
     </table>
-    
+
     <div fxLayout="row" fxLayout.lt-md="column" *ngIf="cart.length" [@animate]="{value:'*',params:{delay: '100ms', x:'50px'}}">
       <div fxFlex></div>
       <div fxFlex="25">

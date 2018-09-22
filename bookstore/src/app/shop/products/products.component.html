@@ -80,41 +80,38 @@
           <!-- Product Box -->
           <div
           class="product-wrap"
-          *ngFor="let product of books$ | async | paginate: { itemsPerPage: 6, currentPage: currentPage }; let i = index;"
+          *ngFor="let book of books$ | async | paginate: { itemsPerPage: 6, currentPage: currentPage }; let i = index;"
           [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'50px'}}">
             <div class="product-inner default-bg">
-              <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
-                <span>{{product?.badge?.text}}</span>
-              </div>
-              <div class="featured-img" [routerLink]="['/shop/products/', product._id]">
-                <img [src]="product.photo" alt="">
+              <div class="featured-img" [routerLink]="['/shop/books/', book._id]">
+                <img [src]="book.photo" alt="">
               </div>
               <div class="info-wrap p-1">
                 <div class="main-info">
-                  <h3 class="title" [routerLink]="['/shop/products/', product._id]">{{product.name}}</h3>
-                  <p class="text-muted p-line">{{product?.subtitle}}</p>
+                  <h3 class="title" [routerLink]="['/shop/books/', book._id]">{{book.name}}</h3>
+                  <p class="text-muted p-line">{{book?.subtitle}}</p>
                   <p class="text-muted p-line">
-                    <strong>Category:</strong> {{product?.category}}</p>
+                    <strong>Category:</strong> {{book?.category}}</p>
                   <p class="text-muted p-line">
                     <strong>Tags:</strong>
-                    <span *ngFor="let t of product.tags">{{t}} </span>
+                    <span *ngFor="let t of book.tags">{{t}} </span>
                   </p>
                 </div>
                 <div class="actions">
                   <div class="price-rating">
                     <div class="product-rating" *ngIf="viewMode === 'grid-view'">
-                      <star-rating [rating]="product.ratings.rating" [starType]="'svg'" [readOnly]="true" [size]="'small'" [staticColor]="'ok'"></star-rating>
-                      <small class="text-muted">({{product.ratings.ratingCount}})</small>
+                      <star-rating [rating]="book.ratings.rating" [starType]="'svg'" [readOnly]="true" [size]="'small'" [staticColor]="'ok'"></star-rating>
+                      <small class="text-muted">({{book.ratings.ratingCount}})</small>
                     </div>
                     <div class="price">
-                      <span>{{product?.price?.sale | currency:'USD'}}</span>
-                      <del class="text-muted">{{product?.price?.previous | currency:'USD'}}</del>
+                      <span>{{book?.price?.sale | currency:'USD'}}</span>
+                      <del class="text-muted">{{book?.price?.previous | currency:'USD'}}</del>
                     </div>
 
                   </div>
                   <div class="add-to-cart">
                     <span fxFlex></span>
-                    <button mat-icon-button (click)="addToCart(product)">
+                    <button mat-icon-button (click)="addToCart(book)">
                       <mat-icon>add_shopping_cart</mat-icon>
                     </button>
                   </div>

@@ -19,7 +19,7 @@ export const rootRouterConfig: Routes = [
         path: '',
         component: ProductsComponent
       }, {
-        path: 'products/:id',
+        path: 'books/:id',
         component: ProductDetailsComponent,
         data: { title: 'Detail', breadcrumb: 'Detail' }
       }, {
