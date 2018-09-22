@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   public isSideNavOpen: boolean;
   public viewMode: string = 'grid-view';
   public currentPage: any;
-  @ViewChild(MatSidenav) private sideNav: MatSidenav;
+  @ViewChild(MatSidenav) public sideNav: MatSidenav;
 
   public products$: Observable<Product[]>;
   public categories$: Observable<any>;
@@ -86,7 +86,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
       maxPrice: [filterData.maxPrice],
       minRating: [filterData.minRating],
       maxRating: [filterData.maxRating]
-    })
+    });
   }
   setActiveCategory(category) {
     this.activeCategory = category;

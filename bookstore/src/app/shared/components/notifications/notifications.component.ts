@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { NotificationsDB } from '../../../shared/fake-db/notifications';
+import { NotificationsDB } from '../../../shared/mock-data/notifications';
 
 @Component({
   selector: 'app-notifications',

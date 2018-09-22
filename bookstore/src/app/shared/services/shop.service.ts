@@ -1,6 +1,6 @@
 import { throwError as observableThrowError,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { ProductDB } from '../fake-db/products';
+import { BooksDB } from '../mock-data/books';
 import { Product } from '../models/product.model';
 import { FormGroup } from '@angular/forms';
 import { of, combineLatest } from 'rxjs';
@@ -60,8 +60,8 @@ export class ShopService {
     return of(this.cart);
   }
   public getProducts(): Observable<Product[]> {
-    const productDB = new ProductDB();
-    return of(productDB.products)
+    const booksDB = new BooksDB();
+    return of(booksDB.books)
       .pipe(
         delay(500),
         map((data: Product[]) => {
@@ -71,8 +71,8 @@ export class ShopService {
       );
   }
   public getProductDetails(productID): Observable<Product> {
-    const productDB = new ProductDB();
-    const product = productDB.products.filter(p => p._id === productID)[0];
+    const booksDB = new BooksDB();
+    const product = booksDB.books.filter(p => p._id === productID)[0];
     if (!product) {
       return observableThrowError(new Error('Product not found!'));
     }

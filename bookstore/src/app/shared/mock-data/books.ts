@@ -1,5 +1,5 @@
-export class ProductDB {
-  public products = [
+export class BooksDB {
+  public books = [
     {
       '_id': '5a9ae2106518248b68251fdf',
       'name': 'Wireless Bluetooth V4.0 Portable Speaker with HD Sound and Bass',
@@ -693,6 +693,6 @@ export class ProductDB {
         'color': 'red'
       }
     }
-    
+
   ]
 }

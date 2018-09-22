@@ -18,7 +18,7 @@ I was designing an architecture for one of our next generation internal applicat
 
 ## Micro Services with Language and Framework
 
-1. Boostore Frontend App - Angular(Typescript)
+1. Boostore Frontend App - Typescript(Angular)
 2. BookService - Java(Spring boot)
 3. OrderService - Java(Spring boot)
 4. NotificationService - Kotlin(Spring boot webflux + Kafka)
@@ -44,6 +44,8 @@ I was designing an architecture for one of our next generation internal applicat
 - Kafka
 - Elasticsearch
 - Redis
+- Mongo DB
+- Postgres SQL
 
 ## Expected Features
 

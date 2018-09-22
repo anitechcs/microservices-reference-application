@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CountryDB } from '../../shared/fake-db/countries';
+import { CountryDB } from '../../shared/mock-data/countries';
 import { ShopService } from '../../shared/services/shop.service';
 import { AppAnimations } from '../../shared/animations/animations';
 import { CartItem } from '../../shared/models/cart.model';

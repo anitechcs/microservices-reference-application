@@ -15,14 +15,14 @@ h1.title {
   margin-bottom: 6px;
   display: block;
 }
-.product-search, 
+.product-search,
 .quantity-input {
   border: 0;
   height: 32px;
   border-radius: 2px;
   padding-left: 8px;
   font-size: 14px;
-  width: 260px;
+  /*width: 260px;*/
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.08), 0px 1px 3px 0px rgba(0, 0, 0, 0);
   transition: all $transitionDuration $transitionTiming;
   &:focus {
@@ -65,7 +65,7 @@ h1.title {
 }
 .product-search-wrap {
   .product-search {
-    width: 260px; 
+    width: 96%!important;
     margin: 6px 0 0;
   }
 }
@@ -173,8 +173,8 @@ h1.title {
           }
         }
       }
-      
-      
+
+
       ul {
         margin: 0;
         padding: 0 0 0 8px;
@@ -288,36 +288,36 @@ h1.title {
 
 
   /* Force table to not be like tables anymore */
-	table, thead, tbody, th, td, tr { 
-		display: block; 
+	table, thead, tbody, th, td, tr {
+		display: block;
 	}
-	
+
 	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr { 
+	thead tr {
 		position: absolute;
 		top: -9999px;
 		left: -9999px;
 	}
-	
+
 	tr { border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 	tr:last-child { border-bottom: none; }
-	
-	td { 
+
+	td {
 		/* Behave  like a "row" */
 		border: none;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.03); 
+		border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 		position: relative;
-		padding-left: 50%; 
+		padding-left: 50%;
 	}
-	
-	td:before { 
+
+	td:before {
 		/* Now like a table header */
 		position: absolute;
 		/* Top/left values mimic padding */
 		top: 6px;
 		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
+		width: 45%;
+		padding-right: 10px;
 		white-space: nowrap;
 	}
 }
@@ -363,7 +363,7 @@ h1.title {
 }
 
 [dir=rtl] {
-  .product-search, 
+  .product-search,
   .quantity-input {
     padding-right: 8px;
   }

@@ -20,7 +20,8 @@ import {
   MatSnackBarModule,
   MatListModule,
   MatSidenavModule,
-  MatRippleModule
+  MatRippleModule,
+  MatFormFieldModule
  } from '@angular/material';
 import { StarRatingModule } from 'angular-star-rating';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -45,6 +46,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     MatSlideToggleModule,
     MatChipsModule,
     MatCheckboxModule,
+    MatFormFieldModule,
     MatRadioModule,
     MatRippleModule,
     MatTabsModule,

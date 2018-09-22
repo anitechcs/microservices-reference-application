@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { StarRatingModule } from 'angular-star-rating';
 import { ShopModule } from './shop/shop.module';
 
+import { MatInputModule } from '@angular/material';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -19,6 +21,7 @@ import { ShopModule } from './shop/shop.module';
     HttpClientModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: false }),
     StarRatingModule.forRoot(),
+    MatInputModule,
     SharedModule,
     ShopModule
   ],
