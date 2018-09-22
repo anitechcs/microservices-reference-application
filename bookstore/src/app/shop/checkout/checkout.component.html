@@ -163,13 +163,13 @@
           <mat-list class="compact-list mb-1">
             <mat-divider></mat-divider>
             <mat-list-item class="" *ngFor="let p of cart">
-              <img mat-list-avatar class="mr-1" [src]="p.product.photo" alt="">
+              <img mat-list-avatar class="mr-1" [src]="p.book.photo" alt="">
               <div fxLayout="row" fxFlex="100">
                 <h6 class="m-0 mr-1 text-muted">
-                  <small>{{p.product.name}} x {{p.data.quantity}}</small>
+                  <small>{{p.book.name}} x {{p.data.quantity}}</small>
                 </h6>
                 <span fxFlex></span>
-                <div class="text-muted">{{p.product.price.sale * p.data.quantity | currency }}</div>
+                <div class="text-muted">{{p.book.price.sale * p.data.quantity | currency }}</div>
               </div>
               <mat-divider></mat-divider>
             </mat-list-item>
@@ -233,9 +233,9 @@
           <div class="p-1">
             <mat-radio-group fxLayout="column" fxLayoutGap="8px" [(ngModel)]="paymentMethod">
               <mat-radio-button value="paypal">Paypal</mat-radio-button>
-              
+
               <mat-radio-button value="card">Credit Card</mat-radio-button>
-              
+
               <mat-radio-button value="bank">Bank Transfer</mat-radio-button>
             </mat-radio-group>
           </div>

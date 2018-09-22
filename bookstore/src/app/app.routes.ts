@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { ShopLayoutComponent } from './shared/components/shop-layout/shop-layout.component';
-import { ProductsComponent } from './shop/products/products.component';
-import { ProductDetailsComponent } from './shop/product-details/product-details.component';
+import { BooksComponent } from './shop/books/books.component';
+import { BookDetailsComponent } from './shop/book-details/book-details.component';
 import { CartComponent } from './shop/cart/cart.component';
 import { CheckoutComponent } from './shop/checkout/checkout.component';
 
@@ -17,10 +17,10 @@ export const rootRouterConfig: Routes = [
     children: [
       {
         path: '',
-        component: ProductsComponent
+        component: BooksComponent
       }, {
         path: 'books/:id',
-        component: ProductDetailsComponent,
+        component: BookDetailsComponent,
         data: { title: 'Detail', breadcrumb: 'Detail' }
       }, {
         path: 'cart',
@@ -35,6 +35,6 @@ export const rootRouterConfig: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'sessions/404'
+    redirectTo: '404'
   }
 ];

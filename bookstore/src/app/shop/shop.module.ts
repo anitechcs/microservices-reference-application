@@ -27,9 +27,9 @@ import { StarRatingModule } from 'angular-star-rating';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from '../shared/shared.module';
 
-import { ProductsComponent } from './products/products.component';
+import { BooksComponent } from './books/books.component';
 import { ShopService } from '../shared/services/shop.service';
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
@@ -63,8 +63,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     SharedModule
   ],
   declarations: [
-    ProductsComponent,
-    ProductDetailsComponent,
+    BooksComponent,
+    BookDetailsComponent,
     CartComponent,
     CheckoutComponent
   ],

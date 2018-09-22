@@ -22,6 +22,7 @@ export class CartComponent implements OnInit {
     this.getCart();
     this.onQuantityChange();
   }
+
   getCart() {
     this.shopService
     .getCart()
@@ -29,6 +30,7 @@ export class CartComponent implements OnInit {
       this.cart = cart;
     });
   }
+
   removeProduct(cartItem) {
     this.shopService
     .removeFromCart(cartItem)
@@ -36,6 +38,7 @@ export class CartComponent implements OnInit {
       this.cart = res;
     });
   }
+
   onQuantityChange() {
     this.subTotal = 0;
     this.cart.forEach(item => {

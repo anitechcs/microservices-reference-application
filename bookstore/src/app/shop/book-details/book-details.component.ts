@@ -8,12 +8,12 @@ import { Subscription } from 'rxjs';
 import { CartItem } from '../../shared/models/cart.model';
 
 @Component({
-  selector: 'app-product-details',
-  templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss'],
+  selector: 'app-book-details',
+  templateUrl: './book-details.component.html',
+  styleUrls: ['./book-details.component.scss'],
   animations: AppAnimations
 })
-export class ProductDetailsComponent implements OnInit, OnDestroy {
+export class BookDetailsComponent implements OnInit, OnDestroy {
   public productID;
   public book: Book;
   public quantity = 1;
@@ -52,6 +52,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       };
     });
   }
+
   getCart() {
     this.shopService
     .getCart()
@@ -59,6 +60,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       this.cart = cart;
     });
   }
+
   addToCart() {
     const cartItem: CartItem = {
       book: this.book,
@@ -91,6 +93,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       this.photoGallery[0].state = '1';
     }
   }
+
   changeState(photo) {
     if (photo.state === '1') {
       return;

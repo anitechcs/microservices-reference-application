@@ -10,12 +10,12 @@ import { LoaderService } from '../../shared/services/loader.service';
 import { CartItem } from '../../shared/models/cart.model';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss'],
+  selector: 'app-books',
+  templateUrl: './books.component.html',
+  styleUrls: ['./books.component.scss'],
   animations: [AppAnimations]
 })
-export class ProductsComponent implements OnInit, OnDestroy {
+export class BooksComponent implements OnInit, OnDestroy {
   public isSideNavOpen: boolean;
   public viewMode = 'grid-view';
   public currentPage: any;
