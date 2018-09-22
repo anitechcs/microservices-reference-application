@@ -6,6 +6,7 @@ import { FormGroup } from '@angular/forms';
 import { of, combineLatest } from 'rxjs';
 import { startWith, debounceTime, delay, map, switchMap } from 'rxjs/operators';
 import { CartItem } from '../models/cart.model';
+import { CategoriesDB } from '../mock-data/categories';
 
 
 @Injectable()
@@ -72,15 +73,16 @@ export class ShopService {
   }
   public getProductDetails(productID): Observable<Product> {
     const booksDB = new BooksDB();
-    const product = booksDB.books.filter(p => p._id === productID)[0];
-    if (!product) {
-      return observableThrowError(new Error('Product not found!'));
+    const books = booksDB.books.filter(p => p._id === productID)[0];
+    if (!books) {
+      return observableThrowError(new Error('Book not found!'));
     }
-    return of(product);
+    return of(books);
   }
+
   public getCategories(): Observable<any> {
-    const categories = ['speaker', 'headphone', 'watch', 'phone'];
-    return of(categories);
+    const categoriesDB = new CategoriesDB();
+    return of(categoriesDB.categories);
   }
 
   public getFilteredProduct(filterForm: FormGroup): Observable<Product[]> {

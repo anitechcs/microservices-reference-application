@@ -1,6 +1,9 @@
 export class CategoriesDB {
 
-  public categories = [{
-
-  }];
+  public categories = [
+    'speaker',
+    'headphone',
+    'watch',
+    'phone'
+  ];
 }

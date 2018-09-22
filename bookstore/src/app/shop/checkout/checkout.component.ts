@@ -20,7 +20,7 @@ export class CheckoutComponent implements OnInit {
 
   public total: number;
   public subTotal: number;
-  public vat: number = 15;
+  public vat = 15;
   public shipping: any = 'Free';
   public paymentMethod: string;
 

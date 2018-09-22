@@ -16,7 +16,7 @@ import { CartItem } from '../../shared/models/cart.model';
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   public productID;
   public product: Product;
-  public quantity: number = 1;
+  public quantity = 1;
   public cart: CartItem[];
   public cartData: any;
   private productSub: Subscription;
@@ -73,7 +73,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     .subscribe(res => {
       this.cart = res;
       this.quantity = 1;
-      this.snackBar.open('Product added to cart', 'OK', { duration: 4000 });
+      this.snackBar.open('Book added to cart', 'OK', { duration: 4000 });
     });
   }
 
