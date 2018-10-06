@@ -40,6 +40,7 @@ I was designing an architecture for one of our next generation internal applicat
 - Keyclok
 - Prometheus
 - Grafana
+- Ambassador
 - Helm
 - Kafka
 - Elasticsearch
