@@ -83,6 +83,6 @@ I was designing an architecture for one of our next generation internal applicat
 
 Your valuable contribution is always precious for us to keep this repository up to date and relevant. If you have some cool idea or new features requirement, please feel free to open a Github issue. We will discuss and take it up from there. For small changes or optimizations, direct pull request are always welcome. Appriciate your help in advance.
 
-## Caution :fire:
+## Caution! :fire:
 
 > For simplicity we have created mono repo with all services source code. Never do that in your actual project, use separate repository for individual services instead.
