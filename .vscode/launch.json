@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BookServiceApplication<bookservice>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.anitech.bookservice.BookServiceApplication",
+            "projectName": "bookservice",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-OrderServiceApplication<orderservice>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.anitech.orderservice.OrderServiceApplication",
+            "projectName": "orderservice",
+            "args": ""
+        }
+    ]
+}
