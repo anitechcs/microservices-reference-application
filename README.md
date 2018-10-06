@@ -10,7 +10,7 @@ I was designing an architecture for one of our next generation internal applicat
 
 ## System Architecture
 
-[TBD]
+![](https://raw.githubusercontent.com/anitechcs/microservices-reference-application/master/bookstore/src/assets/imgs/Architecture.jpg)
 
 ## Demonstration Video
 
@@ -50,41 +50,39 @@ I was designing an architecture for one of our next generation internal applicat
 
 ## Expected Features
 
-- Cloud Native
-- Build once and run everywhere
-- Continious Integration and Continious Delevery(CI/CD)
-- Auto Scaling
-- Centralised Configuration Management
-- Service Discovery
-- Dynamic Routing
-- Distibuted Tracing
-- Infracture Observability
-- Application Insights and Metrics
-- Circuit Breaker/Fault tolerance
-- Centralised Logging
-- Asynchonous Messaging
-- Rate Limiting
-- Load Balancing
-- Retries and Timeouts
-- TLS inter service communication
-- API management
-- API Documentation
-- API Analytics
-- API Versioning
-- Self Healing
-- Distibuted Caching
-- Backups and Disaster Recovery
-- Security(Authentiation/Authorization)
-- Efficient Search
-- Adaptable to Change
-- Reproducible
+- [x] Cloud Native
+- [X] Build once and run everywhere
+- [ ] Continious Integration and Continious Delevery(CI/CD)
+- [ ] Auto Scaling
+- [ ] Centralised Configuration Management
+- [ ] Service Discovery
+- [ ] Dynamic Routing
+- [ ] Distibuted Tracing
+- [ ] Infracture Observability
+- [ ] Application Insights and Metrics
+- [ ] Circuit Breaker/Fault tolerance
+- [ ] Centralised Logging
+- [ ] Asynchonous Messaging
+- [ ] Rate Limiting
+- [ ] Load Balancing
+- [ ] Retries and Timeouts
+- [ ] TLS inter service communication
+- [ ] API management
+- [ ] API Documentation
+- [ ] API Analytics
+- [ ] API Versioning
+- [ ] Self Healing
+- [ ] Distibuted Caching
+- [ ] Backups and Disaster Recovery
+- [ ] Security(Authentiation/Authorization)
+- [ ] Efficient Search
+- [ ] Adaptable to Change
+- [ ] Reproducible
 
 ## Want to Contribute?
 
 Your valuable contribution is always precious for us to keep this repository up to date and relevant. If you have some cool idea or new features requirement, please feel free to open a Github issue. We will discuss and take it up from there. For small changes or optimizations, direct pull request are always welcome. Appriciate your help in advance.
 
-## Caution
+## Caution :fire:
 
-```
-For simplicity we have created mono repo with all services source code. Never do that in your actual project, use separate repository for individual services instead.
-```
+> For simplicity we have created mono repo with all services source code. Never do that in your actual project, use separate repository for individual services instead.
