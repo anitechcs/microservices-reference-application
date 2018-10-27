@@ -1,5 +1,4 @@
 
-
 .app-loading {
   position: relative;
   display: flex;
@@ -7,6 +6,13 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+.full-gradient-bg {
+  background: -webkit-linear-gradient(330deg, #F57F17, #E65100);
+  background: -o-linear-gradient(330deg,#F57F17, #E65100);
+  background: linear-gradient(120deg, #F57F17, #E65100);
+  height: 100vh;
 }
 
 .sk-folding-cube {
@@ -102,49 +108,5 @@
     -webkit-transform: perspective(140px) rotateY(180deg);
     transform: perspective(140px) rotateY(180deg);
     opacity: 0;
-  }
-}
-
-.full-gradient-bg {
-  background-image: -webkit-linear-gradient(330deg, #6caafd, #1fe4d4);
-  background-image: -o-linear-gradient(330deg,#6caafd, #1fe4d4);
-  background-image: linear-gradient(120deg, #6caafd, #1fe4d4);
-  background-repeat: no-repeat;
-  -webkit-background-size: 800% 400%;
-  background-size: 800% 400%;
-  -webkit-animation-name: introAnimation;
-  animation-name: introAnimation;
-  -webkit-animation-duration: 30s;
-  animation-duration: 30s;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-delay: 0;
-  animation-delay: 0;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  height: 100vh;
-}
-
-@-webkit-keyframes introAnimation {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-}
-
-@keyframes introAnimation {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
   }
 }
