@@ -1,4 +1,4 @@
-<div class="product-details-wrap m-333" fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap="wrap">
+<div class="product-details-wrap m-333" fxLayout="row wrap" fxLayout.lt-md="column">
   <div fxLayout="row" fxFlex="100" class="mb-05">
     <button mat-icon-button class="text-muted" routerLink="/store"><mat-icon>chevron_left</mat-icon> <span >Back to Store</span></button>
     <span fxFlex></span>
@@ -6,6 +6,7 @@
     <button mat-raised-button color="primary" routerLink="/store/cart">
       <mat-icon>shopping_cart</mat-icon> Cart ({{cartData?.itemCount}})</button>
   </div>
+
   <div fxFlex.lt-md="auto" fxFlex="50" class="product-photos-wrap">
     <div class="gallery-thumbnails" [@animate]="{value:'*',params:{delay: '100ms', x:'-100px'}}">
       <img class="mat-elevation-z1" [ngClass]="{'active': image.state === '1'}" *ngFor="let image of photoGallery" [src]="image.url"
