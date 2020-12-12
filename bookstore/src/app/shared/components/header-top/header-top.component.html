@@ -1,43 +1,42 @@
 <div class="header-topnav mat-elevation-z2">
-  <div class="container">
-    <div class="topnav">
-      <!-- App Logo -->
-      <div class="topbar-branding">
-        <a [routerLink]="['/']">
-            <img src="assets/imgs/logo.png" alt="" class="app-logo">
-        </a>
-      </div>
-      <span fxFlex></span>
-      <!-- End Navigation -->
-
-      <!-- Notification toggle button -->
-      <button
-        mat-icon-button
-        matTooltip="Notifications"
-        (click)="toggleNotific()"
-        [style.overflow]="'visible'"
-        class="topbar-button-right">
-        <mat-icon color="accent">notifications</mat-icon>
-        <span class="notification-number mat-bg-warn">3</span>
-      </button>
-      <!-- Top left user menu -->
-      <button mat-icon-button [matMenuTriggerFor]="accountMenu" class="topbar-button-right mr-1 img-button">
-        <img src="assets/imgs/face.jpg" alt="">
-      </button>
-      <mat-menu #accountMenu="matMenu">
-        <button mat-menu-item [routerLink]="['/profile/overview']">
-          <mat-icon>account_box</mat-icon>
-          <span>Profile</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/profile/overview']">
-          <mat-icon>shopping_cart</mat-icon>
-          <span>Orders</span>
-        </button>
-        <button mat-menu-item (click)="doLogout()">
-          <mat-icon>exit_to_app</mat-icon>
-          <span>Sign out</span>
-        </button>
-      </mat-menu>
+  <div class="topnav">
+    <!-- App Logo -->
+    <div class="topbar-branding">
+      <a [routerLink]="['/']">
+          <img src="assets/imgs/logo.png" alt="" class="app-logo">
+      </a>
     </div>
+    <span fxFlex></span>
+    <!-- End Navigation -->
+
+    <!-- Notification toggle button -->
+    <button
+      mat-icon-button
+      matTooltip="Notifications"
+      (click)="toggleNotific()"
+      [style.overflow]="'visible'"
+      class="topbar-button-right">
+      <mat-icon color="accent">notifications</mat-icon>
+      <span class="notification-number mat-bg-warn">3</span>
+    </button>
+    
+    <!-- Top left user menu -->
+    <button mat-icon-button [matMenuTriggerFor]="accountMenu" class="topbar-button-right mr-1 img-button">
+      <img src="assets/imgs/face.jpg" alt="">
+    </button>
+    <mat-menu #accountMenu="matMenu">
+      <button mat-menu-item [routerLink]="['/profile/overview']">
+        <mat-icon>account_box</mat-icon>
+        <span>Profile</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/profile/overview']">
+        <mat-icon>shopping_cart</mat-icon>
+        <span>Orders</span>
+      </button>
+      <button mat-menu-item (click)="doLogout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Sign out</span>
+      </button>
+    </mat-menu>
   </div>
 </div>

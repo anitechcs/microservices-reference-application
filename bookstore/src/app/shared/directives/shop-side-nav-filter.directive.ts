@@ -8,8 +8,9 @@ import { MatSidenav } from '@angular/material/sidenav';
   selector: '[ShopSideNavFilter]'
 })
 export class ShopSideNavFilterDirective implements OnInit, OnDestroy {
-  isMobile;
+  isMobile: boolean = false;
   screenSizeWatcher: Subscription;
+  
   constructor(
     private media: MediaObserver,
     @Host() @Self() @Optional() public sideNav: MatSidenav
