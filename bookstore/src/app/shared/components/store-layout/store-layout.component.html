@@ -1,7 +1,7 @@
 <div class="app-admin-wrap">
 
   <!-- ONLY REQUIRED FOR **TOP** NAVIGATION LAYOUT -->
-  <app-header-top [notificPanel]="notificationPanel"></app-header-top>
+  <app-header-top></app-header-top>
 
   <!-- Main Container -->
   <mat-sidenav-container class="app-admin-container app-side-nav-container mat-drawer-transition">
@@ -12,11 +12,5 @@
       <router-outlet></router-outlet>
     </div>
 
-    <!-- Notificaation bar -->
-    <mat-sidenav #notificationPanel mode="over" position="end">
-      <div class="navigation-hold" fxLayout="column">
-        <app-notifications [notificPanel]="notificationPanel"></app-notifications>
-      </div>
-    </mat-sidenav>
   </mat-sidenav-container>
 </div>

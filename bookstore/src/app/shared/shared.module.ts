@@ -22,7 +22,6 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { StoreLayoutComponent } from './components/store-layout/store-layout.component';
-import { NotificationsComponent } from './components/notifications/notifications.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { HeaderTopComponent } from './components/header-top/header-top.component';
 
@@ -57,14 +56,12 @@ import { AuthService } from './services/auth.service';
   ],
   exports: [
     HeaderTopComponent,
-    NotificationsComponent,
     StoreLayoutComponent,
     LoaderComponent,
     StoreSideNavFilterDirective
   ],
   declarations: [
     HeaderTopComponent,
-    NotificationsComponent,
     StoreLayoutComponent,
     LoaderComponent,
     StoreSideNavFilterDirective
