@@ -10,7 +10,7 @@ I was designing an architecture for one of our next generation internal applicat
 
 ## System Architecture
 
-![](https://raw.githubusercontent.com/anitechcs/microservices-reference-application/master/bookstore/src/assets/imgs/Architecture.jpg)
+![](https://raw.githubusercontent.com/anitechcs/microservices-reference-application/master/bookstore/src/assets/images/Architecture.jpg)
 
 ## Demonstration Video
 
