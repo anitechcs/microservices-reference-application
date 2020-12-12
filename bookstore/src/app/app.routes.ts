@@ -25,11 +25,11 @@ export const rootRouterConfig: Routes = [
       }, {
         path: 'cart',
         component: CartComponent,
-        data: { title: 'Cart', breadcrumb: 'CART' }
+        data: { title: 'Cart', breadcrumb: 'Cart' }
       }, {
         path: 'checkout',
         component: CheckoutComponent,
-        data: { title: 'Checkout', breadcrumb: 'CHECKOUT' }
+        data: { title: 'Checkout', breadcrumb: 'Checkout' }
       }
     ]
   },
