@@ -1,6 +1,6 @@
-export class CategoriesDB {
+export class GenreDB {
 
-  public categories = [
+  public genres = [
     'speaker',
     'headphone',
     'watch',

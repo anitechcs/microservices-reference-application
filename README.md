@@ -22,8 +22,7 @@ I was designing an architecture for one of our next generation internal applicat
 2. BookService - Java(Spring boot)
 3. OrderService - Java(Spring boot)
 4. RatingServie - NodeJS(Express)
-5. GenreService - NodeJS(Express)
-6. PromotionService - Python(Flask)
+5. PromotionService - Python(Flask)
 
 ## Technology Stack
 

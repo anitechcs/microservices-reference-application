@@ -6,7 +6,7 @@ import { FormGroup } from '@angular/forms';
 import { of, combineLatest } from 'rxjs';
 import { startWith, debounceTime, delay, map, switchMap } from 'rxjs/operators';
 import { CartItem } from '../models/cart.model';
-import { CategoriesDB } from '../mock-data/categories';
+import { GenreDB } from '../mock-data/genres';
 
 
 @Injectable()
@@ -81,8 +81,8 @@ export class StoreService {
   }
 
   public getCategories(): Observable<any> {
-    const categoriesDB = new CategoriesDB();
-    return of(categoriesDB.categories);
+    const genreDB = new GenreDB();
+    return of(genreDB.genres);
   }
 
   public getFilteredProduct(filterForm: FormGroup): Observable<Book[]> {

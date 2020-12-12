@@ -8,7 +8,7 @@
             <mat-expansion-panel expanded="true">
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Categories
+                  Genres
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <ul class="product-categories">
@@ -91,7 +91,7 @@
                   <h3 class="title" [routerLink]="['/store/books/', book._id]">{{book.name}}</h3>
                   <p class="text-muted p-line">{{book?.subtitle}}</p>
                   <p class="text-muted p-line">
-                    <strong>Category:</strong> {{book?.category}}</p>
+                    <strong>Genres:</strong> {{book?.category}}</p>
                   <p class="text-muted p-line">
                     <strong>Tags:</strong>
                     <span *ngFor="let t of book.tags">{{t}} </span>
