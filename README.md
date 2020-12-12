@@ -18,35 +18,29 @@ I was designing an architecture for one of our next generation internal applicat
 
 ## Micro Services with Language and Framework
 
-1. Boostore Frontend App - Typescript(Angular)
+1. Boostore Web Application - Typescript(Angular)
 2. BookService - Java(Spring boot)
 3. OrderService - Java(Spring boot)
-4. NotificationService - Kotlin(Spring boot webflux + Kafka)
-5. ReviewService - NodeJS(Express)
-6. CategoryService - NodeJS(Express)
-7. RatingServie - Go(Gin)
-8. RecomandationService - Python(Flask)
+4. RatingServie - NodeJS(Express)
+5. GenreService - NodeJS(Express)
+6. PromotionService - Python(Flask)
 
 ## Technology Stack
 
 - Docker
-- Kubernetes/Openshift
-- Istio/Kiali
+- Kubernetes
+- Istio
 - SpringBoot
 - ExpressJS
 - Flask
-- Gin
 - Angular
 - Keyclok
 - Prometheus
 - Grafana
 - Ambassador
 - Helm
-- Kafka
-- Elasticsearch
 - Redis
-- Mongo DB
-- Postgres SQL
+- MySQL
 
 ## Expected Features
 
