@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { MatSnackBar, MatSidenav } from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ShopService } from '../../shared/services/shop.service';
 import { Book } from '../../shared/models/book.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -13,13 +14,13 @@ import { CartItem } from '../../shared/models/cart.model';
   selector: 'app-books',
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.scss'],
-  animations: [AppAnimations]
+  animations: [ AppAnimations ]
 })
-export class BooksComponent implements OnInit, OnDestroy {
+export class BooksComponent implements OnInit {
   public isSideNavOpen: boolean;
   public viewMode = 'grid-view';
   public currentPage: any;
-  @ViewChild(MatSidenav) public sideNav: MatSidenav;
+  @ViewChild('sideNav') sideNav: MatSidenav;
 
   public books$: Observable<Book[]>;
   public categories$: Observable<any>;
@@ -53,9 +54,7 @@ export class BooksComponent implements OnInit, OnDestroy {
     this.getCart();
     this.cartData = this.shopService.cartData;
   }
-  ngOnDestroy() {
 
-  }
   getCart() {
     this.shopService
     .getCart()
@@ -63,6 +62,7 @@ export class BooksComponent implements OnInit, OnDestroy {
       this.cart = cart;
     });
   }
+
   addToCart(book) {
     const cartItem: CartItem = {
       book: book,
@@ -88,6 +88,7 @@ export class BooksComponent implements OnInit, OnDestroy {
       maxRating: [filterData.maxRating]
     });
   }
+  
   setActiveCategory(category) {
     this.activeCategory = category;
     this.filterForm.controls['category'].setValue(category);

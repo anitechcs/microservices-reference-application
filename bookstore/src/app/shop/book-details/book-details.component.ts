@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppAnimations } from '../../shared/animations/animations';
 import { ShopService } from '../../shared/services/shop.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Book } from '../../shared/models/book.model';
 import { Subscription } from 'rxjs';
 import { CartItem } from '../../shared/models/cart.model';

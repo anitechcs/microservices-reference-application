@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -6,14 +6,10 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  appTitle = 'Egret';
+export class AppComponent {
+  appTitle = 'Book Store';
   pageTitle = '';
 
   constructor(public title: Title) { }
-
-  ngOnInit() {
-    // post init
-  }
 
 }

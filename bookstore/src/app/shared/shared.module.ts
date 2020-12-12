@@ -3,36 +3,31 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {
-  MatSidenavModule,
-  MatListModule,
-  MatTooltipModule,
-  MatOptionModule,
-  MatSelectModule,
-  MatMenuModule,
-  MatSnackBarModule,
-  MatGridListModule,
-  MatToolbarModule,
-  MatIconModule,
-  MatButtonModule,
-  MatRadioModule,
-  MatCheckboxModule,
-  MatCardModule,
-  MatProgressSpinnerModule,
-  MatRippleModule,
-  MatDialogModule
-} from '@angular/material';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRippleModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
 
-// COMPONENTS
 import { ShopLayoutComponent } from './components/shop-layout/shop-layout.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { HeaderTopComponent } from './components/header-top/header-top.component';
 
-// DIRECTIVES
 import { ShopSideNavFilterDirective } from './directives/shop-side-nav-filter.directive';
 
-// SERVICES
 import { LoaderService } from './services/loader.service';
 import { AuthService } from './services/auth.service';
 
@@ -78,6 +73,6 @@ import { AuthService } from './services/auth.service';
     LoaderService,
     AuthService
   ],
-  entryComponents: [LoaderComponent],
+  entryComponents: [ LoaderComponent ],
 })
 export class SharedModule { }

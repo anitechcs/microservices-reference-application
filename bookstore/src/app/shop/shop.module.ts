@@ -3,26 +3,25 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {
-  MatIconModule,
-  MatButtonModule,
-  MatCardModule,
-  MatMenuModule,
-  MatSlideToggleModule,
-  MatChipsModule,
-  MatCheckboxModule,
-  MatRadioModule,
-  MatTabsModule,
-  MatInputModule,
-  MatSelectModule,
-  MatSliderModule,
-  MatExpansionModule,
-  MatSnackBarModule,
-  MatListModule,
-  MatSidenavModule,
-  MatRippleModule,
-  MatFormFieldModule
- } from '@angular/material';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatRippleModule } from '@angular/material/core';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { StarRatingModule } from 'angular-star-rating';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from '../shared/shared.module';
@@ -68,6 +67,6 @@ import { CheckoutComponent } from './checkout/checkout.component';
     CartComponent,
     CheckoutComponent
   ],
-  providers: [ShopService]
+  providers: [ ShopService ]
 })
 export class ShopModule { }

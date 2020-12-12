@@ -1,7 +1,7 @@
 import { Directive, Host, Self, Optional, OnDestroy, OnInit } from '@angular/core';
-import { MediaChange, ObservableMedia } from '@angular/flex-layout';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { Subscription } from 'rxjs';
-import { MatSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material/sidenav';
 
 
 @Directive({
@@ -11,7 +11,7 @@ export class ShopSideNavFilterDirective implements OnInit, OnDestroy {
   isMobile;
   screenSizeWatcher: Subscription;
   constructor(
-    private media: ObservableMedia,
+    private media: MediaObserver,
     @Host() @Self() @Optional() public sideNav: MatSidenav
   ) {}
 
@@ -36,8 +36,8 @@ export class ShopSideNavFilterDirective implements OnInit, OnDestroy {
   initSideNav() {
     this.isMobile = this.media.isActive('xs') || this.media.isActive('sm');
     this.updateSidenav();
-    this.screenSizeWatcher = this.media.subscribe((change: MediaChange) => {
-      this.isMobile = (change.mqAlias === 'xs') || (change.mqAlias === 'sm');
+    this.screenSizeWatcher = this.media.asObservable().subscribe((change: MediaChange[]) => {
+      this.isMobile = (change[0].mqAlias === 'xs') || (change[0].mqAlias === 'sm');
       this.updateSidenav();
     });
   }
