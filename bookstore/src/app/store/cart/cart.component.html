@@ -15,8 +15,8 @@
       <tbody>
         <tr *ngFor="let item of cart">
           <td><button mat-icon-button color="warn" (click)="removeProduct(item)"><mat-icon>close</mat-icon></button> </td>
-          <td><img class="cart-thumbnail" [src]="item.book.photo" style="cursor: pointer" [routerLink]="['/shop/books', item.book._id]"></td>
-          <td><span style="cursor: pointer" [routerLink]="['/shop/books', item.book._id]">{{item.book.name}}</span></td>
+          <td><img class="cart-thumbnail" [src]="item.book.photo" style="cursor: pointer" [routerLink]="['/store/books', item.book._id]"></td>
+          <td><span style="cursor: pointer" [routerLink]="['/store/books', item.book._id]">{{item.book.name}}</span></td>
           <td>{{item.book.price.sale | currency}}</td>
           <td><input class="quantity-input default-bg" id="quantity" min="1" name="quantity" type="number" (change)="onQuantityChange()" [(ngModel)]="item.data.quantity"></td>
           <td>{{item.book.price.sale * item.data.quantity | currency}}</td>
@@ -46,8 +46,8 @@
           </div>
           <mat-card-actions>
             <span fxFlex></span>
-            <button mat-raised-button color="primary" routerLink="/shop">Back To Shop</button>
-            <button mat-raised-button color="warn" routerLink="/shop/checkout">Checkout</button>
+            <button mat-raised-button color="primary" routerLink="/store">Back To Store</button>
+            <button mat-raised-button color="warn" routerLink="/store/checkout">Checkout</button>
           </mat-card-actions>
         </mat-card>
       </div>
@@ -55,7 +55,7 @@
     <div *ngIf="!cart.length" [@animate]="{value:'*',params:{delay: '100ms', y:'-50px'}}">
       <mat-card class="text-center">
         <p>Your cart is empty</p>
-        <button mat-raised-button color="accent" routerLink="/shop">Go Back To Shop</button>
+        <button mat-raised-button color="accent" routerLink="/store">Go Back To Store</button>
       </mat-card>
     </div>
 </div>

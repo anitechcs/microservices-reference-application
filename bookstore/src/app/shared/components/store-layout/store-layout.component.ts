@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-shop-layout',
-  templateUrl: './shop-layout.component.html'
+  selector: 'app-store-layout',
+  templateUrl: './store-layout.component.html'
 })
-export class ShopLayoutComponent {
+export class StoreLayoutComponent {
 
   constructor(private router: Router) {}
 

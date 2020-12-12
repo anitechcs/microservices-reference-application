@@ -10,7 +10,7 @@ import { CategoriesDB } from '../mock-data/categories';
 
 
 @Injectable()
-export class ShopService {
+export class StoreService {
   public books: Book[] = [];
   public initialFilters = {
     minPrice: 10,

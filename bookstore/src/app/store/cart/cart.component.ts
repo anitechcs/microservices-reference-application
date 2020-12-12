@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShopService } from '../../shared/services/shop.service';
+import { StoreService } from '../../shared/services/store.service';
 import { AppAnimations } from '../../shared/animations/animations';
 import { CartItem } from '../../shared/models/cart.model';
 
@@ -15,7 +15,7 @@ export class CartComponent implements OnInit {
   public subTotal: number;
   public vat = 15;
   constructor(
-    private shopService: ShopService
+    private storeService: StoreService
   ) { }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
   }
 
   getCart() {
-    this.shopService
+    this.storeService
     .getCart()
     .subscribe(cart => {
       this.cart = cart;
@@ -32,7 +32,7 @@ export class CartComponent implements OnInit {
   }
 
   removeProduct(cartItem) {
-    this.shopService
+    this.storeService
     .removeFromCart(cartItem)
     .subscribe(res => {
       this.cart = res;

@@ -1,7 +1,7 @@
 <div>
   <mat-sidenav-container>
-    <mat-sidenav ShopSideNavFilter class="shop-sidebar" #sideNav>
-      <div class="shop-filters-wrap">
+    <mat-sidenav StoreSideNavFilter class="store-sidebar" #sideNav>
+      <div class="store-filters-wrap">
         <form [formGroup]="filterForm">
           <mat-accordion multi="true" displayMode="flat">
             <!-- Categories -->
@@ -48,12 +48,12 @@
         </form>
     </div>
     </mat-sidenav>
-    <div class="shop-wrap" fxLayout="row" fxLayoutWrap="wrap">
+    <div class="store-wrap" fxLayout="row" fxLayoutWrap="wrap">
       <!-- Filters -->
       <!-- Right side -->
       <div class="full-width">
         <!-- Search Form -->
-        <div fxLayout="row" fxLayout.lt-sm="column" class="shop-top-toolbar">
+        <div fxLayout="row" fxLayout.lt-sm="column" class="store-top-toolbar">
           <button mat-icon-button class="mr-1" (click)="toggleSideNav()"><mat-icon>{{sideNav.opened ? 'format_indent_decrease' : 'format_indent_increase'}}</mat-icon> </button>
           <div class="product-search-wrap" fxFlex>
             <form [formGroup]="filterForm">
@@ -70,7 +70,7 @@
             </button>
           </div>
           <span fxFlex="20px"></span>
-          <button mat-raised-button color="primary" routerLink="/shop/cart">
+          <button mat-raised-button color="primary" routerLink="/store/cart">
             <mat-icon>shopping_cart</mat-icon> Cart ({{cartData.itemCount}})
           </button>
         </div>
@@ -83,12 +83,12 @@
           *ngFor="let book of books$ | async | paginate: { itemsPerPage: 6, currentPage: currentPage }; let i = index;"
           [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'50px'}}">
             <div class="product-inner default-bg">
-              <div class="featured-img" [routerLink]="['/shop/books/', book._id]">
+              <div class="featured-img" [routerLink]="['/store/books/', book._id]">
                 <img [src]="book.photo" alt="">
               </div>
               <div class="info-wrap p-1">
                 <div class="main-info">
-                  <h3 class="title" [routerLink]="['/shop/books/', book._id]">{{book.name}}</h3>
+                  <h3 class="title" [routerLink]="['/store/books/', book._id]">{{book.name}}</h3>
                   <p class="text-muted p-line">{{book?.subtitle}}</p>
                   <p class="text-muted p-line">
                     <strong>Category:</strong> {{book?.category}}</p>

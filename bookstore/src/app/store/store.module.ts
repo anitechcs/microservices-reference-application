@@ -27,7 +27,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from '../shared/shared.module';
 
 import { BooksComponent } from './books/books.component';
-import { ShopService } from '../shared/services/shop.service';
+import { StoreService } from '../shared/services/store.service';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
@@ -67,6 +67,6 @@ import { CheckoutComponent } from './checkout/checkout.component';
     CartComponent,
     CheckoutComponent
   ],
-  providers: [ ShopService ]
+  providers: [ StoreService ]
 })
-export class ShopModule { }
+export class StoreModule { }

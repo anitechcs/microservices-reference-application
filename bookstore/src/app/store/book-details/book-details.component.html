@@ -1,9 +1,9 @@
 <div class="product-details-wrap m-333" fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap="wrap">
   <div fxLayout="row" fxFlex="100" class="mb-05">
-    <button mat-icon-button class="text-muted" routerLink="/shop"><mat-icon>chevron_left</mat-icon> <span >Back to Shop</span></button>
+    <button mat-icon-button class="text-muted" routerLink="/store"><mat-icon>chevron_left</mat-icon> <span >Back to Store</span></button>
     <span fxFlex></span>
     <span fxFlex="20px"></span>
-    <button mat-raised-button color="primary" routerLink="/shop/cart">
+    <button mat-raised-button color="primary" routerLink="/store/cart">
       <mat-icon>shopping_cart</mat-icon> Cart ({{cartData?.itemCount}})</button>
   </div>
   <div fxFlex.lt-md="auto" fxFlex="50" class="product-photos-wrap">
@@ -45,7 +45,7 @@
     <div fxLayout="row">
       <button mat-raised-button color="accent" (click)="addToCart()"><mat-icon>add_shopping_cart</mat-icon> Add to Cart</button>
       <span fxFlex="8px"></span>
-      <button mat-raised-button color="primary" routerLink="/shop"><mat-icon>chevron_left</mat-icon> Back to Shop</button>
+      <button mat-raised-button color="primary" routerLink="/store"><mat-icon>chevron_left</mat-icon> Back to Store</button>
     </div>
   </div>
 </div>

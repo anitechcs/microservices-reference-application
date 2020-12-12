@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { StarRatingModule } from 'angular-star-rating';
-import { ShopModule } from './shop/shop.module';
+import { StoreModule } from './store/store.module';
 
 import { MatInputModule } from '@angular/material/input';
 
@@ -22,7 +22,7 @@ import { MatInputModule } from '@angular/material/input';
     StarRatingModule.forRoot(),
     MatInputModule,
     SharedModule,
-    ShopModule,
+    StoreModule,
     HammerModule
   ],
   providers: [

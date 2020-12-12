@@ -34,16 +34,16 @@ h1.title {
   width: 80px;
 }
 
-.shop-wrap {
+.store-wrap {
   margin: 1rem .33rem .33rem;
   overflow: hidden;
   min-height: 750px;
 }
-.shop-sidebar {
+.store-sidebar {
   width: 15rem;
   background: transparent !important;
 }
-.shop-filters-wrap {
+.store-filters-wrap {
   margin-top: 7px;
   padding: 0 .5rem 0 .333rem;
   .product-categories {
@@ -59,7 +59,7 @@ h1.title {
 }
 
 
-.shop-top-toolbar {
+.store-top-toolbar {
   margin-bottom: .5rem;
   padding: 0 8px;
 }
@@ -268,7 +268,7 @@ h1.title {
   }
 }
 @media (max-width: 960px) {
-  .shop-filters-wrap {
+  .store-filters-wrap {
     margin: 0;
     padding: 0;
   }

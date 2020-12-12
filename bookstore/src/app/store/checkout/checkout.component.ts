@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CountryDB } from '../../shared/mock-data/countries';
-import { ShopService } from '../../shared/services/shop.service';
+import { StoreService } from '../../shared/services/store.service';
 import { AppAnimations } from '../../shared/animations/animations';
 import { CartItem } from '../../shared/models/cart.model';
 
@@ -26,7 +26,7 @@ export class CheckoutComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private shopService: ShopService
+    private storeService: StoreService
   ) {
     const countryDB = new CountryDB();
     this.countries = countryDB.countries;
@@ -47,7 +47,7 @@ export class CheckoutComponent implements OnInit {
     }
   }
   getCart() {
-    this.shopService
+    this.storeService
     .getCart()
     .subscribe(cart => {
       this.cart = cart;

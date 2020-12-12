@@ -5,9 +5,9 @@ import { MatSidenav } from '@angular/material/sidenav';
 
 
 @Directive({
-  selector: '[ShopSideNavFilter]'
+  selector: '[StoreSideNavFilter]'
 })
-export class ShopSideNavFilterDirective implements OnInit, OnDestroy {
+export class StoreSideNavFilterDirective implements OnInit, OnDestroy {
   isMobile: boolean = false;
   screenSizeWatcher: Subscription;
   

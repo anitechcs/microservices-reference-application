@@ -21,12 +21,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 
-import { ShopLayoutComponent } from './components/shop-layout/shop-layout.component';
+import { StoreLayoutComponent } from './components/store-layout/store-layout.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { HeaderTopComponent } from './components/header-top/header-top.component';
 
-import { ShopSideNavFilterDirective } from './directives/shop-side-nav-filter.directive';
+import { StoreSideNavFilterDirective } from './directives/store-side-nav-filter.directive';
 
 import { LoaderService } from './services/loader.service';
 import { AuthService } from './services/auth.service';
@@ -58,16 +58,16 @@ import { AuthService } from './services/auth.service';
   exports: [
     HeaderTopComponent,
     NotificationsComponent,
-    ShopLayoutComponent,
+    StoreLayoutComponent,
     LoaderComponent,
-    ShopSideNavFilterDirective
+    StoreSideNavFilterDirective
   ],
   declarations: [
     HeaderTopComponent,
     NotificationsComponent,
-    ShopLayoutComponent,
+    StoreLayoutComponent,
     LoaderComponent,
-    ShopSideNavFilterDirective
+    StoreSideNavFilterDirective
   ],
   providers: [
     LoaderService,

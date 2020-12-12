@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppAnimations } from '../../shared/animations/animations';
-import { ShopService } from '../../shared/services/shop.service';
+import { StoreService } from '../../shared/services/store.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Book } from '../../shared/models/book.model';
 import { Subscription } from 'rxjs';
@@ -23,7 +23,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
 
   public photoGallery: any[] = [{url: '', state: '0'}];
   constructor(
-    private shopService: ShopService,
+    private storeService: StoreService,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar
   ) { }
@@ -32,7 +32,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
     this.productID = this.route.snapshot.params['id'];
     this.getProduct(this.productID);
     this.getCart();
-    this.cartData = this.shopService.cartData;
+    this.cartData = this.storeService.cartData;
   }
 
   ngOnDestroy() {
@@ -40,7 +40,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   }
 
   getProduct(id) {
-    this.productSub = this.shopService.getProductDetails(id)
+    this.productSub = this.storeService.getProductDetails(id)
     .subscribe(res => {
       this.book = res;
       this.initGallery(this.book);
@@ -54,7 +54,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   }
 
   getCart() {
-    this.shopService
+    this.storeService
     .getCart()
     .subscribe(cart => {
       this.cart = cart;
@@ -70,7 +70,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
       }
     };
 
-    this.shopService
+    this.storeService
     .addToCart(cartItem)
     .subscribe(res => {
       this.cart = res;

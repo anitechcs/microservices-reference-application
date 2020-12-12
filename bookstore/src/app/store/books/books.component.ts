@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ShopService } from '../../shared/services/shop.service';
+import { StoreService } from '../../shared/services/store.service';
 import { Book } from '../../shared/models/book.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -30,20 +30,20 @@ export class BooksComponent implements OnInit {
   public cartData: any;
 
   constructor(
-    private shopService: ShopService,
+    private storeService: StoreService,
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
     private loader: LoaderService
   ) { }
 
   ngOnInit() {
-    this.categories$ = this.shopService.getCategories();
-    this.buildFilterForm(this.shopService.initialFilters);
+    this.categories$ = this.storeService.getCategories();
+    this.buildFilterForm(this.storeService.initialFilters);
 
     setTimeout(() => {
       this.loader.open();
     });
-    this.books$ = this.shopService
+    this.books$ = this.storeService
       .getFilteredProduct(this.filterForm)
       .pipe(
         map(books => {
@@ -52,11 +52,11 @@ export class BooksComponent implements OnInit {
         })
       );
     this.getCart();
-    this.cartData = this.shopService.cartData;
+    this.cartData = this.storeService.cartData;
   }
 
   getCart() {
-    this.shopService
+    this.storeService
     .getCart()
     .subscribe(cart => {
       this.cart = cart;
@@ -70,7 +70,7 @@ export class BooksComponent implements OnInit {
         quantity: 1
       }
     };
-    this.shopService
+    this.storeService
     .addToCart(cartItem)
     .subscribe(cart => {
       this.cart = cart;

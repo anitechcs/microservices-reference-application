@@ -242,7 +242,7 @@
 
           <mat-card-actions>
             <span fxFlex></span>
-            <button mat-raised-button color="primary" routerLink="/shop/cart">Back to Cart</button>
+            <button mat-raised-button color="primary" routerLink="/store/cart">Back to Cart</button>
             <button mat-raised-button color="warn" (click)="placeOrder()">Place Order</button>
           </mat-card-actions>
         </mat-card-content>
@@ -253,7 +253,7 @@
   <div *ngIf="!cart.length" [@animate]="{value:'*',params:{delay: '100ms', y:'-50px'}}">
     <mat-card class="text-center">
       <h5 class="mb-1">Your cart is empty</h5>
-      <button mat-raised-button color="accent" routerLink="/shop"><mat-icon>chevron_left</mat-icon> Back to Shop</button>
+      <button mat-raised-button color="accent" routerLink="/store"><mat-icon>chevron_left</mat-icon> Back to Store</button>
     </mat-card>
   </div>
 </div>
