@@ -10,11 +10,23 @@ I was designing an architecture for one of our next generation internal applicat
 
 ## System Architecture
 
-![](https://raw.githubusercontent.com/anitechcs/microservices-reference-application/master/bookstore/src/assets/images/Architecture.jpg)
+![](https://raw.githubusercontent.com/anitechcs/microservices-reference-application/master/documents/images/MRA Architecture.svg)
 
 ## Demonstration Video
 
 [TBD]
+
+## Getting Started
+
+Getting started link goes here
+
+## Infrastructure
+
+Infrasture setup link goes here
+
+## Deployment
+
+Deployment section goes here
 
 ## Micro Services with Language and Framework
 
@@ -36,10 +48,14 @@ I was designing an architecture for one of our next generation internal applicat
 - Keyclok
 - Prometheus
 - Grafana
+- Loki
+- Tempo
 - Ambassador
 - Helm
+- ElasticSearch
 - Redis
-- MySQL
+- PostgreSQL
+- HashiCorp's Vault
 
 ## Expected Features
 
