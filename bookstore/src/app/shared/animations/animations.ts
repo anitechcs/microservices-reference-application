@@ -1,17 +1,11 @@
 import {
-  sequence,
   trigger,
   animate,
   style,
-  group,
-  query,
   transition,
-  animateChild,
   state,
   animation,
-  useAnimation,
-  stagger
-} from '@angular/animations';
+  useAnimation } from '@angular/animations';
 
 const reusable = animation([
     style({

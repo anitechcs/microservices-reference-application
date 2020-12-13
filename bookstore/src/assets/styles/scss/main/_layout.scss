@@ -38,7 +38,7 @@
 
 .main-content-wrap {
   position: relative;
-  float: right;
+  float: none;
   height: 100vh;
   transition: width $sidebarTrnTime $transitionTiming;
   &.ps > .ps__rail-y {

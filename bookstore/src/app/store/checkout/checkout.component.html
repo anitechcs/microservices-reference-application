@@ -1,0 +1,160 @@
+<div>
+  <div fxLayout="row" fxLayout.lt-md="column" *ngIf="cart.length">
+    <div fxFlex="70" [@animate]="{value:'*',params:{delay: '100ms', x:'-50px'}}">
+      <mat-card class="mb-1">
+        <mat-card-title>
+          Shipping Address
+        </mat-card-title>
+        <form [formGroup]="checkoutForm">
+          <div fxLayout="row wrap" fxLayout.lt-sm="column">
+
+            <div fxFlex="50" class="pr-1">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="First name" value="" [formControl]="checkoutForm.controls['firstName']">
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" class="pr-1">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Last name" value="" [formControl]="checkoutForm.controls['lastName']">
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" class="pr-1">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Address line 1" value="" [formControl]="checkoutForm.controls['address1']">
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" class="pr-1">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="City" [formControl]="checkoutForm.controls['city']">
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" class="pr-1">
+              <mat-form-field class="full-width">
+                <input matInput type="number" placeholder="Zip" [formControl]="checkoutForm.controls['zip']">
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" class="pr-1">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Phone" [formControl]="checkoutForm.controls['phone']">
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="50" class="pr-1">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Email" [formControl]="checkoutForm.controls['email']">
+              </mat-form-field>
+            </div>
+
+          </div>
+        </form>
+      </mat-card>
+    </div>
+
+    <div fxFlex="30" [@animate]="{value:'*',params:{delay: '100ms', x:'50px'}}">
+      <mat-card class="default">
+        <mat-card-title>
+          Your order
+        </mat-card-title>
+        <mat-card-content class="p-0">
+          <mat-list class="compact-list mb-1">
+            <mat-divider></mat-divider>
+            <mat-list-item class="" *ngFor="let p of cart">
+              <img mat-list-avatar class="mr-1" [src]="p.book.photo" alt="">
+              <div fxLayout="row" fxFlex="100">
+                <h6 class="m-0 mr-1 text-muted">
+                  <small>{{p.book.name}} x {{p.data.quantity}}</small>
+                </h6>
+                <span fxFlex></span>
+                <div class="text-muted">{{p.book.price.sale * p.data.quantity | currency }}</div>
+              </div>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+
+            <mat-list-item>
+              <div fxFlex="56px"></div>
+              <div fxLayout="row" fxFlex="100">
+                <h6 class="m-0 mr-1 text-muted">
+                  <small>
+                    <strong>Subtotal:</strong>
+                  </small>
+                </h6>
+                <span fxFlex></span>
+                <div class="text-muted">{{subTotal | currency}}</div>
+              </div>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+
+            <mat-list-item>
+              <div fxFlex="56px"></div>
+              <div fxLayout="row" fxFlex="100">
+                <h6 class="m-0 mr-1 text-muted">
+                  <small>
+                    <strong>Vat:</strong>
+                  </small>
+                </h6>
+                <span fxFlex></span>
+                <div class="text-muted">{{vat}}%</div>
+              </div>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+
+            <mat-list-item>
+              <div fxFlex="56px"></div>
+              <div fxLayout="row" fxFlex="100">
+                <h6 class="m-0 mr-1 text-muted">
+                  <small>
+                    <strong>Shipping:</strong>
+                  </small>
+                </h6>
+                <span fxFlex></span>
+                <div class="text-muted">{{shipping}}</div>
+              </div>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+
+            <mat-list-item>
+              <div fxFlex="56px"></div>
+              <div fxLayout="row" fxFlex="100">
+                <h6 class="m-0 mr-1 text-muted">
+                  <small>
+                    <strong>Total:</strong>
+                  </small>
+                </h6>
+                <span fxFlex></span>
+                <div class="text-muted">{{total | currency}}</div>
+              </div>
+            </mat-list-item>
+          </mat-list>
+
+          <div class="p-1">
+            <mat-radio-group fxLayout="column" fxLayoutGap="8px" [(ngModel)]="paymentMethod">
+              <mat-radio-button value="paypal">Paypal</mat-radio-button>
+
+              <mat-radio-button value="card">Credit Card</mat-radio-button>
+
+              <mat-radio-button value="bank">Bank Transfer</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <mat-card-actions>
+            <span fxFlex></span>
+            <button mat-raised-button color="primary" routerLink="/store/cart">Back to Cart</button>
+            <button mat-raised-button color="warn" (click)="placeOrder()">Place Order</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div *ngIf="!cart.length" [@animate]="{value:'*',params:{delay: '100ms', y:'-50px'}}">
+    <mat-card class="text-center">
+      <h5 class="mb-1">Your cart is empty</h5>
+      <button mat-raised-button color="accent" routerLink="/store"><mat-icon>chevron_left</mat-icon> Back to Store</button>
+    </mat-card>
+  </div>
+</div>

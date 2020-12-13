@@ -10,43 +10,52 @@ I was designing an architecture for one of our next generation internal applicat
 
 ## System Architecture
 
-![](https://raw.githubusercontent.com/anitechcs/microservices-reference-application/master/bookstore/src/assets/imgs/Architecture.jpg)
+![](https://raw.githubusercontent.com/anitechcs/microservices-reference-application/master/documents/images/MRA Architecture.svg)
 
 ## Demonstration Video
 
 [TBD]
 
+## Getting Started
+
+Getting started link goes here
+
+## Infrastructure
+
+Infrasture setup link goes here
+
+## Deployment
+
+Deployment section goes here
+
 ## Micro Services with Language and Framework
 
-1. Boostore Frontend App - Typescript(Angular)
+1. Boostore Web Application - Typescript(Angular)
 2. BookService - Java(Spring boot)
 3. OrderService - Java(Spring boot)
-4. NotificationService - Kotlin(Spring boot webflux + Kafka)
-5. ReviewService - NodeJS(Express)
-6. CategoryService - NodeJS(Express)
-7. RatingServie - Go(Gin)
-8. RecomandationService - Python(Flask)
+4. RatingServie - NodeJS(Express)
+5. PromotionService - Python(Flask)
 
 ## Technology Stack
 
 - Docker
-- Kubernetes/Openshift
-- Istio/Kiali
+- Kubernetes
+- Istio
 - SpringBoot
 - ExpressJS
 - Flask
-- Gin
 - Angular
 - Keyclok
 - Prometheus
 - Grafana
+- Loki
+- Tempo
 - Ambassador
 - Helm
-- Kafka
-- Elasticsearch
+- ElasticSearch
 - Redis
-- Mongo DB
-- Postgres SQL
+- PostgreSQL
+- HashiCorp's Vault
 
 ## Expected Features
 
