@@ -9,8 +9,9 @@ The mian purpose of this repository is to demonstrate a polyglot micoservices re
 I was designing an architecture for one of our next generation internal application. The more I thought about the architecture, I realize how important is to have an open architecture which can evolve based on current industry trends, best practices and open ideas from the awesome community. We are using this repository as our architecture playground for all of our products and I hope it can definely help many organization who are trying to adopt microservices. Having a adoptable and future proof technology architecture is very critical for growing business now-a-days.
 
 ## System Architecture
+High Level architecture is represented below. More details can be found on documents folder.
 
-![](https://raw.githubusercontent.com/anitechcs/microservices-reference-application/master/documents/images/MRA Architecture.svg)
+![](https://raw.githubusercontent.com/anitechcs/microservices-reference-application/master/documents/images/MRA%20Architecture.svg)
 
 ## Demonstration Video
 
