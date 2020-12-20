@@ -11,7 +11,7 @@ I was designing an architecture for one of our next generation internal applicat
 ## System Architecture
 High Level architecture is represented below. More details can be found on documents folder.
 
-![](https://raw.githubusercontent.com/anitechcs/microservices-reference-application/master/documents/images/MRA%20Architecture.svg)
+![](https://raw.githubusercontent.com/anitechcs/microservices-reference-application/master/docs/images/MRA%20Architecture.svg)
 
 ## Demonstration Video
 

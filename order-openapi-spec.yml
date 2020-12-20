@@ -1,0 +1,268 @@
+openapi: 3.0.2
+info:
+  title: OrderService API Specification
+  description: 'This API server exposes required endpoints for managing Orders in Microservices reference application.'
+  termsOfService: https://www.anitechcs.com/terms-condition/
+  contact:
+    email: contact@anitechcs.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Microservices reference application
+  url: https://github.com/anitechcs/microservices-reference-application
+servers:
+  - url: 'https://mra-bookstore.tk/v1'
+    description: Book Service production server
+tags:
+- name: order
+  description: All order enpoints required for Microservices reference application
+components:
+  schemas:
+    Order:
+      type: object
+      properties:
+        orderId:
+          description: Unique order Id in the system
+          type: integer
+          format: int64
+    Book:
+      type: object
+      properties:
+        bookId:
+          description: Unique book Id in the system
+          type: integer
+          format: int64
+        title:
+          description: Title of the book
+          type: string
+        description:
+          description: Description about book
+          type: string
+        authors:
+          description: Book authors
+          type: array
+          items:
+            type: string
+        isbn:
+          description: ISBN of the book
+          type: string
+        language:
+          description: Language in which book is written
+          type: string
+        totalPages:
+          description: Total number of pages
+          type: integer
+          format: int32
+        publicationDate:
+          description: Book publication date
+          type: string
+          format: date
+        publisher:
+          description: Publisher of the book
+          type: string
+        genres:
+          description: Genres of the book
+          type: array
+          items:
+            type: string
+        tags:
+          description: Tags
+          type: array
+          items:
+            type: string
+        price:
+          description: Price of the book
+          type: object
+          properties:
+            currency:
+              description: Currency
+              type: string
+            amount:
+              description: Price amount
+              type: number
+              format: float
+        ratings:
+          description: Book rating details
+          type: object
+          properties:
+            rating:
+              description: Book rating
+              type: number
+              format: float
+            ratingCount:
+              description: Rating count
+              type: integer
+              format: int32
+        coverPhoto:
+          description: Book cover image
+          type: string
+        promotions:
+          description: Book promotion details
+          type: object
+          properties:
+            text:
+              description: Text to show in UI
+              type: string
+              example: '15% off'
+            color:
+              description: Color of the promotion badge in UI
+              type: string
+              example: '#0D47A1'
+    OrderErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          description: Non zero error code
+          type: integer
+          format: int32
+        message:
+          description: Error message
+          type: string
+paths:
+  /book:
+    summary: This end point exposes operations related to books
+    description: Book endpoints
+    get:
+      tags:
+        - book
+      description: Get All Books with Filtering, Sorting, and Pagination
+      operationId: getAllBooks
+      parameters:
+      - name: limit
+        in: query
+        description: Number of items service will return
+        required: true
+        schema:
+          type: integer
+          format: int32
+          default: 10
+          example: 10
+      - name: offset
+        in: query
+        description: Offset the results by this number
+        schema:
+          type: integer
+          format: int32
+          default: 0
+          example: 0
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    format: int32
+                  message:
+                    type: string
+                  total:
+                    type: integer
+                    format: int64
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                            format: uri
+                      first:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                            format: uri
+                      prev:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                            format: uri
+                      next:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                            format: uri
+                      last:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                            format: uri
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Order'
+        400:
+          description: Client error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderErrorResponse'
+        404:
+          description: No records found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderErrorResponse'
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderErrorResponse'
+  /book/{bookId}:
+    description: Get indivisual book details by Id
+    get:
+      tags:
+        - book
+      description: Get book details
+      operationId: getBookById
+      parameters:
+      - name: bookId
+        in: path
+        description: ID of book to return details
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    format: int32
+                  message:
+                    type: string
+                  results:
+                    $ref: '#/components/schemas/Order'
+        400:
+          description: Client error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderErrorResponse'
+        404:
+          description: No records found\
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderErrorResponse'
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderErrorResponse'
