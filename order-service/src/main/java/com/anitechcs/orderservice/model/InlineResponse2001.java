@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * InlineResponse2001
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-12-21T12:38:08.640Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-12-21T12:56:54.131Z[GMT]")
 public class InlineResponse2001   {
   @JsonProperty("statusCode")
   private Integer statusCode;

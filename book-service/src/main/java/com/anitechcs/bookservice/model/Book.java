@@ -18,7 +18,7 @@ import javax.validation.constraints.*;
 /**
  * Book
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-12-21T12:38:06.024Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-12-21T12:56:51.345Z[GMT]")
 public class Book   {
   @JsonProperty("bookId")
   private Long bookId;

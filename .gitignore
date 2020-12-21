@@ -1,11 +1,11 @@
 # General
-#*/.openapi-generator
-#.vscode
+*/.openapi-generator
+.vscode
 
 # Java
-#*/.classpath
-#*/.settings
-#*/target
+*/.classpath
+*/.settings
+*/target
 
 # Node JS
 rating-service/node_modules
