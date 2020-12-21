@@ -1,0 +1,95 @@
+openapi: 3.0.2
+info:
+  title: PromotionService API Specification
+  description: 'This API server exposes required endpoints for managing book promotions in Microservices reference application.'
+  termsOfService: https://www.anitechcs.com/terms-condition/
+  contact:
+    email: contact@anitechcs.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1.0.0
+externalDocs:
+  description: Find out more about Microservices reference application
+  url: https://github.com/anitechcs/microservices-reference-application
+servers:
+  - url: 'https://mra-bookstore.tk/v1'
+    description: Promotion Service production server
+tags:
+- name: Promotion-Service
+  description: Promotion service enpoints required for Microservices reference application
+components:
+  schemas:
+    Promotion:
+      type: object
+      properties:
+        text:
+          description: Text to show in promotion
+          type: string
+          example: '15% off'
+        color:
+          description: Hex code for the Color
+          type: string
+          example: '#0D47A1'
+    PromotionSuccessResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+        promotions:
+          $ref: '#/components/schemas/Promotion'
+    PromotionErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          description: Non zero error code
+          type: integer
+          format: int32
+        message:
+          description: Error message
+          type: string
+paths:
+  /promotion/{bookId}:
+    description: Promotion service
+    get:
+      tags:
+        - Promotion-Service
+      description: Returns promo details for a particulat book
+      operationId: getBookPromotions
+      parameters:
+      - name: bookId
+        in: path
+        description: Id of book to return promotions
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromotionSuccessResponse'
+        400:
+          description: Client error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromotionErrorResponse'
+        404:
+          description: No records found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromotionErrorResponse'
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromotionErrorResponse'
+

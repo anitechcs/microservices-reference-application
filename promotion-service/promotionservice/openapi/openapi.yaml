@@ -1,0 +1,107 @@
+openapi: 3.0.2
+info:
+  contact:
+    email: contact@anitechcs.com
+  description: This API server exposes required endpoints for managing book promotions
+    in Microservices reference application.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://www.anitechcs.com/terms-condition/
+  title: PromotionService API Specification
+  version: v1.0.0
+externalDocs:
+  description: Find out more about Microservices reference application
+  url: https://github.com/anitechcs/microservices-reference-application
+servers:
+- description: Promotion Service production server
+  url: https://mra-bookstore.tk/v1
+tags:
+- description: Promotion service enpoints required for Microservices reference application
+  name: Promotion-Service
+paths:
+  /promotion/{bookId}:
+    description: Promotion service
+    get:
+      description: Returns promo details for a particulat book
+      operationId: get_book_promotions
+      parameters:
+      - description: Id of book to return promotions
+        explode: false
+        in: path
+        name: bookId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromotionSuccessResponse'
+          description: Success response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromotionErrorResponse'
+          description: Client error
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromotionErrorResponse'
+          description: No records found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromotionErrorResponse'
+          description: Server error
+      tags:
+      - Promotion-Service
+      x-openapi-router-controller: promotionservice.controllers.promotion_service_controller
+components:
+  schemas:
+    Promotion:
+      example:
+        color: '#0D47A1'
+        text: 15% off
+      properties:
+        text:
+          description: Text to show in promotion
+          example: 15% off
+          type: string
+        color:
+          description: Hex code for the Color
+          example: '#0D47A1'
+          type: string
+      type: object
+    PromotionSuccessResponse:
+      example:
+        promotions:
+          color: '#0D47A1'
+          text: 15% off
+        message: message
+        statusCode: 0
+      properties:
+        statusCode:
+          format: int32
+          type: integer
+        message:
+          type: string
+        promotions:
+          $ref: '#/components/schemas/Promotion'
+      type: object
+    PromotionErrorResponse:
+      properties:
+        statusCode:
+          description: Non zero error code
+          format: int32
+          type: integer
+        message:
+          description: Error message
+          type: string
+      type: object

@@ -11,7 +11,7 @@ I was designing an architecture for one of our next generation internal applicat
 ## System Architecture
 High Level architecture is represented below. More details can be found on documents folder.
 
-![](https://raw.githubusercontent.com/anitechcs/microservices-reference-application/master/documents/images/MRA%20Architecture.svg)
+![](https://raw.githubusercontent.com/anitechcs/microservices-reference-application/master/docs/images/MRA%20Architecture.svg)
 
 ## Demonstration Video
 
@@ -37,7 +37,7 @@ Deployment section goes here
 4. RatingServie - NodeJS(Express)
 5. PromotionService - Python(Flask)
 
-## Technology Stack
+## Technology Stack & Tools
 
 - Docker
 - Kubernetes
@@ -78,13 +78,13 @@ Deployment section goes here
 - [ ] Retries and Timeouts
 - [ ] TLS inter service communication
 - [ ] API management
-- [ ] API Documentation
+- [X] API Documentation
 - [ ] API Analytics
 - [ ] API Versioning
 - [ ] Self Healing
 - [ ] Distibuted Caching
 - [ ] Backups and Disaster Recovery
-- [ ] Security(Authentiation/Authorization)
+- [ ] Security (Authentiation/Authorization)
 - [ ] Efficient Search
 - [ ] Adaptable to Change
 - [ ] Reproducible

@@ -1,0 +1,110 @@
+openapi: 3.0.2
+info:
+  contact:
+    email: contact@anitechcs.com
+  description: This API server exposes required endpoints for managing book ratings
+    in Microservices reference application.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://www.anitechcs.com/terms-condition/
+  title: RatingService API Specification
+  version: v1.0.0
+externalDocs:
+  description: Find out more about Microservices reference application
+  url: https://github.com/anitechcs/microservices-reference-application
+servers:
+- description: Rating Service production server
+  url: https://mra-bookstore.tk/v1
+tags:
+- description: Rating service enpoints required for Microservices reference application
+  name: Rating-Service
+paths:
+  /rating/{bookId}:
+    description: Rating service
+    get:
+      description: Returns ratings for a particulat book
+      operationId: getBookRatings
+      parameters:
+      - description: Id of book to return ratings
+        explode: false
+        in: path
+        name: bookId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingSuccessResponse'
+          description: Success response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingErrorResponse'
+          description: Client error
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingErrorResponse'
+          description: No records found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingErrorResponse'
+          description: Server error
+      tags:
+      - Rating-Service
+      x-eov-operation-handler: controllers/RatingServiceController
+components:
+  schemas:
+    Rating:
+      example:
+        rating: 4.5
+        ratingCount: 350
+      properties:
+        rating:
+          description: Average rating
+          example: 4.5
+          format: float
+          maximum: 5
+          type: number
+        ratingCount:
+          description: Total number of rating count
+          example: 350
+          format: int64
+          type: integer
+      type: object
+    RatingSuccessResponse:
+      example:
+        ratings:
+          rating: 4.5
+          ratingCount: 350
+        message: message
+        statusCode: 0
+      properties:
+        statusCode:
+          format: int32
+          type: integer
+        message:
+          type: string
+        ratings:
+          $ref: '#/components/schemas/Rating'
+      type: object
+    RatingErrorResponse:
+      properties:
+        statusCode:
+          description: Non zero error code
+          format: int32
+          type: integer
+        message:
+          description: Error message
+          type: string
+      type: object

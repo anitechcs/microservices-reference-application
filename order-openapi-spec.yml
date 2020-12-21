@@ -1,0 +1,286 @@
+openapi: 3.0.2
+info:
+  title: OrderService API Specification
+  description: 'This API server exposes required endpoints for managing Orders in Microservices reference application.'
+  termsOfService: https://www.anitechcs.com/terms-condition/
+  contact:
+    email: contact@anitechcs.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1.0.0
+externalDocs:
+  description: Find out more about Microservices reference application
+  url: https://github.com/anitechcs/microservices-reference-application
+servers:
+  - url: 'https://mra-bookstore.tk/v1'
+    description: Order Service production server
+tags:
+- name: Order-Service
+  description: All order enpoints required for Microservices reference application
+components:
+  schemas:
+    Order:
+      type: object
+      properties:
+        orderId:
+          description: Unique order Id in the system
+          type: integer
+          format: int64
+        bookId:
+          description: Ordered book id
+          type: integer
+          format: int64
+        quantity:
+          type: integer
+          format: int32
+        shipDate:
+          type: string
+          format: date-time
+        address:
+          description: Shipping address of the order
+          type: object
+          properties:
+            firstName:
+              description: First name
+              type: string
+              nullable: false
+            lastName:
+              description: Last name
+              type: string
+            addressLine: 
+              description: Address Line 1
+              type: string
+            city:
+              description: City
+              type: string
+            zip:
+              description: Zip code
+              type: integer
+              format: int64
+            phone:
+              description: Phone number
+              type: string
+            email:
+              description: Email address
+              type: string
+              format: email
+        amount:
+          description: Total amount paid
+          type: number
+          format: double
+        paymentMethod:
+          description: Payment method used
+          type: string
+          enum:
+          - Paypal
+          - Credit Card
+          - Internet Banking
+          - UPI
+        status:
+          type: string
+          description: Order Status
+          enum:
+          - placed
+          - approved
+          - shipped
+          - delivered
+        complete:
+          type: boolean
+          default: false
+    OrderListSuccessResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+        total:
+          type: integer
+          format: int64
+        _links:
+          type: object
+          properties:
+            self:
+              type: object
+              properties:
+                href:
+                  type: string
+            first:
+              type: object
+              properties:
+                href:
+                  type: string
+            prev:
+              type: object
+              properties:
+                href:
+                  type: string
+            next:
+              type: object
+              properties:
+                href:
+                  type: string
+            last:
+              type: object
+              properties:
+                href:
+                  type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+    OrderSuccessResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+        orderId:
+          type: integer
+          format: int64
+    OrderDetailSuccessResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+        results:
+          $ref: '#/components/schemas/Order'
+    OrderErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          description: Non zero error code
+          type: integer
+          format: int32
+        message:
+          description: Error message
+          type: string
+paths:
+  /order:
+    summary: This end point exposes operations related to orders
+    description: Order endpoints
+    post:
+      tags:
+        - Order-Service
+      description: Place a new order
+      operationId: createNewOrder
+      requestBody:
+        description: Oredr creation content
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+          200:
+            description: Success response
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/OrderSuccessResponse'
+          400:
+            description: Client error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/OrderErrorResponse'
+          500:
+            description: Server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/OrderErrorResponse'  
+    get:
+      tags:
+        - Order-Service
+      description: Get All Orders with Pagination
+      operationId: getAllOrders
+      parameters:
+      - name: limit
+        in: query
+        description: Number of items service will return
+        required: true
+        schema:
+          type: integer
+          format: int32
+          default: 10
+          example: 10
+      - name: offset
+        in: query
+        description: Offset the results by this number
+        schema:
+          type: integer
+          format: int32
+          default: 0
+          example: 0
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderListSuccessResponse'
+        400:
+          description: Client error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderErrorResponse'
+        404:
+          description: No records found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderErrorResponse'
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderErrorResponse'
+  /order/{orderId}:
+    description: Get indivisual order details by Id
+    get:
+      tags:
+        - Order-Service
+      description: Get order details
+      operationId: getOrderById
+      parameters:
+      - name: orderId
+        in: path
+        description: Id of order to return details
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderDetailSuccessResponse'
+        400:
+          description: Client error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderErrorResponse'
+        404:
+          description: No records found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderErrorResponse'
+        500:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderErrorResponse'
