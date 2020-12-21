@@ -88,6 +88,70 @@ components:
         complete:
           type: boolean
           default: false
+    OrderListSuccessResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+        total:
+          type: integer
+          format: int64
+        _links:
+          type: object
+          properties:
+            self:
+              type: object
+              properties:
+                href:
+                  type: string
+            first:
+              type: object
+              properties:
+                href:
+                  type: string
+            prev:
+              type: object
+              properties:
+                href:
+                  type: string
+            next:
+              type: object
+              properties:
+                href:
+                  type: string
+            last:
+              type: object
+              properties:
+                href:
+                  type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+    OrderSuccessResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+        orderId:
+          type: integer
+          format: int64
+    OrderDetailSuccessResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+        results:
+          $ref: '#/components/schemas/Order'
     OrderErrorResponse:
       type: object
       properties:
@@ -119,16 +183,7 @@ paths:
             content:
               application/json:
                 schema:
-                  type: object
-                  properties:
-                    statusCode:
-                      type: integer
-                      format: int32
-                    message:
-                      type: string
-                    orderId:
-                      type: integer
-                      format: int64
+                  $ref: '#/components/schemas/OrderSuccessResponse'
           400:
             description: Client error
             content:
@@ -170,53 +225,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    format: int32
-                  message:
-                    type: string
-                  total:
-                    type: integer
-                    format: int64
-                  _links:
-                    type: object
-                    properties:
-                      self:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                            format: uri
-                      first:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                            format: uri
-                      prev:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                            format: uri
-                      next:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                            format: uri
-                      last:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                            format: uri
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Order'
+                $ref: '#/components/schemas/OrderListSuccessResponse'
         400:
           description: Client error
           content:
@@ -256,15 +265,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    format: int32
-                  message:
-                    type: string
-                  results:
-                    $ref: '#/components/schemas/Order'
+                $ref: '#/components/schemas/OrderDetailSuccessResponse'
         400:
           description: Client error
           content:

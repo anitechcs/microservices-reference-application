@@ -103,6 +103,59 @@ components:
               description: Color of the promotion badge in UI
               type: string
               example: '#0D47A1'
+    BookListSuccessResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+        total:
+          type: integer
+          format: int64
+        _links:
+          type: object
+          properties:
+            self:
+              type: object
+              properties:
+                href:
+                  type: string
+            first:
+              type: object
+              properties:
+                href:
+                  type: string
+            prev:
+              type: object
+              properties:
+                href:
+                  type: string
+            next:
+              type: object
+              properties:
+                href:
+                  type: string
+            last:
+              type: object
+              properties:
+                href:
+                  type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Book'
+    BookSuccessResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+        results:
+          $ref: '#/components/schemas/Book'
     BookErrorResponse:
       type: object
       properties:
@@ -146,53 +199,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    format: int32
-                  message:
-                    type: string
-                  total:
-                    type: integer
-                    format: int64
-                  _links:
-                    type: object
-                    properties:
-                      self:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                            format: uri
-                      first:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                            format: uri
-                      prev:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                            format: uri
-                      next:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                            format: uri
-                      last:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                            format: uri
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Book'
+                $ref: '#/components/schemas/BookListSuccessResponse'
         400:
           description: Client error
           content:
@@ -232,15 +239,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    format: int32
-                  message:
-                    type: string
-                  results:
-                    $ref: '#/components/schemas/Book'
+                $ref: '#/components/schemas/BookSuccessResponse'
         400:
           description: Client error
           content:

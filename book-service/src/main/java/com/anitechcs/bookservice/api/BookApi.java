@@ -6,8 +6,8 @@
 package com.anitechcs.bookservice.api;
 
 import com.anitechcs.bookservice.model.BookErrorResponse;
-import com.anitechcs.bookservice.model.InlineResponse200;
-import com.anitechcs.bookservice.model.InlineResponse2001;
+import com.anitechcs.bookservice.model.BookListSuccessResponse;
+import com.anitechcs.bookservice.model.BookSuccessResponse;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -44,9 +44,9 @@ public interface BookApi {
      *         or No records found (status code 404)
      *         or Server error (status code 500)
      */
-    @ApiOperation(value = "", nickname = "getAllBooks", notes = "Get All Books with Filtering, Sorting, and Pagination", response = InlineResponse200.class, tags={ "Book-Service", })
+    @ApiOperation(value = "", nickname = "getAllBooks", notes = "Get All Books with Filtering, Sorting, and Pagination", response = BookListSuccessResponse.class, tags={ "Book-Service", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Success response", response = InlineResponse200.class),
+        @ApiResponse(code = 200, message = "Success response", response = BookListSuccessResponse.class),
         @ApiResponse(code = 400, message = "Client error", response = BookErrorResponse.class),
         @ApiResponse(code = 404, message = "No records found", response = BookErrorResponse.class),
         @ApiResponse(code = 500, message = "Server error", response = BookErrorResponse.class) })
@@ -54,11 +54,11 @@ public interface BookApi {
         value = "/book",
         produces = { "application/json" }
     )
-    default ResponseEntity<InlineResponse200> getAllBooks(@NotNull @ApiParam(value = "Number of items service will return", required = true, defaultValue = "10") @Valid @RequestParam(value = "limit", required = true, defaultValue="10") Integer limit,@ApiParam(value = "Offset the results by this number", defaultValue = "0") @Valid @RequestParam(value = "offset", required = false, defaultValue="0") Integer offset) {
+    default ResponseEntity<BookListSuccessResponse> getAllBooks(@NotNull @ApiParam(value = "Number of items service will return", required = true, defaultValue = "10") @Valid @RequestParam(value = "limit", required = true, defaultValue="10") Integer limit,@ApiParam(value = "Offset the results by this number", defaultValue = "0") @Valid @RequestParam(value = "offset", required = false, defaultValue="0") Integer offset) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"total\" : 6, \"_links\" : { \"next\" : { \"href\" : \"https://openapi-generator.tech\" }, \"last\" : { \"href\" : \"https://openapi-generator.tech\" }, \"prev\" : { \"href\" : \"https://openapi-generator.tech\" }, \"self\" : { \"href\" : \"https://openapi-generator.tech\" }, \"first\" : { \"href\" : \"https://openapi-generator.tech\" } }, \"message\" : \"message\", \"results\" : [ { \"isbn\" : \"isbn\", \"coverPhoto\" : \"coverPhoto\", \"description\" : \"description\", \"language\" : \"language\", \"title\" : \"title\", \"bookId\" : 1, \"tags\" : [ \"tags\", \"tags\" ], \"promotions\" : { \"color\" : \"#0D47A1\", \"text\" : \"15% off\" }, \"genres\" : [ \"genres\", \"genres\" ], \"price\" : { \"amount\" : 5.637377, \"currency\" : \"currency\" }, \"ratings\" : { \"rating\" : 2.302136, \"ratingCount\" : 7 }, \"totalPages\" : 5, \"publisher\" : \"publisher\", \"publicationDate\" : \"2000-01-23\", \"authors\" : [ \"authors\", \"authors\" ] }, { \"isbn\" : \"isbn\", \"coverPhoto\" : \"coverPhoto\", \"description\" : \"description\", \"language\" : \"language\", \"title\" : \"title\", \"bookId\" : 1, \"tags\" : [ \"tags\", \"tags\" ], \"promotions\" : { \"color\" : \"#0D47A1\", \"text\" : \"15% off\" }, \"genres\" : [ \"genres\", \"genres\" ], \"price\" : { \"amount\" : 5.637377, \"currency\" : \"currency\" }, \"ratings\" : { \"rating\" : 2.302136, \"ratingCount\" : 7 }, \"totalPages\" : 5, \"publisher\" : \"publisher\", \"publicationDate\" : \"2000-01-23\", \"authors\" : [ \"authors\", \"authors\" ] } ], \"statusCode\" : 0 }";
+                    String exampleString = "{ \"total\" : 6, \"_links\" : { \"next\" : { \"href\" : \"href\" }, \"last\" : { \"href\" : \"href\" }, \"prev\" : { \"href\" : \"href\" }, \"self\" : { \"href\" : \"href\" }, \"first\" : { \"href\" : \"href\" } }, \"message\" : \"message\", \"results\" : [ { \"isbn\" : \"isbn\", \"coverPhoto\" : \"coverPhoto\", \"description\" : \"description\", \"language\" : \"language\", \"title\" : \"title\", \"bookId\" : 1, \"tags\" : [ \"tags\", \"tags\" ], \"promotions\" : { \"color\" : \"#0D47A1\", \"text\" : \"15% off\" }, \"genres\" : [ \"genres\", \"genres\" ], \"price\" : { \"amount\" : 5.637377, \"currency\" : \"currency\" }, \"ratings\" : { \"rating\" : 2.302136, \"ratingCount\" : 7 }, \"totalPages\" : 5, \"publisher\" : \"publisher\", \"publicationDate\" : \"2000-01-23\", \"authors\" : [ \"authors\", \"authors\" ] }, { \"isbn\" : \"isbn\", \"coverPhoto\" : \"coverPhoto\", \"description\" : \"description\", \"language\" : \"language\", \"title\" : \"title\", \"bookId\" : 1, \"tags\" : [ \"tags\", \"tags\" ], \"promotions\" : { \"color\" : \"#0D47A1\", \"text\" : \"15% off\" }, \"genres\" : [ \"genres\", \"genres\" ], \"price\" : { \"amount\" : 5.637377, \"currency\" : \"currency\" }, \"ratings\" : { \"rating\" : 2.302136, \"ratingCount\" : 7 }, \"totalPages\" : 5, \"publisher\" : \"publisher\", \"publicationDate\" : \"2000-01-23\", \"authors\" : [ \"authors\", \"authors\" ] } ], \"statusCode\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -79,9 +79,9 @@ public interface BookApi {
      *         or No records found (status code 404)
      *         or Server error (status code 500)
      */
-    @ApiOperation(value = "", nickname = "getBookById", notes = "Get book details", response = InlineResponse2001.class, tags={ "Book-Service", })
+    @ApiOperation(value = "", nickname = "getBookById", notes = "Get book details", response = BookSuccessResponse.class, tags={ "Book-Service", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Success response", response = InlineResponse2001.class),
+        @ApiResponse(code = 200, message = "Success response", response = BookSuccessResponse.class),
         @ApiResponse(code = 400, message = "Client error", response = BookErrorResponse.class),
         @ApiResponse(code = 404, message = "No records found", response = BookErrorResponse.class),
         @ApiResponse(code = 500, message = "Server error", response = BookErrorResponse.class) })
@@ -89,7 +89,7 @@ public interface BookApi {
         value = "/book/{bookId}",
         produces = { "application/json" }
     )
-    default ResponseEntity<InlineResponse2001> getBookById(@ApiParam(value = "Id of book to return details",required=true) @PathVariable("bookId") Long bookId) {
+    default ResponseEntity<BookSuccessResponse> getBookById(@ApiParam(value = "Id of book to return details",required=true) @PathVariable("bookId") Long bookId) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
