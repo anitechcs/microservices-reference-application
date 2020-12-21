@@ -37,6 +37,7 @@ do
             --invoker-package com.anitechcs.bookservice \
             --group-id com.anitechcs \
             --artifact-id book-service \
+            --additional-properties=hideGenerationTimestamp=true \
 
     elif [[ $SERVC == *order* ]]
     then
@@ -50,6 +51,7 @@ do
             --invoker-package com.anitechcs.orderservice \
             --group-id com.anitechcs \
             --artifact-id order-service \
+            --additional-properties=hideGenerationTimestamp=true \
 
     elif [[ $SERVC == *rating* ]]
     then

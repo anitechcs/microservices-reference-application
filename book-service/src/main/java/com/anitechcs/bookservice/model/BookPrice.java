@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * Price of the book
  */
 @ApiModel(description = "Price of the book")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-12-21T12:56:51.345Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class BookPrice   {
   @JsonProperty("currency")
   private String currency;

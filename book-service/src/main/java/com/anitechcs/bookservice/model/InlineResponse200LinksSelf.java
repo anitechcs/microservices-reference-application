@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
 /**
  * InlineResponse200LinksSelf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-12-21T12:56:51.345Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class InlineResponse200LinksSelf   {
   @JsonProperty("href")
   private URI href;

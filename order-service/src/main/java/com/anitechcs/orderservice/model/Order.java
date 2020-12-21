@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 /**
  * Order
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-12-21T12:56:54.131Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class Order   {
   @JsonProperty("orderId")
   private Long orderId;
