@@ -1,5 +1,5 @@
 {
-  "name":  "ratingservice-api-specification",
+  "name": "ratingservice-api-specification",
   "version": "v1.0.0",
   "description": "This API server exposes required endpoints for managing book ratings in Microservices reference application.",
   "main": "index.js",
