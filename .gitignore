@@ -1,3 +1,15 @@
+# General
+#*/.openapi-generator
+#.vscode
+
+# Java
+#*/.classpath
+#*/.settings
+#*/target
+
+# Node JS
 rating-service/node_modules
 bookstore/node_modules
 bookstore/dist
+
+# Python

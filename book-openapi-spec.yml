@@ -8,7 +8,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 1.0.0
+  version: v1.0.0
 externalDocs:
   description: Find out more about Microservices reference application
   url: https://github.com/anitechcs/microservices-reference-application
@@ -16,7 +16,7 @@ servers:
   - url: 'https://mra-bookstore.tk/v1'
     description: Book Service production server
 tags:
-- name: book
+- name: Book-Service
   description: All book enpoints required for Microservices reference application
 components:
   schemas:
@@ -119,7 +119,7 @@ paths:
     description: Book endpoints
     get:
       tags:
-        - book
+        - Book-Service
       description: Get All Books with Filtering, Sorting, and Pagination
       operationId: getAllBooks
       parameters:
@@ -215,13 +215,13 @@ paths:
     description: Get indivisual book details by Id
     get:
       tags:
-        - book
+        - Book-Service
       description: Get book details
       operationId: getBookById
       parameters:
       - name: bookId
         in: path
-        description: ID of book to return details
+        description: Id of book to return details
         required: true
         schema:
           type: integer
@@ -248,7 +248,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BookErrorResponse'
         404:
-          description: No records found\
+          description: No records found
           content:
             application/json:
               schema:

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # This script will launch Swagger-Editor for updating OpenAPI specification file
 
 PORT=8888

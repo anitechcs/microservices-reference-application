@@ -37,7 +37,7 @@ Deployment section goes here
 4. RatingServie - NodeJS(Express)
 5. PromotionService - Python(Flask)
 
-## Technology Stack
+## Technology Stack & Tools
 
 - Docker
 - Kubernetes
@@ -78,13 +78,13 @@ Deployment section goes here
 - [ ] Retries and Timeouts
 - [ ] TLS inter service communication
 - [ ] API management
-- [ ] API Documentation
+- [X] API Documentation
 - [ ] API Analytics
 - [ ] API Versioning
 - [ ] Self Healing
 - [ ] Distibuted Caching
 - [ ] Backups and Disaster Recovery
-- [ ] Security(Authentiation/Authorization)
+- [ ] Security (Authentiation/Authorization)
 - [ ] Efficient Search
 - [ ] Adaptable to Change
 - [ ] Reproducible

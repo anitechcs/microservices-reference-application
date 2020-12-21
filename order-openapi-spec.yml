@@ -8,15 +8,15 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 1.0.0
+  version: v1.0.0
 externalDocs:
   description: Find out more about Microservices reference application
   url: https://github.com/anitechcs/microservices-reference-application
 servers:
   - url: 'https://mra-bookstore.tk/v1'
-    description: Book Service production server
+    description: Order Service production server
 tags:
-- name: order
+- name: Order-Service
   description: All order enpoints required for Microservices reference application
 components:
   schemas:
@@ -27,89 +27,67 @@ components:
           description: Unique order Id in the system
           type: integer
           format: int64
-    Book:
-      type: object
-      properties:
         bookId:
-          description: Unique book Id in the system
+          description: Ordered book id
           type: integer
           format: int64
-        title:
-          description: Title of the book
-          type: string
-        description:
-          description: Description about book
-          type: string
-        authors:
-          description: Book authors
-          type: array
-          items:
-            type: string
-        isbn:
-          description: ISBN of the book
-          type: string
-        language:
-          description: Language in which book is written
-          type: string
-        totalPages:
-          description: Total number of pages
+        quantity:
           type: integer
           format: int32
-        publicationDate:
-          description: Book publication date
+        shipDate:
           type: string
-          format: date
-        publisher:
-          description: Publisher of the book
-          type: string
-        genres:
-          description: Genres of the book
-          type: array
-          items:
-            type: string
-        tags:
-          description: Tags
-          type: array
-          items:
-            type: string
-        price:
-          description: Price of the book
+          format: date-time
+        address:
+          description: Shipping address of the order
           type: object
           properties:
-            currency:
-              description: Currency
+            firstName:
+              description: First name
               type: string
-            amount:
-              description: Price amount
-              type: number
-              format: float
-        ratings:
-          description: Book rating details
-          type: object
-          properties:
-            rating:
-              description: Book rating
-              type: number
-              format: float
-            ratingCount:
-              description: Rating count
+              nullable: false
+            lastName:
+              description: Last name
+              type: string
+            addressLine: 
+              description: Address Line 1
+              type: string
+            city:
+              description: City
+              type: string
+            zip:
+              description: Zip code
               type: integer
-              format: int32
-        coverPhoto:
-          description: Book cover image
+              format: int64
+            phone:
+              description: Phone number
+              type: string
+            email:
+              description: Email address
+              type: string
+              format: email
+        amount:
+          description: Total amount paid
+          type: number
+          format: double
+        paymentMethod:
+          description: Payment method used
           type: string
-        promotions:
-          description: Book promotion details
-          type: object
-          properties:
-            text:
-              description: Text to show in UI
-              type: string
-              example: '15% off'
-            color:
-              description: Color of the promotion badge in UI
-              type: string
-              example: '#0D47A1'
+          enum:
+          - Paypal
+          - Credit Card
+          - Internet Banking
+          - UPI
+        status:
+          type: string
+          description: Order Status
+          enum:
+          - placed
+          - approved
+          - shipped
+          - delivered
+        complete:
+          type: boolean
+          default: false
     OrderErrorResponse:
       type: object
       properties:
@@ -121,14 +99,53 @@ components:
           description: Error message
           type: string
 paths:
-  /book:
-    summary: This end point exposes operations related to books
-    description: Book endpoints
+  /order:
+    summary: This end point exposes operations related to orders
+    description: Order endpoints
+    post:
+      tags:
+        - Order-Service
+      description: Place a new order
+      operationId: createNewOrder
+      requestBody:
+        description: Oredr creation content
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+          200:
+            description: Success response
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    statusCode:
+                      type: integer
+                      format: int32
+                    message:
+                      type: string
+                    orderId:
+                      type: integer
+                      format: int64
+          400:
+            description: Client error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/OrderErrorResponse'
+          500:
+            description: Server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/OrderErrorResponse'  
     get:
       tags:
-        - book
-      description: Get All Books with Filtering, Sorting, and Pagination
-      operationId: getAllBooks
+        - Order-Service
+      description: Get All Orders with Pagination
+      operationId: getAllOrders
       parameters:
       - name: limit
         in: query
@@ -218,17 +235,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderErrorResponse'
-  /book/{bookId}:
-    description: Get indivisual book details by Id
+  /order/{orderId}:
+    description: Get indivisual order details by Id
     get:
       tags:
-        - book
-      description: Get book details
-      operationId: getBookById
+        - Order-Service
+      description: Get order details
+      operationId: getOrderById
       parameters:
-      - name: bookId
+      - name: orderId
         in: path
-        description: ID of book to return details
+        description: Id of order to return details
         required: true
         schema:
           type: integer
@@ -255,7 +272,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OrderErrorResponse'
         404:
-          description: No records found\
+          description: No records found
           content:
             application/json:
               schema:
