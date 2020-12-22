@@ -47,3 +47,9 @@ docker build -t promotionservice .
 # starting up a container
 docker run -p 8080:8080 promotionservice
 ```
+
+and open your browser to here:
+
+```
+http://localhost:8080/v1/ui/
+```
