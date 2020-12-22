@@ -8,8 +8,10 @@
 */target
 
 # Node JS
+rating-service/*.log
 rating-service/node_modules
 bookstore/node_modules
 bookstore/dist
 
 # Python
+

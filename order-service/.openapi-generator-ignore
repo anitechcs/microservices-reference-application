@@ -23,5 +23,6 @@
 #!docs/README.md
 
 pom.xml
+README.md
 src/main/resources/application.properties
 src/main/java/com/anitechcs/orderservice/api/OrderApiController.java
