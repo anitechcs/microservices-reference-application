@@ -14,18 +14,28 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Setup Java JDK
       uses: actions/setup-java@v1.4.3
       with:
         java-version: 1.8
+    
+    # Book--Service
     - name: Build the Book-Service FAT jar
       run: cd book-service && mvn clean package
     - name: Extract the FAT jar built on previous step
       run: cd book-service && mkdir target/docker-packaging && (cd target/docker-packaging; jar -xf ../*.jar)
     - name: Build the Book-Service Docker image
-      run: docker build . --file book-service/Dockerfile --tag bookservice:$(date +%s)
+      run: cd book-service && docker build . --file book-service/Dockerfile --tag bookservice:$(date +%s)
+    
+    # Order-Service
+    - name: Build the Order-Service FAT jar
+      run: cd order-service && mvn clean package
+    - name: Extract the FAT jar built on previous step
+      run: cd order-service && mkdir target/docker-packaging && (cd target/docker-packaging; jar -xf ../*.jar)
     - name: Build the Order-Service Docker image
-      run: docker build . --file order-service/Dockerfile --tag orderservice:$(date +%s)
+      run: cd order-service && docker build . --file order-service/Dockerfile --tag orderservice:$(date +%s)
+    
     - name: Setup Node.js environment
       uses: actions/setup-node@v2.1.4
       with:
