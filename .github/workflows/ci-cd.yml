@@ -29,7 +29,7 @@ jobs:
     - name: Extract the FAT jar built on previous step
       run: cd book-service && mkdir target/docker-packaging && (cd target/docker-packaging; jar -xf ../*.jar)
     - name: Build the Book-Service Docker image
-      run: cd book-service && docker build . --file Dockerfile --tag anitechcs/bookservice:$IMAGE_TAG
+      run: cd book-service && docker build . --file Dockerfile --tag bookservice:$IMAGE_TAG
     
     # Order-Service
     - name: Build the Order-Service FAT jar
@@ -58,16 +58,19 @@ jobs:
     # BookStore Angular App
     - name: Build the Bookstore UI app Docker image
       run: cd bookstore && docker build . --file Dockerfile --tag bookstore:$IMAGE_TAG
-
+    
     # Push docker images to DockerHub
-    - name: Docker Push Book-Service
-      uses: opspresso/action-docker@v0.2.13
+    - name: Push To DockerHub Registry
+      uses: redhat-actions/push-to-registry@v1
       with:
-        args: --docker
-      env:
-        USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        DOCKERFILE: "Dockerfile"
-        IMAGE_NAME: "anitechcs/bookservice"
-        TAG_NAME: "$IMAGE_TAG"
-        LATEST: "true"
+        image: bookservice
+        # Tag of the image to push
+        tag: "$IMAGE_TAG" # optional, default is latest
+        # Registry where to push the image (eg. quay.io/username)
+        registry: docker.io/anitechcs
+        # Username to use as credential to authenticate to the registry
+        username: ${{ secrets.DOCKER_USERNAME }}
+        # Password to use as credential to authenticate to the registry
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+
