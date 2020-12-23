@@ -18,6 +18,8 @@ jobs:
       uses: actions/setup-java@v1.4.3
       with:
         java-version: 1.8
+    - name: Build the Book-Service FAT jar and extract it
+      run: cd book-service && mvn clean package -Dmaven.test.skip && mkdir target/docker-packaging && (cd target/docker-packaging; jar -xf ../*.jar)
     - name: Build the Book-Service Docker image
       run: docker build . --file book-service/Dockerfile --tag bookservice:$(date +%s)
     - name: Build the Order-Service Docker image
