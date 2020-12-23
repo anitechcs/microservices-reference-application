@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-
+  # Build Docker images
   build:
 
     runs-on: ubuntu-latest
@@ -56,5 +56,5 @@ jobs:
     - name: Build the Bookstore UI app Docker image
       run: cd bookstore && docker build . --file Dockerfile --tag bookstore:$(date +%s)
 
-
-
+    - name: Docker Push
+      uses: opspresso/action-docker@v0.2.13
