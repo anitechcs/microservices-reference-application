@@ -36,14 +36,6 @@ jobs:
     - name: Build the Order-Service Docker image
       run: cd order-service && docker build . --file Dockerfile --tag orderservice:$(date +%s)
     
-    # Rating-Service
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v2.1.4
-      with:
-        node-version: 12.x
-    - name: Build the Rating-Service Docker image
-      run: cd rating-service && docker build . --file Dockerfile --tag ratingservice:$(date +%s)
-    
     # Promotion-Service
     - name: Setup Python
       uses: actions/setup-python@v2.2.1
@@ -52,11 +44,15 @@ jobs:
     - name: Build the Promotion-Service Docker image
       run: cd promotion-service && docker build . --file Dockerfile --tag promotionservice:$(date +%s)
     
-    # BookStore Angular App
-    - name: Angular Full CI
-      uses: colbyhill21/angular-full-ci@v1.0
+    # Rating-Service
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.4
       with:
-        testcommand: ng test
+        node-version: 12.x
+    - name: Build the Rating-Service Docker image
+      run: cd rating-service && docker build . --file Dockerfile --tag ratingservice:$(date +%s)
+    
+    # BookStore Angular App
     - name: Build the Bookstore UI app Docker image
       run: cd bookstore && docker build . --file Dockerfile --tag bookstore:$(date +%s)
 
