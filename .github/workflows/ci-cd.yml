@@ -21,7 +21,7 @@ jobs:
     - name: Build the Book-Service FAT jar
       run: cd book-service && mvn clean package
     - name: Extract the FAT jar built on previous step
-      run: mkdir target/docker-packaging && (cd target/docker-packaging; jar -xf ../*.jar)
+      run: cd book-service && mkdir target/docker-packaging && (cd target/docker-packaging; jar -xf ../*.jar)
     - name: Build the Book-Service Docker image
       run: docker build . --file book-service/Dockerfile --tag bookservice:$(date +%s)
     - name: Build the Order-Service Docker image
