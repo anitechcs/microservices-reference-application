@@ -1,0 +1,45 @@
+name: Continious Integration & Deployment
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Java JDK
+      uses: actions/setup-java@v1.4.3
+      with:
+        java-version: 1.8
+    - name: Build the Book-Service Docker image
+      run: docker build . --file book-service/Dockerfile --tag bookservice:$(date +%s)
+    - name: Build the Order-Service Docker image
+      run: docker build . --file order-service/Dockerfile --tag orderservice:$(date +%s)
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.4
+      with:
+        node-version: 12.x
+    - name: Build the Rating-Service Docker image
+      run: docker build . --file rating-service/Dockerfile --tag ratingservice:$(date +%s)
+    - name: Setup Python
+      uses: actions/setup-python@v2.2.1
+      with:
+        python-version: 3.x
+    - name: Build the Promotion-Service Docker image
+      run: docker build . --file promotion-service/Dockerfile --tag promotionservice:$(date +%s)
+    - name: Angular Full CI
+      uses: colbyhill21/angular-full-ci@v1.0
+      with:
+        testcommand: ng test
+    - name: Build the Bookstore UI app Docker image
+      run: docker build . --file bookstore/Dockerfile --tag bookstore:$(date +%s)
+
+
+
