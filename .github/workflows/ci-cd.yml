@@ -29,7 +29,7 @@ jobs:
     - name: Extract the FAT jar built on previous step
       run: cd book-service && mkdir target/docker-packaging && (cd target/docker-packaging; jar -xf ../*.jar)
     - name: Build the Book-Service Docker image
-      run: cd book-service && docker build . --file Dockerfile --tag bookservice:${ IMAGE_TAG }
+      run: cd book-service && docker build . --file Dockerfile --tag bookservice:$IMAGE_TAG
     
     # Order-Service
     - name: Build the Order-Service FAT jar
@@ -37,7 +37,7 @@ jobs:
     - name: Extract the FAT jar built on previous step
       run: cd order-service && mkdir target/docker-packaging && (cd target/docker-packaging; jar -xf ../*.jar)
     - name: Build the Order-Service Docker image
-      run: cd order-service && docker build . --file Dockerfile --tag orderservice:${ IMAGE_TAG }
+      run: cd order-service && docker build . --file Dockerfile --tag orderservice:$IMAGE_TAG
     
     # Promotion-Service
     - name: Setup Python
@@ -45,7 +45,7 @@ jobs:
       with:
         python-version: 3.x
     - name: Build the Promotion-Service Docker image
-      run: cd promotion-service && docker build . --file Dockerfile --tag promotionservice:${ IMAGE_TAG }
+      run: cd promotion-service && docker build . --file Dockerfile --tag promotionservice:$IMAGE_TAG
     
     # Rating-Service
     - name: Setup Node.js environment
@@ -53,11 +53,11 @@ jobs:
       with:
         node-version: 12.x
     - name: Build the Rating-Service Docker image
-      run: cd rating-service && docker build . --file Dockerfile --tag ratingservice:${ IMAGE_TAG }
+      run: cd rating-service && docker build . --file Dockerfile --tag ratingservice:$IMAGE_TAG
     
     # BookStore Angular App
     - name: Build the Bookstore UI app Docker image
-      run: cd bookstore && docker build . --file Dockerfile --tag bookstore:${ IMAGE_TAG }
+      run: cd bookstore && docker build . --file Dockerfile --tag bookstore:$IMAGE_TAG
     
     # Push bookservice docker images to DockerHub
     - name: Push To DockerHub Registry
