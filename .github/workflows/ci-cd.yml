@@ -60,7 +60,7 @@ jobs:
       run: cd bookstore && docker build . --file Dockerfile --tag bookstore:$IMAGE_TAG
     
     # Push bookservice docker images to DockerHub
-    - name: Push To DockerHub Registry
+    - name: Push bookservice To DockerHub Registry
       uses: redhat-actions/push-to-registry@v1
       with:
         image: bookservice
@@ -74,7 +74,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         
     # Push orderservice docker images to DockerHub
-    - name: Push To DockerHub Registry
+    - name: Push orderservice To DockerHub Registry
       uses: redhat-actions/push-to-registry@v1
       with:
         image: orderservice
@@ -88,7 +88,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
       
     # Push promotionservice docker images to DockerHub
-    - name: Push To DockerHub Registry
+    - name: Push promotionservice To DockerHub Registry
       uses: redhat-actions/push-to-registry@v1
       with:
         image: promotionservice
@@ -102,7 +102,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         
     # Push ratingservice docker images to DockerHub
-    - name: Push To DockerHub Registry
+    - name: Push ratingservice To DockerHub Registry
       uses: redhat-actions/push-to-registry@v1
       with:
         image: ratingservice
@@ -116,7 +116,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
               
     # Push bookstore docker images to DockerHub
-    - name: Push To DockerHub Registry
+    - name: Push bookstore To DockerHub Registry
       uses: redhat-actions/push-to-registry@v1
       with:
         image: bookstore
