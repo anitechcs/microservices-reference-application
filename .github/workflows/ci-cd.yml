@@ -26,7 +26,7 @@ jobs:
     - name: Extract the FAT jar built on previous step
       run: cd book-service && mkdir target/docker-packaging && (cd target/docker-packaging; jar -xf ../*.jar)
     - name: Build the Book-Service Docker image
-      run: cd book-service && docker build . --file book-service/Dockerfile --tag bookservice:$(date +%s)
+      run: cd book-service && docker build . --file Dockerfile --tag bookservice:$(date +%s)
     
     # Order-Service
     - name: Build the Order-Service FAT jar
@@ -34,26 +34,31 @@ jobs:
     - name: Extract the FAT jar built on previous step
       run: cd order-service && mkdir target/docker-packaging && (cd target/docker-packaging; jar -xf ../*.jar)
     - name: Build the Order-Service Docker image
-      run: cd order-service && docker build . --file order-service/Dockerfile --tag orderservice:$(date +%s)
+      run: cd order-service && docker build . --file Dockerfile --tag orderservice:$(date +%s)
     
+    # Rating-Service
     - name: Setup Node.js environment
       uses: actions/setup-node@v2.1.4
       with:
         node-version: 12.x
     - name: Build the Rating-Service Docker image
-      run: docker build . --file rating-service/Dockerfile --tag ratingservice:$(date +%s)
+      run: cd rating-service && docker build . --file Dockerfile --tag ratingservice:$(date +%s)
+    
+    # Promotion-Service
     - name: Setup Python
       uses: actions/setup-python@v2.2.1
       with:
         python-version: 3.x
     - name: Build the Promotion-Service Docker image
-      run: docker build . --file promotion-service/Dockerfile --tag promotionservice:$(date +%s)
+      run: cd promotion-service && docker build . --file Dockerfile --tag promotionservice:$(date +%s)
+    
+    # BookStore Angular App
     - name: Angular Full CI
       uses: colbyhill21/angular-full-ci@v1.0
       with:
         testcommand: ng test
     - name: Build the Bookstore UI app Docker image
-      run: docker build . --file bookstore/Dockerfile --tag bookstore:$(date +%s)
+      run: cd bookstore && docker build . --file Dockerfile --tag bookstore:$(date +%s)
 
 
 
