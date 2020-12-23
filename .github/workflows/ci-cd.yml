@@ -65,12 +65,67 @@ jobs:
       with:
         image: bookservice
         # Tag of the image to push
-        tag: ${ IMAGE_TAG } # optional, default is latest
+        # tag: $IMAGE_TAG # optional, default is latest
         # Registry where to push the image (eg. quay.io/username)
         registry: docker.io/anitechcs
         # Username to use as credential to authenticate to the registry
         username: ${{ secrets.DOCKER_USERNAME }}
         # Password to use as credential to authenticate to the registry
         password: ${{ secrets.DOCKER_PASSWORD }}
-
+        
+    # Push orderservice docker images to DockerHub
+    - name: Push To DockerHub Registry
+      uses: redhat-actions/push-to-registry@v1
+      with:
+        image: orderservice
+        # Tag of the image to push
+        # tag: $IMAGE_TAG # optional, default is latest
+        # Registry where to push the image (eg. quay.io/username)
+        registry: docker.io/anitechcs
+        # Username to use as credential to authenticate to the registry
+        username: ${{ secrets.DOCKER_USERNAME }}
+        # Password to use as credential to authenticate to the registry
+        password: ${{ secrets.DOCKER_PASSWORD }}
+      
+    # Push promotionservice docker images to DockerHub
+    - name: Push To DockerHub Registry
+      uses: redhat-actions/push-to-registry@v1
+      with:
+        image: promotionservice
+        # Tag of the image to push
+        # tag: $IMAGE_TAG # optional, default is latest
+        # Registry where to push the image (eg. quay.io/username)
+        registry: docker.io/anitechcs
+        # Username to use as credential to authenticate to the registry
+        username: ${{ secrets.DOCKER_USERNAME }}
+        # Password to use as credential to authenticate to the registry
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        
+    # Push ratingservice docker images to DockerHub
+    - name: Push To DockerHub Registry
+      uses: redhat-actions/push-to-registry@v1
+      with:
+        image: ratingservice
+        # Tag of the image to push
+        # tag: $IMAGE_TAG # optional, default is latest
+        # Registry where to push the image (eg. quay.io/username)
+        registry: docker.io/anitechcs
+        # Username to use as credential to authenticate to the registry
+        username: ${{ secrets.DOCKER_USERNAME }}
+        # Password to use as credential to authenticate to the registry
+        password: ${{ secrets.DOCKER_PASSWORD }}
+              
+    # Push bookstore docker images to DockerHub
+    - name: Push To DockerHub Registry
+      uses: redhat-actions/push-to-registry@v1
+      with:
+        image: bookstore
+        # Tag of the image to push
+        # tag: $IMAGE_TAG # optional, default is latest
+        # Registry where to push the image (eg. quay.io/username)
+        registry: docker.io/anitechcs
+        # Username to use as credential to authenticate to the registry
+        username: ${{ secrets.DOCKER_USERNAME }}
+        # Password to use as credential to authenticate to the registry
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
