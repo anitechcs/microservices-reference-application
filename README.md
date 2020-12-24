@@ -1,6 +1,6 @@
 # Bookstore - Microservices Reference Application
 
-> Polyglot microservices reference application using opensource technology stack like Docker, Kubernetes and Istio
+> Polyglot microservices reference application using opensource technology stack like Docker and Kubernetes
 
 ![](docs/images/logos/v1/cover-small.png)
 
