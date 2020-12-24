@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Lemonada-Bold
+font link: https://fonts.google.com/specimen/Lemonada
+font author: Eduardo Tunni
+font author site: http://www.tipo.net.ar/
+
+
+icon designer: Derrick Snider
+icon designer link: /derrick_snider
+        
+{"bg":"#29A7F1","icon":"#ffffff","font":"#ffffff","slogan":"#ffffff"}
+      
