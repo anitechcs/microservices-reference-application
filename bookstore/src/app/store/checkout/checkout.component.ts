@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { StoreService } from '../../shared/services/store.service';
 import { AppAnimations } from '../../shared/animations/animations';
 import { CartItem } from '../../shared/models/cart.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -22,7 +23,9 @@ export class CheckoutComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private storeService: StoreService
+    private storeService: StoreService,
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -64,8 +67,8 @@ export class CheckoutComponent implements OnInit {
 
 
   placeOrder() {
-    const shippingAddress = this.checkoutForm.value;
-    alert("Oredr Placed!")
+    // const shippingAddress = this.checkoutForm.value;
+    this.router.navigate(['/store/order/confirmation', { refId: 1267257 }]);
   }
 
 }
