@@ -52,7 +52,7 @@ export class BooksDB {
         'mrp': 95
       },
       'ratings': {
-        'rating': 4.50,
+        'rating': 4.20,
         'ratingCount': 1710
       },
       'coverPhoto': 'the-hobbit.jpeg',
@@ -82,7 +82,7 @@ export class BooksDB {
         'mrp': 67
       },
       'ratings': {
-        'rating': 4.50,
+        'rating': 3.50,
         'ratingCount': 1710
       },
       'coverPhoto': 'lords-of-ring-book-image.jpg',
@@ -111,7 +111,7 @@ export class BooksDB {
         'mrp': 48
       },
       'ratings': {
-        'rating': 4.50,
+        'rating': 2.10,
         'ratingCount': 1710
       },
       'coverPhoto': 'the-hobbit.jpeg',
@@ -141,7 +141,7 @@ export class BooksDB {
         'mrp': 88
       },
       'ratings': {
-        'rating': 4.50,
+        'rating': 2.80,
         'ratingCount': 1710
       },
       'coverPhoto': 'the-lord-of-the-rings-book-cover.jpg',
@@ -171,7 +171,7 @@ export class BooksDB {
         'mrp': 75
       },
       'ratings': {
-        'rating': 4.50,
+        'rating': 1.60,
         'ratingCount': 1710
       },
       'coverPhoto': 'the-hobbit.jpeg',
@@ -201,7 +201,7 @@ export class BooksDB {
         'mrp': 408
       },
       'ratings': {
-        'rating': 4.50,
+        'rating': 3.80,
         'ratingCount': 1710
       },
       'coverPhoto': 'lords-of-ring-book-image.jpg',
@@ -231,7 +231,7 @@ export class BooksDB {
         'mrp': 420
       },
       'ratings': {
-        'rating': 4.50,
+        'rating': 4.90,
         'ratingCount': 1710
       },
       'coverPhoto': 'the-hobbit.jpeg',
@@ -261,7 +261,7 @@ export class BooksDB {
         'mrp': 44
       },
       'ratings': {
-        'rating': 4.50,
+        'rating': 4.10,
         'ratingCount': 1710
       },
       'coverPhoto': 'the-lord-of-the-rings-book-cover.jpg',
@@ -291,7 +291,7 @@ export class BooksDB {
         'mrp': 71
       },
       'ratings': {
-        'rating': 4.50,
+        'rating': 4.25,
         'ratingCount': 1710
       },
       'coverPhoto': 'the-hobbit.jpeg',
