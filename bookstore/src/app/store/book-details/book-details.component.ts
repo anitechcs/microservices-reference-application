@@ -14,14 +14,13 @@ import { CartItem } from '../../shared/models/cart.model';
   animations: AppAnimations
 })
 export class BookDetailsComponent implements OnInit, OnDestroy {
-  public productID;
-  public book: Book;
+  public bookID: number = 0;
+  public book!: Book;
   public quantity = 1;
-  public cart: CartItem[];
+  public cart!: CartItem[];
   public cartData: any;
-  private productSub: Subscription;
+  private bookSub!: Subscription;
 
-  public photoGallery: any[] = [{url: '', state: '0'}];
   constructor(
     private storeService: StoreService,
     private route: ActivatedRoute,
@@ -29,26 +28,33 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.productID = this.route.snapshot.params['id'];
-    this.getProduct(this.productID);
+    this.bookID = this.route.snapshot.params['bookId'];
+    this.getBook(this.bookID);
     this.getCart();
     this.cartData = this.storeService.cartData;
   }
 
   ngOnDestroy() {
-    this.productSub.unsubscribe();
+    this.bookSub.unsubscribe();
   }
 
-  getProduct(id) {
-    this.productSub = this.storeService.getProductDetails(id)
+  getBook(bookId: number) {
+    this.bookSub = this.storeService.getBookDetails(bookId)
     .subscribe(res => {
       this.book = res;
-      this.initGallery(this.book);
     }, err => {
       this.book = {
-        _id: '',
-        name: '',
-        price: { sale: 0 }
+        bookId: 0,
+        title: '',
+        authors: [],
+        isbn: '',
+        language: 'English',
+        publicationDate: '',
+        publisher: '',
+        totalPages: 0,
+        coverPhoto: '',
+        genres: [],
+        price: { currency: 'USD', amount: 0 }
       };
     });
   }
@@ -76,37 +82,6 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
       this.cart = res;
       this.quantity = 1;
       this.snackBar.open('Book added to cart', 'OK', { duration: 4000 });
-    });
-  }
-
-  initGallery(book: Book) {
-    if (!book.gallery) {
-      return;
-    }
-    this.photoGallery = book.gallery.map(i => {
-      return {
-        url: i,
-        state: '0'
-      };
-    });
-    if (this.photoGallery[0])  {
-      this.photoGallery[0].state = '1';
-    }
-  }
-
-  changeState(photo) {
-    if (photo.state === '1') {
-      return;
-    }
-    this.photoGallery = this.photoGallery.map(p => {
-      if (photo.url === p.url) {
-        setTimeout(() => {
-          p.state = '1';
-          return p;
-        }, 290);
-      }
-      p.state = '0';
-      return p;
     });
   }
 

@@ -17,14 +17,15 @@ import { CartItem } from '../../shared/models/cart.model';
   animations: [ AppAnimations ]
 })
 export class BooksComponent implements OnInit {
-  public isSideNavOpen: boolean;
+  public isSideNavOpen: boolean = false;
   public viewMode = 'grid-view';
   public currentPage: any;
-  @ViewChild('sideNav') sideNav: MatSidenav;
+  @ViewChild('sideNav')
+  sideNav!: MatSidenav;
 
   public books$: Observable<Book[]>;
-  public categories$: Observable<any>;
-  public activeCategory = 'all';
+  public genres$: Observable<any>;
+  public activeGenre = 'all';
   public filterForm: FormGroup;
   public cart: CartItem[];
   public cartData: any;
@@ -37,14 +38,14 @@ export class BooksComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.categories$ = this.storeService.getCategories();
+    this.genres$ = this.storeService.getGenres();
     this.buildFilterForm(this.storeService.initialFilters);
 
     setTimeout(() => {
       this.loader.open();
     });
     this.books$ = this.storeService
-      .getFilteredProduct(this.filterForm)
+      .getFilteredBook(this.filterForm)
       .pipe(
         map(books => {
           this.loader.close();
@@ -63,7 +64,7 @@ export class BooksComponent implements OnInit {
     });
   }
 
-  addToCart(book) {
+  addToCart(book: Book) {
     const cartItem: CartItem = {
       book: book,
       data: {
@@ -81,7 +82,7 @@ export class BooksComponent implements OnInit {
   buildFilterForm(filterData: any = {}) {
     this.filterForm = this.fb.group({
       search: [''],
-      category: ['all'],
+      genre: ['all'],
       minPrice: [filterData.minPrice],
       maxPrice: [filterData.maxPrice],
       minRating: [filterData.minRating],
@@ -89,9 +90,9 @@ export class BooksComponent implements OnInit {
     });
   }
   
-  setActiveCategory(category) {
-    this.activeCategory = category;
-    this.filterForm.controls['category'].setValue(category);
+  setActiveGenre(genre: string) {
+    this.activeGenre = genre;
+    this.filterForm.controls['genre'].setValue(genre);
   }
 
   toggleSideNav() {

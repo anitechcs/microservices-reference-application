@@ -4,7 +4,7 @@
       <div class="store-filters-wrap">
         <form [formGroup]="filterForm">
           <mat-accordion multi="true" displayMode="flat">
-            <!-- Categories -->
+            <!-- Genres -->
             <mat-expansion-panel expanded="true">
               <mat-expansion-panel-header>
                 <mat-panel-title>
@@ -12,8 +12,8 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <ul class="product-categories">
-                <li [ngClass]="{'fw-500': 'all' === activeCategory}" (click)="setActiveCategory('all')">All</li>
-                <li *ngFor="let c of categories$ | async" [ngClass]="{'fw-500': c === activeCategory}" (click)="setActiveCategory(c)">{{c}}</li>
+                <li [ngClass]="{'fw-500': 'all' === activeGenre}" (click)="setActiveGenre('all')">All</li>
+                <li *ngFor="let c of genres$ | async" [ngClass]="{'fw-500': c === activeGenre}" (click)="setActiveGenre(c)">{{c}}</li>
               </ul>
             </mat-expansion-panel>
             <!-- Price -->
@@ -80,20 +80,20 @@
           <!-- Product Box -->
           <div
           class="product-wrap"
-          *ngFor="let book of books$ | async | paginate: { itemsPerPage: 6, currentPage: currentPage }; let i = index;"
+          *ngFor="let book of books$ | async | paginate: { itemsPerPage: 8, currentPage: currentPage }; let i = index;"
           [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'50px'}}">
             <div class="product-inner default-bg">
-              <div class="featured-img" [routerLink]="['/store/books/', book._id]">
-                <img [src]="book.photo" alt="">
+              <div class="featured-img" [routerLink]="['/store/books/', book.bookId]">
+                <img [src]="'assets/images/covers/' + book.coverPhoto" alt="cover image">
               </div>
               <div class="info-wrap p-1">
                 <div class="main-info">
-                  <h3 class="title" [routerLink]="['/store/books/', book._id]">{{book.name}}</h3>
-                  <p class="text-muted p-line">{{book?.subtitle}}</p>
+                  <h3 class="title" [routerLink]="['/store/books/', book.bookId]">{{book.title}}</h3>
+                  <p class="text-muted p-line">{{book?.description}}</p>
                   <p class="text-muted p-line">
-                    <strong>Genres:</strong> {{book?.category}}</p>
+                    <strong>Genres:</strong> {{book?.genres}}</p>
                   <p class="text-muted p-line">
-                    <strong>Tags:</strong>
+                    <strong>Tags: </strong>
                     <span *ngFor="let t of book.tags">{{t}} </span>
                   </p>
                 </div>
@@ -104,8 +104,8 @@
                       <small class="text-muted">({{book.ratings.ratingCount}})</small>
                     </div>
                     <div class="price">
-                      <span>{{book?.price?.sale | currency:'USD'}}</span>
-                      <del class="text-muted">{{book?.price?.previous | currency:'USD'}}</del>
+                      <span>{{book?.price?.amount | currency:book?.price?.currency}}</span>
+                      <del class="text-muted">{{book?.price?.amount | currency:book?.price?.currency}}</del>
                     </div>
 
                   </div>
@@ -137,13 +137,13 @@
                   <div>
                     <ul>
                       <li>
-                        <mat-icon>check</mat-icon> Heavy duty</li>
+                        <mat-icon>check</mat-icon> Story Telling</li>
                       <li>
-                        <mat-icon>check</mat-icon> Water resistance</li>
+                        <mat-icon>check</mat-icon> Internationaly Accepted</li>
                       <li>
-                        <mat-icon>check</mat-icon> Clean design</li>
+                        <mat-icon>check</mat-icon> Award Winning Author</li>
                       <li>
-                        <mat-icon>check</mat-icon> High quality raw materials</li>
+                        <mat-icon>check</mat-icon> High quality materials</li>
                     </ul>
                   </div>
 

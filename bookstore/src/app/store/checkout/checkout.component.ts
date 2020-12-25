@@ -11,8 +11,8 @@ import { CartItem } from '../../shared/models/cart.model';
   animations: AppAnimations
 })
 export class CheckoutComponent implements OnInit {
-  public cart: CartItem[];
-  public checkoutForm: FormGroup;
+  public cart: CartItem[] = [];
+  public checkoutForm!: FormGroup;
 
   public total: number = 0;
   public subTotal: number = 0;
@@ -33,7 +33,7 @@ export class CheckoutComponent implements OnInit {
   calculateCost() {
     this.subTotal = 0;
     this.cart.forEach(item => {
-      this.subTotal += (item.book.price.sale * item.data.quantity);
+      this.subTotal += (item.book.price.amount * item.data.quantity);
     });
     this.total = this.subTotal + (this.subTotal * (15 / 100));
     if (this.shipping !== 'Free') {
@@ -65,6 +65,7 @@ export class CheckoutComponent implements OnInit {
 
   placeOrder() {
     const shippingAddress = this.checkoutForm.value;
+    alert("Oredr Placed!")
   }
 
 }
