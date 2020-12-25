@@ -3,9 +3,13 @@ package com.anitechcs.orderservice.api;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.NativeWebRequest;
+
+import io.swagger.annotations.Api;
+
 import java.util.Optional;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 @Controller
+@Api(value = "order", description = "the order API", tags = {"Order-Service"})
 @RequestMapping("${openapi.orderServiceAPISpecification.base-path:/v1}")
 public class OrderApiController implements OrderApi {
 
