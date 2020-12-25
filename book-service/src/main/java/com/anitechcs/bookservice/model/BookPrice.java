@@ -21,6 +21,9 @@ public class BookPrice   {
   @JsonProperty("amount")
   private Float amount;
 
+  @JsonProperty("mrp")
+  private Float mrp;
+
   public BookPrice currency(String currency) {
     this.currency = currency;
     return this;
@@ -61,6 +64,26 @@ public class BookPrice   {
     this.amount = amount;
   }
 
+  public BookPrice mrp(Float mrp) {
+    this.mrp = mrp;
+    return this;
+  }
+
+  /**
+   * MRP price
+   * @return mrp
+  */
+  @ApiModelProperty(value = "MRP price")
+
+
+  public Float getMrp() {
+    return mrp;
+  }
+
+  public void setMrp(Float mrp) {
+    this.mrp = mrp;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -72,12 +95,13 @@ public class BookPrice   {
     }
     BookPrice bookPrice = (BookPrice) o;
     return Objects.equals(this.currency, bookPrice.currency) &&
-        Objects.equals(this.amount, bookPrice.amount);
+        Objects.equals(this.amount, bookPrice.amount) &&
+        Objects.equals(this.mrp, bookPrice.mrp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, amount);
+    return Objects.hash(currency, amount, mrp);
   }
 
   @Override
@@ -87,6 +111,7 @@ public class BookPrice   {
     
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    mrp: ").append(toIndentedString(mrp)).append("\n");
     sb.append("}");
     return sb.toString();
   }
