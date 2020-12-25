@@ -83,6 +83,9 @@
           *ngFor="let book of books$ | async | paginate: { itemsPerPage: 8, currentPage: currentPage }; let i = index;"
           [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'50px'}}">
             <div class="product-inner default-bg">
+              <div *ngIf="book?.promotions?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: book?.promotions?.color || '#f44336'}">
+                <span>{{book?.promotions?.text}}</span>
+              </div>
               <div class="featured-img" [routerLink]="['/store/books/', book.bookId]">
                 <img [src]="'assets/images/covers/' + book.coverPhoto" alt="cover image">
               </div>
@@ -91,10 +94,16 @@
                   <h3 class="title" [routerLink]="['/store/books/', book.bookId]">{{book.title}}</h3>
                   <p class="text-muted p-line">{{book?.description}}</p>
                   <p class="text-muted p-line">
-                    <strong>Genres:</strong> {{book?.genres}}</p>
+                    <strong>Genres: </strong> 
+                    <span *ngFor="let g of book.genres; let i = index">
+                      <span class="mat-color-default">{{g}}</span>{{(i < book.genres.length - 1)?", ":""}}
+                    </span>
+                  </p>
                   <p class="text-muted p-line">
-                    <strong>Tags: </strong>
-                    <span *ngFor="let t of book.tags">{{t}} </span>
+                    <mat-chip-list>
+                      <strong>Tags: </strong>
+                      <mat-chip *ngFor="let t of book.tags">{{t}}</mat-chip>
+                    </mat-chip-list>
                   </p>
                 </div>
                 <div class="actions">
@@ -105,7 +114,7 @@
                     </div>
                     <div class="price">
                       <span>{{book?.price?.amount | currency:book?.price?.currency}}</span>
-                      <del class="text-muted">{{book?.price?.amount | currency:book?.price?.currency}}</del>
+                      <del class="text-muted">{{book?.price?.mrp | currency:book?.price?.currency}}</del>
                     </div>
 
                   </div>

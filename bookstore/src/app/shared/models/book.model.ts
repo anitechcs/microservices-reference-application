@@ -12,7 +12,8 @@ export class Book {
   public tags?: string[];
   public price: {
     currency: string,
-    amount: number
+    amount: number,
+    mrp: number
   };
   public ratings?: {
     rating: number,

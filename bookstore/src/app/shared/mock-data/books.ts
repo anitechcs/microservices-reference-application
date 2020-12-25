@@ -19,6 +19,7 @@ export class BooksDB {
       'price': {
         'currency': 'USD',
         'amount': 32,
+        'mrp': 40
       },
       'ratings': {
         'rating': 4.50,
@@ -26,8 +27,8 @@ export class BooksDB {
       },
       'coverPhoto': 'the-lord-of-the-rings-book-cover.jpg',
       'promotions': {
-        'text': '15% off',
-        'color': '#0D47A1'
+        'text': '13% off',
+        'color': '#2196F3'
       }
     },
     {
@@ -47,7 +48,8 @@ export class BooksDB {
       ],
       'price': {
         'currency': 'USD',
-        'amount': 32,
+        'amount': 62,
+        'mrp': 95
       },
       'ratings': {
         'rating': 4.50,
@@ -56,7 +58,7 @@ export class BooksDB {
       'coverPhoto': 'the-hobbit.jpeg',
       'promotions': {
         'text': '15% off',
-        'color': '#0D47A1'
+        'color': '#E53935'
       }
     },
     {
@@ -76,7 +78,8 @@ export class BooksDB {
       ],
       'price': {
         'currency': 'USD',
-        'amount': 32,
+        'amount': 52,
+        'mrp': 67
       },
       'ratings': {
         'rating': 4.50,
@@ -84,8 +87,8 @@ export class BooksDB {
       },
       'coverPhoto': 'lords-of-ring-book-image.jpg',
       'promotions': {
-        'text': '15% off',
-        'color': '#0D47A1'
+        'text': '25% off',
+        'color': '#FFC400'
       }
     },
     {
@@ -100,12 +103,12 @@ export class BooksDB {
       'publisher': 'Houghton Mifflin Harcourt',
       'genres': ['romance'],
       'tags': [
-        'novel',
         'movie',
       ],
       'price': {
         'currency': 'USD',
-        'amount': 32,
+        'amount': 41,
+        'mrp': 48
       },
       'ratings': {
         'rating': 4.50,
@@ -113,8 +116,8 @@ export class BooksDB {
       },
       'coverPhoto': 'the-hobbit.jpeg',
       'promotions': {
-        'text': '15% off',
-        'color': '#0D47A1'
+        'text': '12% off',
+        'color': '#1565C0'
       }
     },
     {
@@ -134,7 +137,8 @@ export class BooksDB {
       ],
       'price': {
         'currency': 'USD',
-        'amount': 32,
+        'amount': 82,
+        'mrp': 88
       },
       'ratings': {
         'rating': 4.50,
@@ -142,8 +146,8 @@ export class BooksDB {
       },
       'coverPhoto': 'the-lord-of-the-rings-book-cover.jpg',
       'promotions': {
-        'text': '15% off',
-        'color': '#0D47A1'
+        'text': '8% off',
+        'color': '#2E7D32'
       }
     },
     {
@@ -162,8 +166,9 @@ export class BooksDB {
         'movie',
       ],
       'price': {
-        'currency': 'USD',
-        'amount': 32,
+        'currency': 'SGD',
+        'amount': 68,
+        'mrp': 75
       },
       'ratings': {
         'rating': 4.50,
@@ -171,8 +176,8 @@ export class BooksDB {
       },
       'coverPhoto': 'the-hobbit.jpeg',
       'promotions': {
-        'text': '15% off',
-        'color': '#0D47A1'
+        'text': '16% off',
+        'color': '#1565C0'
       }
     },
     {
@@ -191,8 +196,9 @@ export class BooksDB {
         'movie',
       ],
       'price': {
-        'currency': 'USD',
-        'amount': 32,
+        'currency': 'INR',
+        'amount': 320,
+        'mrp': 408
       },
       'ratings': {
         'rating': 4.50,
@@ -221,7 +227,8 @@ export class BooksDB {
       ],
       'price': {
         'currency': 'USD',
-        'amount': 32,
+        'amount': 405,
+        'mrp': 420
       },
       'ratings': {
         'rating': 4.50,
@@ -229,8 +236,8 @@ export class BooksDB {
       },
       'coverPhoto': 'the-hobbit.jpeg',
       'promotions': {
-        'text': '15% off',
-        'color': '#0D47A1'
+        'text': '11% off',
+        'color': '#512DA8'
       }
     },
     {
@@ -250,7 +257,8 @@ export class BooksDB {
       ],
       'price': {
         'currency': 'USD',
-        'amount': 32,
+        'amount': 25,
+        'mrp': 44
       },
       'ratings': {
         'rating': 4.50,
@@ -279,7 +287,8 @@ export class BooksDB {
       ],
       'price': {
         'currency': 'USD',
-        'amount': 32,
+        'amount': 62,
+        'mrp': 71
       },
       'ratings': {
         'rating': 4.50,
@@ -287,8 +296,8 @@ export class BooksDB {
       },
       'coverPhoto': 'the-hobbit.jpeg',
       'promotions': {
-        'text': '15% off',
-        'color': '#0D47A1'
+        'text': '18% off',
+        'color': '#E53935'
       }
     }
   ]

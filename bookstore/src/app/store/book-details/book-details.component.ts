@@ -54,7 +54,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
         totalPages: 0,
         coverPhoto: '',
         genres: [],
-        price: { currency: 'USD', amount: 0 }
+        price: { currency: 'USD', amount: 0, mrp: 0 }
       };
     });
   }

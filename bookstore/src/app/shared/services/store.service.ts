@@ -14,7 +14,7 @@ export class StoreService {
   public books: Book[] = [];
   public initialFilters = {
     minPrice: 10,
-    maxPrice: 40,
+    maxPrice: 500,
     minRating: 1,
     maxRating: 5
   };
