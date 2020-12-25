@@ -1,9 +1,11 @@
 export class GenreDB {
 
   public genres = [
-    'speaker',
-    'headphone',
-    'watch',
-    'phone'
+    'fantasy',
+    'thriller',
+    'romance',
+    'sci-fi',
+    'comedy',
+    'history'
   ];
 }

@@ -4,7 +4,7 @@
       <div class="store-filters-wrap">
         <form [formGroup]="filterForm">
           <mat-accordion multi="true" displayMode="flat">
-            <!-- Categories -->
+            <!-- Genres -->
             <mat-expansion-panel expanded="true">
               <mat-expansion-panel-header>
                 <mat-panel-title>
@@ -12,8 +12,8 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <ul class="product-categories">
-                <li [ngClass]="{'fw-500': 'all' === activeCategory}" (click)="setActiveCategory('all')">All</li>
-                <li *ngFor="let c of categories$ | async" [ngClass]="{'fw-500': c === activeCategory}" (click)="setActiveCategory(c)">{{c}}</li>
+                <li [ngClass]="{'fw-500': 'all' === activeGenre}" (click)="setActiveGenre('all')">All</li>
+                <li *ngFor="let c of genres$ | async" [ngClass]="{'fw-500': c === activeGenre}" (click)="setActiveGenre(c)">{{c}}</li>
               </ul>
             </mat-expansion-panel>
             <!-- Price -->
@@ -80,21 +80,30 @@
           <!-- Product Box -->
           <div
           class="product-wrap"
-          *ngFor="let book of books$ | async | paginate: { itemsPerPage: 6, currentPage: currentPage }; let i = index;"
+          *ngFor="let book of books$ | async | paginate: { itemsPerPage: 8, currentPage: currentPage }; let i = index;"
           [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'50px'}}">
             <div class="product-inner default-bg">
-              <div class="featured-img" [routerLink]="['/store/books/', book._id]">
-                <img [src]="book.photo" alt="">
+              <div *ngIf="book?.promotions?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: book?.promotions?.color || '#f44336'}">
+                <span>{{book?.promotions?.text}}</span>
+              </div>
+              <div class="featured-img" [routerLink]="['/store/books/', book.bookId]">
+                <img [src]="'assets/images/covers/' + book.coverPhoto" alt="cover image">
               </div>
               <div class="info-wrap p-1">
                 <div class="main-info">
-                  <h3 class="title" [routerLink]="['/store/books/', book._id]">{{book.name}}</h3>
-                  <p class="text-muted p-line">{{book?.subtitle}}</p>
+                  <h3 class="title" [routerLink]="['/store/books/', book.bookId]">{{book.title}}</h3>
+                  <p class="text-muted p-line">{{book?.description}}</p>
                   <p class="text-muted p-line">
-                    <strong>Genres:</strong> {{book?.category}}</p>
+                    <strong>Genres: </strong> 
+                    <span *ngFor="let g of book.genres; let i = index">
+                      <span class="mat-color-default">{{g}}</span>{{(i < book.genres.length - 1)?", ":""}}
+                    </span>
+                  </p>
                   <p class="text-muted p-line">
-                    <strong>Tags:</strong>
-                    <span *ngFor="let t of book.tags">{{t}} </span>
+                    <mat-chip-list>
+                      <strong>Tags: </strong>
+                      <mat-chip *ngFor="let t of book.tags">{{t}}</mat-chip>
+                    </mat-chip-list>
                   </p>
                 </div>
                 <div class="actions">
@@ -104,8 +113,8 @@
                       <small class="text-muted">({{book.ratings.ratingCount}})</small>
                     </div>
                     <div class="price">
-                      <span>{{book?.price?.sale | currency:'USD'}}</span>
-                      <del class="text-muted">{{book?.price?.previous | currency:'USD'}}</del>
+                      <span>{{book?.price?.amount | currency:book?.price?.currency}}</span>
+                      <del class="text-muted">{{book?.price?.mrp | currency:book?.price?.currency}}</del>
                     </div>
 
                   </div>
@@ -115,38 +124,6 @@
                       <mat-icon>add_shopping_cart</mat-icon>
                     </button>
                   </div>
-                </div>
-              </div>
-              <!-- Visible when viewMode === list-view -->
-              <div class="more-info-wrap p-1" *ngIf="viewMode === 'list-view'">
-                <div class="more-info">
-                  <div class="more-actions mb-1">
-                    <div class="product-rating">
-                      <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'" [rating]="4.63"></star-rating>
-                      <small class="text-muted">(140)</small>
-                    </div>
-                    <span fxFlex></span>
-                    <button mat-icon-button>
-                      <mat-icon>playlist_add</mat-icon>
-                    </button>
-                    <button mat-icon-button>
-                      <mat-icon>favorite</mat-icon>
-                    </button>
-                  </div>
-
-                  <div>
-                    <ul>
-                      <li>
-                        <mat-icon>check</mat-icon> Heavy duty</li>
-                      <li>
-                        <mat-icon>check</mat-icon> Water resistance</li>
-                      <li>
-                        <mat-icon>check</mat-icon> Clean design</li>
-                      <li>
-                        <mat-icon>check</mat-icon> High quality raw materials</li>
-                    </ul>
-                  </div>
-
                 </div>
               </div>
 

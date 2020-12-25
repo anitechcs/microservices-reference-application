@@ -14,7 +14,7 @@ export class StoreService {
   public books: Book[] = [];
   public initialFilters = {
     minPrice: 10,
-    maxPrice: 40,
+    maxPrice: 500,
     minRating: 1,
     maxRating: 5
   };
@@ -23,14 +23,17 @@ export class StoreService {
   public cartData = {
     itemCount: 0
   };
+
   constructor() { }
+  
   public getCart(): Observable<CartItem[]> {
-    return of(this.cart);
+      return of(this.cart);
   }
+
   public addToCart(cartItem: CartItem): Observable<CartItem[]> {
     let index = -1;
     this.cart.forEach((item, i) => {
-      if (item.book._id === cartItem.book._id) {
+      if (item.book.bookId === cartItem.book.bookId) {
         index = i;
       }
     });
@@ -44,6 +47,7 @@ export class StoreService {
       return of(this.cart);
     }
   }
+
   private updateCount() {
     this.cartData.itemCount = 0;
     this.cart.forEach(item => {
@@ -52,7 +56,7 @@ export class StoreService {
   }
   public removeFromCart(cartItem: CartItem): Observable<CartItem[]> {
     this.cart = this.cart.filter(item => {
-      if (item.book._id === cartItem.book._id) {
+      if (item.book.bookId === cartItem.book.bookId) {
         return false;
       }
       return true;
@@ -60,7 +64,8 @@ export class StoreService {
     this.updateCount();
     return of(this.cart);
   }
-  public getProducts(): Observable<Book[]> {
+
+  public getBooks(): Observable<Book[]> {
     const booksDB = new BooksDB();
     return of(booksDB.books)
       .pipe(
@@ -71,23 +76,24 @@ export class StoreService {
         })
       );
   }
-  public getProductDetails(productID): Observable<Book> {
+
+  public getBookDetails(bookId: number): Observable<Book> {
     const booksDB = new BooksDB();
-    const books = booksDB.books.filter(p => p._id === productID)[0];
+    const books = booksDB.books.filter(p => p.bookId == bookId)[0];
     if (!books) {
       return observableThrowError(new Error('Book not found!'));
     }
     return of(books);
   }
 
-  public getCategories(): Observable<any> {
+  public getGenres(): Observable<any> {
     const genreDB = new GenreDB();
     return of(genreDB.genres);
   }
 
-  public getFilteredProduct(filterForm: FormGroup): Observable<Book[]> {
+  public getFilteredBook(filterForm: FormGroup): Observable<Book[]> {
     return combineLatest(
-      this.getProducts(),
+      this.getBooks(),
       filterForm.valueChanges
       .pipe(
         startWith(this.initialFilters),
@@ -95,8 +101,8 @@ export class StoreService {
       )
     )
     .pipe(
-      switchMap(([products, filterData]) => {
-        return this.filterProducts(products, filterData);
+      switchMap(([books, filterData]) => {
+        return this.filterBooks(books, filterData);
       })
     );
 
@@ -105,18 +111,18 @@ export class StoreService {
   * If your data set is too big this may raise performance issue.
   * You should implement server side filtering instead.
   */
-  private filterProducts(books: Book[], filterData): Observable<Book[]> {
+  private filterBooks(books: Book[], filterData: any): Observable<Book[]> {
     const filteredBooks = books.filter(p => {
       const match = {
         search: false,
-        caterory: false,
+        genre: false,
         price: false,
         rating: false
       };
       // Search
       if (
         !filterData.search
-        || p.name.toLowerCase().indexOf(filterData.search.toLowerCase()) > -1
+        || p.title.toLowerCase().indexOf(filterData.search.toLowerCase()) > -1
         || p.description.indexOf(filterData.search) > -1
         || p.tags.indexOf(filterData.search) > -1
       ) {
@@ -126,18 +132,18 @@ export class StoreService {
       }
       // Category filter
       if (
-        filterData.category === p.category
-        || !filterData.category
-        || filterData.category === 'all'
+        p.genres.includes(filterData.genre)
+        || !filterData.genre
+        || filterData.genre === 'all'
       ) {
-        match.caterory = true;
+        match.genre = true;
       } else {
-        match.caterory = false;
+        match.genre = false;
       }
       // Price filter
       if (
-        p.price.sale >= filterData.minPrice
-        && p.price.sale <= filterData.maxPrice
+        p.price.amount >= filterData.minPrice
+        && p.price.amount <= filterData.maxPrice
       ) {
         match.price = true;
       } else {

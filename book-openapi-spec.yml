@@ -76,6 +76,10 @@ components:
               description: Price amount
               type: number
               format: float
+            mrp:
+              description: MRP price
+              type: number
+              format: float
         ratings:
           description: Book rating details
           type: object

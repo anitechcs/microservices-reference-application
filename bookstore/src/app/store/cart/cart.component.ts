@@ -10,10 +10,11 @@ import { CartItem } from '../../shared/models/cart.model';
   animations: [AppAnimations]
 })
 export class CartComponent implements OnInit {
-  public cart: CartItem[];
-  public total: number;
-  public subTotal: number;
+  public cart!: CartItem[];
+  public total: number = 0;
+  public subTotal: number = 0;
   public vat = 15;
+  
   constructor(
     private storeService: StoreService
   ) { }
@@ -31,7 +32,7 @@ export class CartComponent implements OnInit {
     });
   }
 
-  removeProduct(cartItem) {
+  removeBook(cartItem) {
     this.storeService
     .removeFromCart(cartItem)
     .subscribe(res => {
@@ -42,7 +43,7 @@ export class CartComponent implements OnInit {
   onQuantityChange() {
     this.subTotal = 0;
     this.cart.forEach(item => {
-      this.subTotal += (item.book.price.sale * item.data.quantity);
+      this.subTotal += (item.book.price.amount * item.data.quantity);
     });
     this.total = this.subTotal + (this.subTotal * (15 / 100));
   }
