@@ -4,6 +4,8 @@ import { BooksComponent } from './store/books/books.component';
 import { BookDetailsComponent } from './store/book-details/book-details.component';
 import { CartComponent } from './store/cart/cart.component';
 import { CheckoutComponent } from './store/checkout/checkout.component';
+import { OrderConfirmationComponent } from './store/order-confirmation/order-confirmation.component';
+import { OrdersComponent } from './store/orders/orders.component';
 
 export const rootRouterConfig: Routes = [
   {
@@ -30,6 +32,16 @@ export const rootRouterConfig: Routes = [
         path: 'checkout',
         component: CheckoutComponent,
         data: { title: 'Checkout', breadcrumb: 'Checkout' }
+      },
+      {
+        path: 'order/confirmation',
+        component: OrderConfirmationComponent,
+        data: { title: 'Order Confirmation', breadcrumb: 'Order Confirmation' }
+      },
+      {
+        path: 'orders',
+        component: OrdersComponent,
+        data: { title: 'Orders History', breadcrumb: 'Orders' }
       }
     ]
   },

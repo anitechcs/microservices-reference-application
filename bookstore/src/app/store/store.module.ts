@@ -31,6 +31,8 @@ import { StoreService } from '../shared/services/store.service';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   imports: [
@@ -65,8 +67,12 @@ import { CheckoutComponent } from './checkout/checkout.component';
     BooksComponent,
     BookDetailsComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    OrderConfirmationComponent,
+    OrdersComponent
   ],
-  providers: [ StoreService ]
+  providers: [ 
+    StoreService 
+  ]
 })
 export class StoreModule { }
