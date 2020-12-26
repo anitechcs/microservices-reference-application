@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
 
+## Install dependencies
+
+First you need to run `npm install` from the root of this project to download all dependencies from NPM repo. Make sure `@angular/cli` is installed in your system.
+
+```bash
+sudo npm install -g @angular/cli
+cd bookstore
+npm install
+ng serve
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

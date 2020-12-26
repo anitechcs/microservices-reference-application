@@ -10,7 +10,11 @@ This is an example of building a OpenAPI-enabled server in Java using the Spring
 
 The underlying library integrating OpenAPI to SpringBoot is [springfox](https://github.com/springfox/springfox)
 
-Start your server as a simple java application
+Start your server as a simple java application:
+
+```bash
+mvn spring-boot:run
+```
 
 You can view the api documentation in swagger-ui by pointing to  
 http://localhost:8080/

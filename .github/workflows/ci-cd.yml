@@ -1,4 +1,4 @@
-name: Continious Integration & Deployment
+name: Continuous Integration & Deployment
 
 on:
   push:
@@ -24,17 +24,17 @@ jobs:
         java-version: 1.8
     
     # Book--Service
-    - name: Build the Book-Service FAT jar
+    - name: Build the Book-Service binary
       run: cd book-service && mvn clean package
-    - name: Extract the FAT jar built on previous step
+    - name: Extract the book-service binary built on previous step
       run: cd book-service && mkdir target/docker-packaging && (cd target/docker-packaging; jar -xf ../*.jar)
     - name: Build the Book-Service Docker image
       run: cd book-service && docker build . --file Dockerfile --tag bookservice:$IMAGE_TAG
     
     # Order-Service
-    - name: Build the Order-Service FAT jar
+    - name: Build the order-service binary
       run: cd order-service && mvn clean package
-    - name: Extract the FAT jar built on previous step
+    - name: Extract the order-service binary built on previous step
       run: cd order-service && mkdir target/docker-packaging && (cd target/docker-packaging; jar -xf ../*.jar)
     - name: Build the Order-Service Docker image
       run: cd order-service && docker build . --file Dockerfile --tag orderservice:$IMAGE_TAG
