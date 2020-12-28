@@ -34,10 +34,10 @@ services:
         DB_PASSWORD: keycloak
         KEYCLOAK_USER: keycloak
         KEYCLOAK_PASSWORD: keycloak
-        KEYCLOAK_IMPORT: /tmp/keycloak-imports/bookstore-realm.json
+        KEYCLOAK_IMPORT: /tmp/keycloak-import/bookstore-realm.json
         #JDBC_PARAMS: "connectTimeout=30000"
       volumes:
-        - ../kubernetes/keycloak/keycloak-imports:/tmp/keycloak-imports
+        - ../kubernetes/keycloak/keycloak-init:/tmp/keycloak-import
       ports:
         - 8085:8080
       depends_on:
@@ -98,4 +98,4 @@ services:
       - promotionservice
 volumes:
   postgres_data: # named volumes can be managed easier using docker-compose
-  keycloak-imports:  # Keycloak initial configs such as realm, themes etc.
+  keycloak-init:  # Keycloak initial configs such as realm, themes etc.

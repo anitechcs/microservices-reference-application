@@ -15,8 +15,11 @@
  * limitations under the License.
  */
 
-.navbar-title {
-    background: url('../img/logo.png') no-repeat;
-    height: 45px;
-    width: 250px;
+
+/*.navbar-pf .navbar-brand {
+    background: url('../img/logo.png') no-repeat -5px 5px;
 }
+
+.navbar-pf .navbar-brand {
+  width: 250px!important;
+}*/
