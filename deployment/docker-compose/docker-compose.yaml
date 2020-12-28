@@ -8,17 +8,49 @@ services:
       - POSTGRES_USER='postgres' # database admin user
       - POSTGRES_PASSWORD='password' # database admin password
     ports:
-      - "5431:5431"
+      - "5431:5432"
     volumes:
       - postgres_data:/var/lib/postgres
   
+  ## Setup keycloak with Postgres
+  keycloak_db:
+      image: postgres:latest
+      container_name: keycloak_db
+      volumes:
+        - postgres_data:/var/lib/postgresql/data
+      environment:
+        POSTGRES_DB: keycloak
+        POSTGRES_USER: keycloak
+        POSTGRES_PASSWORD: keycloak
+  keycloak:
+      image: quay.io/keycloak/keycloak:latest
+      container_name: keycloak
+      environment:
+        DB_VENDOR: postgres
+        DB_ADDR: keycloak_db
+        DB_DATABASE: keycloak
+        DB_USER: keycloak
+        DB_SCHEMA: public
+        DB_PASSWORD: keycloak
+        KEYCLOAK_USER: keycloak
+        KEYCLOAK_PASSWORD: keycloak
+        KEYCLOAK_IMPORT: /tmp/keycloak-imports/bookstore-realm.json
+        #JDBC_PARAMS: "connectTimeout=30000"
+      volumes:
+        - ../kubernetes/keycloak/keycloak-imports:/tmp/keycloak-imports
+      ports:
+        - 8085:8080
+      depends_on:
+        - keycloak_db
+
+  ## Micro services
   bookservice:
     image: bookservice:latest # use latest official postgres version
     container_name: bookservice
     #environment:
     #  - DB_URL: postgresql://postgres:postgres@postgres_db:5431/bookstore
     ports:
-      - "8080:8080"
+      - "8081:8080"
     links:
       - postgres_db
   
@@ -28,7 +60,7 @@ services:
     #environment:
     #  - DB_URL: postgresql://postgres:postgres@postgres_db:5431/bookstore
     ports:
-      - "8081:8080"
+      - "8082:8080"
     links:
       - postgres_db
     
@@ -38,7 +70,7 @@ services:
     #environment:
     #  - DB_URL: postgresql://postgres:postgres@postgres_db:5431/bookstore
     ports:
-      - "8082:8080"
+      - "8083:8080"
     links:
       - postgres_db
   
@@ -48,7 +80,7 @@ services:
     #environment:
     #  - DB_URL: postgresql://postgres:postgres@postgres_db:5431/bookstore
     ports:
-      - "8083:8080"
+      - "8084:8080"
     links:
       - postgres_db
     
@@ -66,3 +98,4 @@ services:
       - promotionservice
 volumes:
   postgres_data: # named volumes can be managed easier using docker-compose
+  keycloak-imports:  # Keycloak initial configs such as realm, themes etc.

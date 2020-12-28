@@ -1,18 +1,3 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: keycloak
-  labels:
-    app: keycloak
-spec:
-  ports:
-  - name: http
-    port: 8080
-    targetPort: 8080
-  selector:
-    app: keycloak
-  type: LoadBalancer
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -35,17 +20,21 @@ spec:
         image: quay.io/keycloak/keycloak:12.0.1
         env:
         - name: KEYCLOAK_USER
-          value: "admin"
+          value: keycloak
         - name: KEYCLOAK_PASSWORD
-          value: "admin"
+          value: keycloak
         - name: PROXY_ADDRESS_FORWARDING
           value: "true"
         - name: DB_VENDOR
           value: postgres
+        - name: DB_ADDR
+          value: postgres-service
+        - name: DB_DATABASE
+          value: postgresdb
         - name: DB_USER
-          value: keycloak
+          value: postgres
         - name: DB_PASSWORD
-          value: keycloak
+          value: postgres
         ports:
         - name: http
           containerPort: 8080

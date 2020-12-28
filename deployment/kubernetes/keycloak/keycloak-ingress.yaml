@@ -2,12 +2,13 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: keycloak
+  namespace: bookstore
 spec:
   tls:
     - hosts:
-      - KEYCLOAK_HOST
+      - keycloak.192.168.49.2.nip.io #KEYCLOAK_HOST
   rules:
-  - host: KEYCLOAK_HOST
+  - host: keycloak.192.168.49.2.nip.io #KEYCLOAK_HOST
     http:
       paths:
       - backend:
