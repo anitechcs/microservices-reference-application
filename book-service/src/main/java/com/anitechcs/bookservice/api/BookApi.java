@@ -6,6 +6,7 @@
 package com.anitechcs.bookservice.api;
 
 import com.anitechcs.bookservice.model.BookErrorResponse;
+import com.anitechcs.bookservice.model.BookGenreSuccessResponse;
 import com.anitechcs.bookservice.model.BookListSuccessResponse;
 import com.anitechcs.bookservice.model.BookSuccessResponse;
 import io.swagger.annotations.*;
@@ -32,6 +33,38 @@ public interface BookApi {
     default Optional<NativeWebRequest> getRequest() {
         return Optional.empty();
     }
+
+    /**
+     * GET /book/genres
+     * Get All Book generes
+     *
+     * @return Success response (status code 200)
+     *         or No records found (status code 404)
+     *         or Server error (status code 500)
+     */
+    @ApiOperation(value = "", nickname = "getAllBookGeneres", notes = "Get All Book generes", response = BookGenreSuccessResponse.class, tags={ "Book-Service", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Success response", response = BookGenreSuccessResponse.class),
+        @ApiResponse(code = 404, message = "No records found", response = BookErrorResponse.class),
+        @ApiResponse(code = 500, message = "Server error", response = BookErrorResponse.class) })
+    @GetMapping(
+        value = "/book/genres",
+        produces = { "application/json" }
+    )
+    default ResponseEntity<BookGenreSuccessResponse> getAllBookGeneres() {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"message\" : \"message\", \"results\" : [ \"results\", \"results\" ], \"statusCode\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
 
     /**
      * GET /book
