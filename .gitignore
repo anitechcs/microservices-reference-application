@@ -15,3 +15,9 @@ bookstore/dist
 
 # Python
 
+
+# Terraform
+deployment/terraform/*/.terraform
+deployment/terraform/*/dev.log
+deployment/terraform/*/.terraform.tfstate.lock.info
+deployment/terraform/*/terraform.tfstate.backup

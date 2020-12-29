@@ -1,0 +1,1 @@
+namespace_name   = "bookstore"

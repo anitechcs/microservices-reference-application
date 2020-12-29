@@ -170,6 +170,18 @@ components:
         message:
           description: Error message
           type: string
+    BookGenreSuccessResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+        results:
+          type: array
+          items:
+            type: string
 paths:
   /book:
     summary: This end point exposes operations related to books
@@ -262,3 +274,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BookErrorResponse'
+  /book/genres:
+    summary: This end point exposes operations related to genres
+    description: Book genres endpoints
+    get:
+      tags:
+        - Book-Service
+      description: Get All Book generes
+      operationId: getAllBookGeneres
+      responses:
+          200:
+            description: Success response
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/BookGenreSuccessResponse'
+          404:
+            description: No records found
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/BookErrorResponse'
+          500:
+            description: Server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/BookErrorResponse'
