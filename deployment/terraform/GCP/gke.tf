@@ -3,11 +3,17 @@ resource "google_container_cluster" "primary" {
   name     = var.gke_cluster_name
   location = var.region
 
+  # Smallest default node_pool as a hack
   remove_default_node_pool = true
   initial_node_count       = 1
 
   network    = google_compute_network.vpc.name
   subnetwork = google_compute_subnetwork.subnet.name
+
+  ip_allocation_policy {
+    cluster_ipv4_cidr_block  = "/16"
+    services_ipv4_cidr_block = "/22"
+  }
 
   master_auth {
     username = var.gke_username
@@ -28,7 +34,7 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
 
   node_config {
     preemptible  = true
-    machine_type = "n1-standard-2"
+    machine_type = "n1-standard-1"
     tags         = ["gke-node", var.gke_cluster_name]
 
     metadata = {

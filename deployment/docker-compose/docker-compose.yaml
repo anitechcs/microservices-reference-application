@@ -4,36 +4,25 @@ services:
     image: postgres:latest # use latest official postgres version
     container_name: postgres_db
     environment:
-      - POSTGRES_DB='bookstore' # database name
-      - POSTGRES_USER='postgres' # database admin user
-      - POSTGRES_PASSWORD='password' # database admin password
-    ports:
-      - "5431:5432"
+      POSTGRES_DB: bookstore # database name
+      POSTGRES_USER: postgres # database admin user
+      POSTGRES_PASSWORD: password # database admin password
     volumes:
       - postgres_data:/var/lib/postgres
   
   ## Setup keycloak with Postgres
-  keycloak_db:
-      image: postgres:latest
-      container_name: keycloak_db
-      volumes:
-        - postgres_data:/var/lib/postgresql/data
-      environment:
-        POSTGRES_DB: keycloak
-        POSTGRES_USER: keycloak
-        POSTGRES_PASSWORD: keycloak
   keycloak:
       image: quay.io/keycloak/keycloak:latest
       container_name: keycloak
       environment:
         DB_VENDOR: postgres
-        DB_ADDR: keycloak_db
-        DB_DATABASE: keycloak
-        DB_USER: keycloak
+        DB_ADDR: postgres_db
+        DB_DATABASE: bookstore
+        DB_USER: postgres
         DB_SCHEMA: public
-        DB_PASSWORD: keycloak
+        DB_PASSWORD: password
         KEYCLOAK_USER: keycloak
-        KEYCLOAK_PASSWORD: keycloak
+        KEYCLOAK_PASSWORD: password
         KEYCLOAK_IMPORT: /tmp/keycloak-import/bookstore-realm.json
         #JDBC_PARAMS: "connectTimeout=30000"
       volumes:
@@ -41,7 +30,7 @@ services:
       ports:
         - 8085:8080
       depends_on:
-        - keycloak_db
+        - postgres_db
 
   ## Micro services
   bookservice:

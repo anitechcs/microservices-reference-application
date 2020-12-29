@@ -1,9 +1,9 @@
-project_id       = "mra-bookstore"
+project_id       = "anitech-cloud-2020" # Replace with your own GCP project id
 region           = "asia-southeast1"
 zone             = "asia-southeast1-a"
 vpc_name         = "bookstore-vpc"
 subnet_name      = "bookstore-vpc-subnet"
 gke_cluster_name = "bookstore-k8s-cluster"
 gke_username     = "admin"
-gke_password     = "12345678"
+gke_password     = "bookstore@12345678"
 gke_num_nodes    = "1"
