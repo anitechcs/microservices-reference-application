@@ -9,14 +9,20 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
  * Order
  */
+@Entity
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class Order   {
+  @Id
   @JsonProperty("orderId")
   private Long orderId;
 
@@ -31,6 +37,7 @@ public class Order   {
   private OffsetDateTime shipDate;
 
   @JsonProperty("address")
+  @OneToOne
   private OrderAddress address;
 
   @JsonProperty("amount")

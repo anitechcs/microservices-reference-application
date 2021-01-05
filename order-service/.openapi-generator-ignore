@@ -26,3 +26,5 @@ pom.xml
 README.md
 src/main/resources/application.properties
 src/main/java/com/anitechcs/orderservice/api/OrderApiController.java
+src/main/java/com/anitechcs/orderservice/model/Order.java
+src/main/java/com/anitechcs/orderservice/model/OrderAddress.java

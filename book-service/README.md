@@ -10,6 +10,12 @@ This is an example of building a OpenAPI-enabled server in Java using the Spring
 
 The underlying library integrating OpenAPI to SpringBoot is [springfox](https://github.com/springfox/springfox)
 
+Start your postgres database using provided docker-compose file:
+
+```bash
+docker-compose -f deployment/docker-compose/postgres.yaml up -d
+```
+
 Start your server as a simple java application:
 
 ```bash
