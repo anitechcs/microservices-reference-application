@@ -2,7 +2,7 @@
 
 > This document explain how to provision infrastructure for running BookStore application along with all dependent services.
 
-In order to deploy this `micro services application` to any cloud provider kubernetes cluster, we have to provision required infrastructure such as VPC, Subnets, VMs and kubernetes cluster itself. We use `Terraform` to define infrastructure as code to manage the full lifecycle — create new resources, manage existing ones, and destroy those no longer needed. You can find corresponding `terraform` scripts for your selected cloud vendor at [deployment/terraform](deployment/terraform) directory.
+In order to deploy this `micro services application` to any cloud provider kubernetes cluster, we have to provision required infrastructure such as VPC, Subnets, VMs and kubernetes cluster itself. We use `Terraform` to define infrastructure as code to manage the full lifecycle — create new resources, manage existing ones, and destroy those no longer needed. You can find corresponding `terraform` scripts for your selected cloud vendor at [deployment/terraform](../deployment/terraform) directory.
 
 As a pre requisite, you need to have access to any specific cloud provider. In this case we are showing `Google Cloud Platform (GCP)` as an example. But you can follow similar steps for your corresponding cloud provider.
 
