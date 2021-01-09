@@ -14,8 +14,7 @@ terraform {
 
 provider "google" {
   # Point to your credential file here before running the script
-  #credentials = file("<NAME>.json")
-  credentials = file("/home/tapas/Tools/conf/anitech-cloud-2020-e2185dd3af00.json")
+  credentials = file("<NAME>.json")
 
   project = var.project_id
   region  = var.region

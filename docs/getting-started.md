@@ -12,6 +12,7 @@ Before proceeding with setup, make sure you have following tools installed in yo
 - Docker-Compose
 - Python 3
 - Maven
+- Terraform
 
 NOTE: Please refer to official installation guide for above tools installation.
 
