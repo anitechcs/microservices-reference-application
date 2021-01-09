@@ -28,4 +28,4 @@ terraform plan
 terraform apply --auto-approve
 ```
 
-You can check from the GCP console, above services should have running already. For the next step you can refer to [Deployment Guide](docs/deployment.md).
+You can check from the GCP console, above services should have running already. For the next step you can refer to [Deployment Guide](deployment.md).
