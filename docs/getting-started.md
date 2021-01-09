@@ -202,10 +202,10 @@ This script will help to build docker image all the services at once. If you pas
 cd microservices-reference-application
 
 # Build specific service
-./build-docker-image.sh book-service
+./tools/build-docker-image.sh book-service
 
 # Build image for all services
-./build-docker-image.sh
+./tools/build-docker-image.sh
 ```
 
 ### docker-compose.sh
@@ -216,13 +216,13 @@ This script will help to run all services and required tools like postgres datab
 cd microservices-reference-application
 
 # Build image for all services
-./build-docker-image.sh
+./tools/build-docker-image.sh
 
 # Run all services locally with required tools
-./docker-compose.sh up
+./tools/docker-compose.sh up
 
 # Stop all services running locally
-./docker-compose.sh down
+./tools/docker-compose.sh down
 ```
 
 ### swagger-editor.sh
@@ -233,16 +233,16 @@ We are using API First micro services approch with OpenAPI specification. You ca
 cd microservices-reference-application
 
 # Open Book service spec file in Swagger Editor
-./swagger-editor.sh book-service
+./tools/swagger-editor.sh book-service
 
 # Open Order service spec file in Swagger Editor
-./swagger-editor.sh order-service
+./tools/swagger-editor.sh order-service
 
 # Open Rating service spec file in Swagger Editor
-./swagger-editor.sh rating-service
+./tools/swagger-editor.sh rating-service
 
 # Open Promotion service spec file in Swagger Editor
-./swagger-editor.sh promotion-service
+./tools/swagger-editor.sh promotion-service
 ```
 
 ### openapi-codegen.sh
@@ -255,17 +255,17 @@ If you make any changes to OpenAPI spec file, make you run this script to genera
 cd microservices-reference-application
 
 # Generate code for book service
-./openapi-codegen.sh book-service
+./tools/openapi-codegen.sh book-service
 
 # Generate code for order service
-./openapi-codegen.sh order-service
+./tools/openapi-codegen.sh order-service
 
 # Generate code for rating service
-./openapi-codegen.sh rating-service
+./tools/openapi-codegen.sh rating-service
 
 # Generate code for promotion service
-./openapi-codegen.sh promotion-service
+./tools/openapi-codegen.sh promotion-service
 
 # Generate code for all services
-./openapi-codegen.sh
+./tools/openapi-codegen.sh
 ```
