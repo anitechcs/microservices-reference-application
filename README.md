@@ -39,6 +39,11 @@ This application can be deployed to any major cloud platform. We are providing a
 If you want to run the full application with supporting tools such as database, redis, api-gateway, auth server on your local system, use the script provided at [`tools/docker-compose.sh`](tools/docker-compose.sh).
 
 ```bash
+cd microservices-reference-application
+
+# Build image for all services
+./tools/build-docker-image.sh
+
 # Start all services
 ./tools/docker-compose.sh up
 
