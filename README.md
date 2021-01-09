@@ -14,6 +14,8 @@ I was designing an architecture for one of our next generation internal applicat
 
 You can find high level system architecture in below diagram. It reprents different components and opensource tools involved in the application and how they interact with each other. Although diagram says `Google Cloud Platform`, the application can be deployed to any cloud platform. Please visit [`deployment`](deployment) folder to find what all platforms are currently supported.
 
+Please follow our detailed [`Architecture guide here`](docs/architecture.md)
+
 ![](docs/images/MRA%20Architecture.svg)
 
 ## Demonstration Video
