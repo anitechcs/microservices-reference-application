@@ -26,3 +26,4 @@ pom.xml
 README.md
 src/main/resources/application.properties
 src/main/java/com/anitechcs/bookservice/api/BookApiController.java
+src/main/java/com/anitechcs/bookservice/model/Book.java

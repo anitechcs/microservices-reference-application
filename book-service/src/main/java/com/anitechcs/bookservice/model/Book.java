@@ -12,15 +12,23 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
  * Book
  */
+@Entity
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class Book   {
   @JsonProperty("bookId")
+  @Id
   private Long bookId;
 
   @JsonProperty("title")
@@ -31,6 +39,7 @@ public class Book   {
 
   @JsonProperty("authors")
   @Valid
+  @ElementCollection
   private List<String> authors = null;
 
   @JsonProperty("isbn")
@@ -51,22 +60,27 @@ public class Book   {
 
   @JsonProperty("genres")
   @Valid
+  @ElementCollection
   private List<String> genres = null;
 
   @JsonProperty("tags")
   @Valid
+  @ElementCollection
   private List<String> tags = null;
 
   @JsonProperty("price")
+  @Embedded
   private BookPrice price;
 
   @JsonProperty("ratings")
+  @Embedded
   private BookRatings ratings;
 
   @JsonProperty("coverPhoto")
   private String coverPhoto;
 
   @JsonProperty("promotions")
+  @Embedded
   private BookPromotions promotions;
 
   public Book bookId(Long bookId) {

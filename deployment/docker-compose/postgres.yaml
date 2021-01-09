@@ -1,0 +1,15 @@
+version: '3'
+services:
+  postgres_db:
+    image: postgres:latest # use latest official postgres version
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: bookstore # database name
+      POSTGRES_USER: postgres # database admin user
+      POSTGRES_PASSWORD: password # database admin password
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgres
+volumes:
+  postgres_data: # named volumes can be managed easier using docker-compose

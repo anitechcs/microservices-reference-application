@@ -5,16 +5,28 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
  * Shipping address of the order
  */
+@Entity
 @ApiModel(description = "Shipping address of the order")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OrderAddress   {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long addressId;
+
   @JsonProperty("firstName")
   private String firstName;
 

@@ -1,0 +1,36 @@
+version: '3'
+services:
+  postgres_db:
+    image: postgres:latest # use latest official postgres version
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: bookstore # database name
+      POSTGRES_USER: postgres # database admin user
+      POSTGRES_PASSWORD: password # database admin password
+    volumes:
+      - postgres_data:/var/lib/postgres
+  
+  ## Setup keycloak with Postgres
+  keycloak:
+      image: quay.io/keycloak/keycloak:latest
+      container_name: keycloak
+      environment:
+        DB_VENDOR: postgres
+        DB_ADDR: postgres_db
+        DB_DATABASE: bookstore
+        DB_USER: postgres
+        DB_SCHEMA: public
+        DB_PASSWORD: password
+        KEYCLOAK_USER: keycloak
+        KEYCLOAK_PASSWORD: password
+        KEYCLOAK_IMPORT: /tmp/keycloak-import/bookstore-realm.json
+        #JDBC_PARAMS: "connectTimeout=30000"
+      volumes:
+        - ../kubernetes/keycloak/keycloak-init:/tmp/keycloak-import
+      ports:
+        - 8085:8080
+      depends_on:
+        - postgres_db
+volumes:
+  postgres_data: # named volumes can be managed easier using docker-compose
+  keycloak-init:  # Keycloak initial configs such as realm, themes etc.
