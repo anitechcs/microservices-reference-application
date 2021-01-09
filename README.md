@@ -32,7 +32,7 @@ For detailed information, head over to our [`Infrastructure Guide`](docs/infrast
 
 ## Deployment
 
-This application can be deployed to any major cloud platform. We are providing all kuberenetes resources under [`deployment/kubernetes`](deployment/kubernetes) directory.
+This application can be deployed to any major cloud platform. We are providing all kuberenetes resources under [`deployment/kubernetes`](deployment/kubernetes) directory. Please refer to [`Deployment Guide`](docs/deployment.md) for more details.
 
 If you want to run the full application with supporting tools such as database, redis, api-gateway, auth server on your local system, use the script provided at [`tools/docker-compose.sh`](tools/docker-compose.sh).
 
