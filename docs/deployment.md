@@ -6,7 +6,7 @@ There are mainly 2 types of deployment approach currently supported:
 
 ## 1. Run Locally Using Docker Compose
 
-Docker Compose is right approach if you want to run the application locally to see all the components in action. We recommended this approach for learning / evaluation only. We have provided Docker-Compose scripts for this task which can be found under [deployment/docker-compose](deployment/docker-compose).
+Docker Compose is right approach if you want to run the application locally to see all the components in action. We recommended this approach for learning / evaluation only. We have provided Docker-Compose scripts for this task which can be found under [deployment/docker-compose](../deployment/docker-compose).
 
 Following script will help to run all services and required tools like postgres database, redis, grafana, keycloak etc in local.
 
@@ -25,7 +25,7 @@ cd microservices-reference-application
 
 ## 2. Deploying to Kubernetes Cluster
 
-You can find the `kubernetes` yaml file under [deployment/kubernetes](deployment/kubernetes) folder to deploy each and every components required for this application.
+You can find the `kubernetes` yaml file under [deployment/kubernetes](../deployment/kubernetes) folder to deploy each and every components required for this application.
 
 Before starting deployment make sure your kubectl is pointing to the right kubernetes cluster. All the resources will be created on a separate namespace called `bookstore`. If you use provided `terraform` scripts, it will automatically create this namespace after provision kubernetes cluster. Make sure you create this namespace manually, if you are not using terraform script.
 
