@@ -121,6 +121,70 @@ microservices-reference-application/
 └── README.md                       -> Global Readme file
 ```
 
+## Running Applications Locally
+
+In order to run application in local machine, you have to start postgres database. The docker-compose file has been provided inside deployment folder.
+
+```bash
+# Run the postgres database
+docker-compose -f deployment/docker-compose/postgres.yaml up -d
+
+# Connect to database if you want to check (Optional)
+psql -h localhost -p 5432 -U postgres bookstore
+```
+
+Once database is up, you can go to indivisual service directory and excute following command to start the service in dev profile:
+
+```bash
+# Run Book Service
+cd book-service
+mvn spring-boot:run
+
+# open your browser to here:
+http://localhost:8080/
+```
+
+```bash
+# Run Order Service
+cd order-service
+mvn spring-boot:run
+
+# open your browser to here:
+http://localhost:8080/
+```
+
+```bash
+# Run Rating Service
+cd rating-service
+npm start
+
+# open your browser to here:
+http://localhost:8080/api-docs/
+```
+
+```bash
+# Run Promotion Service
+cd promotion-service
+pip3 install -r requirements.txt
+python3 -m promotionservice
+
+# open your browser to here:
+http://localhost:8080/v1/ui/
+```
+
+Finally run the frontend UI bookstore application:
+
+```bash
+# Run Frontend application
+cd bookstore
+ng serve
+
+# open your browser to here:
+http://localhost:4200/
+```
+
+> For more details, please follow indivisual README document available inside each service folder.
+
 ## Tools
 
 We have provided few utility tools for developers to use while developing application locally. Make sure you make all the scripts as executable using following command from root folder.
@@ -205,67 +269,3 @@ cd microservices-reference-application
 # Generate code for all services
 ./openapi-codegen.sh
 ```
-
-## Running Applications Locally
-
-In order to run application in local machine, you have to start postgres database. The docker-compose file has been provided inside deployment folder.
-
-```bash
-# Run the postgres database
-docker-compose -f deployment/docker-compose/postgres.yaml up -d
-
-# Connect to database if you want to check (Optional)
-psql -h localhost -p 5432 -U postgres bookstore
-```
-
-Once database is up, you can go to indivisual service directory and excute following command to start the service in dev profile:
-
-```bash
-# Run Book Service
-cd book-service
-mvn spring-boot:run
-
-# open your browser to here:
-http://localhost:8080/
-```
-
-```bash
-# Run Order Service
-cd order-service
-mvn spring-boot:run
-
-# open your browser to here:
-http://localhost:8080/
-```
-
-```bash
-# Run Rating Service
-cd rating-service
-npm start
-
-# open your browser to here:
-http://localhost:8080/api-docs/
-```
-
-```bash
-# Run Promotion Service
-cd promotion-service
-pip3 install -r requirements.txt
-python3 -m promotionservice
-
-# open your browser to here:
-http://localhost:8080/v1/ui/
-```
-
-Finally run the frontend UI bookstore application:
-
-```bash
-# Run Frontend application
-cd bookstore
-ng serve
-
-# open your browser to here:
-http://localhost:4200/
-```
-
-> For more details, please follow indivisual README document available inside each service folder.
