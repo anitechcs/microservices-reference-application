@@ -14,13 +14,13 @@ Following script will help to run all services and required tools like postgres 
 cd microservices-reference-application
 
 # Build image for all services
-./build-docker-image.sh
+./tools/build-docker-image.sh
 
 # Run all services locally with required tools
-./docker-compose.sh up
+./tools/docker-compose.sh up
 
 # Stop all services running locally
-./docker-compose.sh down
+./tools/docker-compose.sh down
 ```
 
 ## 2. Deploying to Kubernetes Cluster
