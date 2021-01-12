@@ -35,6 +35,12 @@ To launch the integration tests, use tox:
 sudo pip install tox
 tox
 ```
+## Running tests
+To run the tests, please execute the following from the root directory:
+```
+pip3 install -r requirements_dev.txt
+pytest
+```
 
 ## Running with Docker
 

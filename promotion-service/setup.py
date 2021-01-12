@@ -30,6 +30,8 @@ setup(
     packages=find_packages(),
     package_data={'': ['openapi/openapi.yaml']},
     include_package_data=True,
+    setup_requires=['pytest-runner', 'flake8'],
+    tests_require=['pytest', 'Flask_Testing'],
     entry_points={
         'console_scripts': ['promotionservice=promotionservice.__main__:main']},
     long_description="""\
