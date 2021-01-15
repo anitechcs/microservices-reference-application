@@ -11,3 +11,4 @@ setuptools >= 21.0.0
 pytest >= 6.2.1
 Flask_Testing >= 0.8.1
 flake8 == 3.8.4
+Flask-API >= 2.0
