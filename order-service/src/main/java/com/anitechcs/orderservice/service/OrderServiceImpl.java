@@ -1,5 +1,9 @@
 package com.anitechcs.orderservice.service;
 
+import java.util.List;
+
+import com.anitechcs.orderservice.model.Order;
+
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,7 +13,23 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class OrderServiceImpl implements OrderService {
-    
-    //TODO: Implement business logic
+
+    @Override
+    public Order createNewOrder(Order order) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public List<Order> getAllOrders() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Order getOrderById(Long orderId) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }
