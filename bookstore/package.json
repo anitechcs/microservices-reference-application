@@ -32,6 +32,7 @@
     "css-star-rating": "^1.2.4",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.6.0",
+    "sass": "^1.32.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
@@ -49,7 +50,6 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "node-sass": "^5.0.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
