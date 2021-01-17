@@ -99,34 +99,6 @@ components:
         total:
           type: integer
           format: int64
-        _links:
-          type: object
-          properties:
-            self:
-              type: object
-              properties:
-                href:
-                  type: string
-            first:
-              type: object
-              properties:
-                href:
-                  type: string
-            prev:
-              type: object
-              properties:
-                href:
-                  type: string
-            next:
-              type: object
-              properties:
-                href:
-                  type: string
-            last:
-              type: object
-              properties:
-                href:
-                  type: string
         results:
           type: array
           items:
@@ -201,24 +173,6 @@ paths:
         - Order-Service
       description: Get All Orders with Pagination
       operationId: getAllOrders
-      parameters:
-      - name: limit
-        in: query
-        description: Number of items service will return
-        required: true
-        schema:
-          type: integer
-          format: int32
-          default: 10
-          example: 10
-      - name: offset
-        in: query
-        description: Offset the results by this number
-        schema:
-          type: integer
-          format: int32
-          default: 0
-          example: 0
       responses:
         200:
           description: Success response

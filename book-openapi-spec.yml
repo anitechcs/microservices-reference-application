@@ -17,7 +17,7 @@ servers:
     description: Book Service production server
 tags:
 - name: Book-Service
-  description: All book enpoints required for Microservices reference application
+  description: All book endpoints required for Microservices reference application
 components:
   schemas:
     Book:
@@ -118,34 +118,6 @@ components:
         total:
           type: integer
           format: int64
-        _links:
-          type: object
-          properties:
-            self:
-              type: object
-              properties:
-                href:
-                  type: string
-            first:
-              type: object
-              properties:
-                href:
-                  type: string
-            prev:
-              type: object
-              properties:
-                href:
-                  type: string
-            next:
-              type: object
-              properties:
-                href:
-                  type: string
-            last:
-              type: object
-              properties:
-                href:
-                  type: string
         results:
           type: array
           items:

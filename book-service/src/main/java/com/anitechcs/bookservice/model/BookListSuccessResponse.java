@@ -2,7 +2,6 @@ package com.anitechcs.bookservice.model;
 
 import java.util.Objects;
 import com.anitechcs.bookservice.model.Book;
-import com.anitechcs.bookservice.model.BookListSuccessResponseLinks;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
@@ -26,9 +25,6 @@ public class BookListSuccessResponse   {
 
   @JsonProperty("total")
   private Long total;
-
-  @JsonProperty("_links")
-  private BookListSuccessResponseLinks links;
 
   @JsonProperty("results")
   @Valid
@@ -94,27 +90,6 @@ public class BookListSuccessResponse   {
     this.total = total;
   }
 
-  public BookListSuccessResponse links(BookListSuccessResponseLinks links) {
-    this.links = links;
-    return this;
-  }
-
-  /**
-   * Get links
-   * @return links
-  */
-  @ApiModelProperty(value = "")
-
-  @Valid
-
-  public BookListSuccessResponseLinks getLinks() {
-    return links;
-  }
-
-  public void setLinks(BookListSuccessResponseLinks links) {
-    this.links = links;
-  }
-
   public BookListSuccessResponse results(List<Book> results) {
     this.results = results;
     return this;
@@ -157,13 +132,12 @@ public class BookListSuccessResponse   {
     return Objects.equals(this.statusCode, bookListSuccessResponse.statusCode) &&
         Objects.equals(this.message, bookListSuccessResponse.message) &&
         Objects.equals(this.total, bookListSuccessResponse.total) &&
-        Objects.equals(this.links, bookListSuccessResponse.links) &&
         Objects.equals(this.results, bookListSuccessResponse.results);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(statusCode, message, total, links, results);
+    return Objects.hash(statusCode, message, total, results);
   }
 
   @Override
@@ -174,7 +148,6 @@ public class BookListSuccessResponse   {
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("}");
     return sb.toString();

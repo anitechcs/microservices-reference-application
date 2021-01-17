@@ -1,5 +1,9 @@
 package com.anitechcs.orderservice.service;
 
+import java.util.List;
+
+import com.anitechcs.orderservice.model.Order;
+
 /**
  * Order service interface
  * 
@@ -7,6 +11,10 @@ package com.anitechcs.orderservice.service;
  */
 public interface OrderService {
     
-    //TODO: Implement business logic contract
+    public Order createNewOrder(Order order);
+
+    public List<Order> getAllOrders();
+
+    public Order getOrderById(Long orderId);
 
 }

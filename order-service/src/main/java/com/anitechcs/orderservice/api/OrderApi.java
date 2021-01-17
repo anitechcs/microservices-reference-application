@@ -73,8 +73,6 @@ public interface OrderApi {
      * GET /order
      * Get All Orders with Pagination
      *
-     * @param limit Number of items service will return (required)
-     * @param offset Offset the results by this number (optional, default to 0)
      * @return Success response (status code 200)
      *         or Client error (status code 400)
      *         or No records found (status code 404)
@@ -90,11 +88,11 @@ public interface OrderApi {
         value = "/order",
         produces = { "application/json" }
     )
-    default ResponseEntity<OrderListSuccessResponse> getAllOrders(@NotNull @ApiParam(value = "Number of items service will return", required = true, defaultValue = "10") @Valid @RequestParam(value = "limit", required = true, defaultValue="10") Integer limit,@ApiParam(value = "Offset the results by this number", defaultValue = "0") @Valid @RequestParam(value = "offset", required = false, defaultValue="0") Integer offset) {
+    default ResponseEntity<OrderListSuccessResponse> getAllOrders() {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"total\" : 6, \"_links\" : { \"next\" : { \"href\" : \"href\" }, \"last\" : { \"href\" : \"href\" }, \"prev\" : { \"href\" : \"href\" }, \"self\" : { \"href\" : \"href\" }, \"first\" : { \"href\" : \"href\" } }, \"message\" : \"message\", \"results\" : [ { \"amount\" : 7.061401241503109, \"quantity\" : 5, \"address\" : { \"zip\" : 2, \"firstName\" : \"firstName\", \"lastName\" : \"lastName\", \"city\" : \"city\", \"phone\" : \"phone\", \"addressLine\" : \"addressLine\", \"email\" : \"email\" }, \"orderId\" : 1, \"paymentMethod\" : \"Paypal\", \"shipDate\" : \"2000-01-23T04:56:07.000+00:00\", \"complete\" : false, \"bookId\" : 5, \"status\" : \"placed\" }, { \"amount\" : 7.061401241503109, \"quantity\" : 5, \"address\" : { \"zip\" : 2, \"firstName\" : \"firstName\", \"lastName\" : \"lastName\", \"city\" : \"city\", \"phone\" : \"phone\", \"addressLine\" : \"addressLine\", \"email\" : \"email\" }, \"orderId\" : 1, \"paymentMethod\" : \"Paypal\", \"shipDate\" : \"2000-01-23T04:56:07.000+00:00\", \"complete\" : false, \"bookId\" : 5, \"status\" : \"placed\" } ], \"statusCode\" : 0 }";
+                    String exampleString = "{ \"total\" : 6, \"message\" : \"message\", \"results\" : [ { \"amount\" : 7.061401241503109, \"quantity\" : 5, \"address\" : { \"zip\" : 2, \"firstName\" : \"firstName\", \"lastName\" : \"lastName\", \"city\" : \"city\", \"phone\" : \"phone\", \"addressLine\" : \"addressLine\", \"email\" : \"email\" }, \"orderId\" : 1, \"paymentMethod\" : \"Paypal\", \"shipDate\" : \"2000-01-23T04:56:07.000+00:00\", \"complete\" : false, \"bookId\" : 5, \"status\" : \"placed\" }, { \"amount\" : 7.061401241503109, \"quantity\" : 5, \"address\" : { \"zip\" : 2, \"firstName\" : \"firstName\", \"lastName\" : \"lastName\", \"city\" : \"city\", \"phone\" : \"phone\", \"addressLine\" : \"addressLine\", \"email\" : \"email\" }, \"orderId\" : 1, \"paymentMethod\" : \"Paypal\", \"shipDate\" : \"2000-01-23T04:56:07.000+00:00\", \"complete\" : false, \"bookId\" : 5, \"status\" : \"placed\" } ], \"statusCode\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
