@@ -5,7 +5,7 @@ import { LoaderComponent } from '../components/loader/loader.component';
 
 @Injectable()
 export class LoaderService {
-  dialogRef: MatDialogRef<LoaderComponent>;
+  dialogRef!: MatDialogRef<LoaderComponent>;
   constructor(private dialog: MatDialog) { }
 
   public open(title: string = 'Loading..'): Observable<boolean> {

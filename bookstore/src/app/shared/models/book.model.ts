@@ -1,26 +1,26 @@
-export class Book {
-  public bookId: number;
-  public title: string;
-  public description?: string;
-  public authors: string[];
-  public isbn: string;
-  public language: string;
-  public totalPages: number;
-  public publicationDate: string;
-  public publisher: string;
-  public genres: string[];
-  public tags?: string[];
-  public price: {
+export interface Book {
+  bookId: number;
+  title: string;
+  description?: string;
+  authors: string[];
+  isbn: string;
+  language: string;
+  totalPages: number;
+  publicationDate: string;
+  publisher: string;
+  genres: string[];
+  tags?: string[];
+  price: {
     currency: string,
     amount: number,
     mrp: number
   };
-  public ratings?: {
+  ratings?: {
     rating: number,
     ratingCount: number
   };
-  public coverPhoto: string;
-  public promotions?: { 
+  coverPhoto: string;
+  promotions?: { 
     text: string, 
     color: string 
   };

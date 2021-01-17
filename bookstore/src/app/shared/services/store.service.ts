@@ -54,6 +54,7 @@ export class StoreService {
       this.cartData.itemCount += item.data.quantity;
     });
   }
+
   public removeFromCart(cartItem: CartItem): Observable<CartItem[]> {
     this.cart = this.cart.filter(item => {
       if (item.book.bookId === cartItem.book.bookId) {
@@ -105,8 +106,8 @@ export class StoreService {
         return this.filterBooks(books, filterData);
       })
     );
-
   }
+
   /*
   * If your data set is too big this may raise performance issue.
   * You should implement server side filtering instead.
@@ -150,21 +151,21 @@ export class StoreService {
         match.price = false;
       }
       // Rating filter
-      if (
-        p.ratings.rating >= filterData.minRating
-        && p.ratings.rating <= filterData.maxRating
-      ) {
+      if (p.ratings.rating >= filterData.minRating && p.ratings.rating <= filterData.maxRating) {
         match.rating = true;
       } else {
         match.rating = false;
       }
 
       for (const m in match) {
-        if (!match[m]) { return false; }
+        if (!match[m]) { 
+          return false; 
+        }
       }
 
       return true;
     });
+    
     return of(filteredBooks);
   }
 }

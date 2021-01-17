@@ -23,11 +23,11 @@ export class BooksComponent implements OnInit {
   @ViewChild('sideNav')
   sideNav!: MatSidenav;
 
-  public books$: Observable<Book[]>;
-  public genres$: Observable<any>;
+  public books$!: Observable<Book[]>;
+  public genres$!: Observable<any>;
   public activeGenre = 'all';
-  public filterForm: FormGroup;
-  public cart: CartItem[];
+  public filterForm!: FormGroup;
+  public cart!: CartItem[];
   public cartData: any;
 
   constructor(
