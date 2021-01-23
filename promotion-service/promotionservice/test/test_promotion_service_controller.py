@@ -41,8 +41,10 @@ class TestPromotionServiceController(BaseTestCase):
 
         data = json.loads(response.data)
         expected_color_codes = ["#CD2626", "#FF7F0F", "#FF9CEE",
-                                "#6EB5FF", "#B10501"]
-        expected_discount = [10, 15, 20, 25, 30]
+                                "#6EB5FF", "#B10501", "#4B11A8",
+                                "#1A73E8", "#617C58", "#827B60",
+                                "#C47451"]
+        expected_discount = [5, 7, 10, 12, 15, 20, 25, 30, 35, 40]
         self.assertEqual(200, data['statusCode'])
         self.assertEqual("Success", data['message'])
         self.assertTrue(data['promotions']['color'] in expected_color_codes)
