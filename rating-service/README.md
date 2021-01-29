@@ -29,8 +29,10 @@ To keep the explanation short (a more detailed explanation will follow): Applica
 npm start
 ```
 ### Tests
-Unfortunately, I have not written any unit-tests. Those will come in the future. However, the package does come with all that is needed to write and run tests - mocha and sinon and the related libraries are included in the package.js and will be installed upon npm install command
-
+Execute below command to run unit tests.
+```
+npm test
+```
 ### View and test the API
 (Assuming no changes were made to config.js)
 
