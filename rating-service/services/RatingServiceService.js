@@ -16,7 +16,9 @@ const getBookRatings = ({ bookId }) => new Promise(
       const maxRange = constants.ranting_values.length
       const ratingCntMin = constants.ratingCntMinRange
       const ratingCntMax = constants.ratingCntMaxRange
-      const rating = commonUtils.getRating(maxRange)
+
+      const ratingIndex = commonUtils.getRandomNumber(maxRange)
+      const rating = commonUtils.getRating(ratingIndex)
       const ratingCount = commonUtils.getRandomNumberWithinRange(ratingCntMin, ratingCntMax)
       var payload = commonUtils.getPayload(rating, ratingCount)
 

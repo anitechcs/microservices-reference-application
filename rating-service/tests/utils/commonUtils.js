@@ -10,15 +10,15 @@ describe('Utility test cases', () => {
         it('Should return value bewtween 250 and 1000', () => {
             const expected_value = commonUtils.getRandomNumberWithinRange(250, 1000)
             expect(expected_value).to.lessThan(1000)
-            expect(expected_value).to.greaterThan(250)
+            expect(expected_value).to.greaterThan(249)
           });
      });
 
     describe('getRating function', () => {
         it('Should return value bewtween 2.5 and 5.0', () => {
             const actual_value = commonUtils.getRating(5)
-            expect(actual_value).to.greaterThan(2.5)
-            expect(actual_value).to.lessThan(5.0)
+            expect(actual_value).to.greaterThan(2.4)
+            expect(actual_value).to.lessThan(6.0)
           });
      });
 
