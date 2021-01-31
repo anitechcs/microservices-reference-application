@@ -2,6 +2,7 @@
 const Service = require('./Service');
 const commonUtils = require('../utils/commonUtils');
 const constants = require('../utils/constants');
+const commonResponseCodes = require('../utils/commonResponseCodes');
 
 /**
 * Returns ratings for a particulat book
@@ -22,7 +23,7 @@ const getBookRatings = ({ bookId }) => new Promise(
       const ratingCount = commonUtils.getRandomNumberWithinRange(ratingCntMin, ratingCntMax)
       var payload = commonUtils.getPayload(rating, ratingCount)
 
-      resolve(Service.successResponse(payload, 200));
+      resolve(Service.successResponse(payload, commonResponseCodes.SUCCESS.code));
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
