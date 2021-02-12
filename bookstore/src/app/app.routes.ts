@@ -6,6 +6,7 @@ import { CartComponent } from './store/cart/cart.component';
 import { CheckoutComponent } from './store/checkout/checkout.component';
 import { OrderConfirmationComponent } from './store/order-confirmation/order-confirmation.component';
 import { OrdersComponent } from './store/orders/orders.component';
+import { OrderDetailsComponent } from './store/order-details/order-details.component';
 
 export const rootRouterConfig: Routes = [
   {
@@ -41,7 +42,12 @@ export const rootRouterConfig: Routes = [
       {
         path: 'orders',
         component: OrdersComponent,
-        data: { title: 'Orders History', breadcrumb: 'Orders' }
+        data: { title: 'Order History', breadcrumb: 'Orders' }
+      },
+      {
+        path: 'orders/:orderId',
+        component: OrderDetailsComponent,
+        data: { title: 'Order Details', breadcrumb: 'Order Details' }
       }
     ]
   },

@@ -33,6 +33,7 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { OrdersComponent } from './orders/orders.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 @NgModule({
   imports: [
@@ -69,7 +70,8 @@ import { OrdersComponent } from './orders/orders.component';
     CartComponent,
     CheckoutComponent,
     OrderConfirmationComponent,
-    OrdersComponent
+    OrdersComponent,
+    OrderDetailsComponent
   ],
   providers: [ 
     StoreService 

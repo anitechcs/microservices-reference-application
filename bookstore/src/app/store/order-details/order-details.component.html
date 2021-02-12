@@ -1,0 +1,19 @@
+<div class="ml-1 mb-05">
+  <button mat-icon-button class="text-muted" routerLink="/store/orders"><mat-icon>chevron_left</mat-icon> <span >Back</span></button>
+
+  <div [@animate]="{value:'*',params:{delay: '100ms', y:'-50px'}}">
+    <h1 class="display-1 page-title">Order Details</h1>
+      <div class="order-inner default-bg">
+        <div class="info-wrap p-1">
+          <div class="main-info">
+            <h3 class="title">{{ bookName }}</h3>
+            Order Id: <p class="text-muted p-line">{{ selectedOrder?.orderId }}</p>
+            Address: <p class="text-muted p-line">{{ selectedOrder?.address }}</p>
+            Ship Date: <p class="text-muted p-line">{{ selectedOrder?.shipDate }}</p>
+            Amount: <p class="text-muted p-line">{{ selectedOrder?.amount }}</p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
