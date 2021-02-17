@@ -1,8 +1,20 @@
-<div>
-  <div [@animate]="{value:'*',params:{delay: '100ms', y:'-50px'}}">
-    <mat-card class="text-center">
-      <h5 class="mb-1">Not Implemented Yet!</h5>
-      <button mat-raised-button color="accent" routerLink="/store"><mat-icon>chevron_left</mat-icon> Back to Store</button>
-    </mat-card>
+<div [@animate]="{value:'*',params:{delay: '100ms', y:'-50px'}}">
+
+  <h1 class="display-1 page-title">Order History</h1>
+  <div
+  *ngFor="let order of orders$ | async; let i = index;"
+  [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'50px'}}">
+    <div class="order-inner default-bg">
+      <div class="info-wrap p-1">
+        <div class="main-info">
+          <h3 class="title" [routerLink]="['/store/orders/', order.orderId]">{{order.orderId}} - {{getBookName(order.bookId) | async}}</h3>
+          Address: <p class="text-muted p-line">{{order?.address}}</p>
+          Ship Date: <p class="text-muted p-line">{{order?.shipDate}}</p>
+          Amount: <p class="text-muted p-line">{{order?.amount}}</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
+

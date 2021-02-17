@@ -9,7 +9,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class StoreSideNavFilterDirective implements OnInit, OnDestroy {
   isMobile: boolean = false;
-  screenSizeWatcher: Subscription;
+  screenSizeWatcher!: Subscription;
   
   constructor(
     private media: MediaObserver,

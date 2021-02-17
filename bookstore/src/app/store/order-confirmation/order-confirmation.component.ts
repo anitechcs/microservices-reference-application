@@ -3,7 +3,7 @@ import { StoreService } from '../../shared/services/store.service';
 import { AppAnimations } from '../../shared/animations/animations';
 
 @Component({
-  selector: 'app-checkout',
+  selector: 'app-order-confirmation',
   templateUrl: './order-confirmation.component.html',
   styleUrls: ['./order-confirmation.component.scss'],
   animations: AppAnimations

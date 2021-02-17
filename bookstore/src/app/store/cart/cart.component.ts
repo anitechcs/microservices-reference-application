@@ -32,7 +32,7 @@ export class CartComponent implements OnInit {
     });
   }
 
-  removeBook(cartItem) {
+  removeBook(cartItem: CartItem) {
     this.storeService
     .removeFromCart(cartItem)
     .subscribe(res => {

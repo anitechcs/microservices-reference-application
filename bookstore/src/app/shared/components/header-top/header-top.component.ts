@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header-top',
@@ -7,12 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderTopComponent {
 
-  @Input() notificPanel;
   constructor() { }
-
-  toggleNotific() {
-    this.notificPanel.toggle();
-  }
 
   doLogout() {
     // TODO: Logout

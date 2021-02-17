@@ -1,17 +1,19 @@
-import { throwError as observableThrowError,  Observable } from 'rxjs';
+import { throwError as observableThrowError, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { BooksDB } from '../mock-data/books';
+import { OrdersDB } from '../mock-data/orders';
 import { Book } from '../models/book.model';
+import { Order } from '../models/order.model';
 import { FormGroup } from '@angular/forms';
 import { of, combineLatest } from 'rxjs';
 import { startWith, debounceTime, delay, map, switchMap } from 'rxjs/operators';
 import { CartItem } from '../models/cart.model';
 import { GenreDB } from '../mock-data/genres';
 
-
 @Injectable()
 export class StoreService {
   public books: Book[] = [];
+  public orders: Order[] = [];
   public initialFilters = {
     minPrice: 10,
     maxPrice: 500,
@@ -54,6 +56,7 @@ export class StoreService {
       this.cartData.itemCount += item.data.quantity;
     });
   }
+
   public removeFromCart(cartItem: CartItem): Observable<CartItem[]> {
     this.cart = this.cart.filter(item => {
       if (item.book.bookId === cartItem.book.bookId) {
@@ -105,14 +108,14 @@ export class StoreService {
         return this.filterBooks(books, filterData);
       })
     );
-
   }
+
   /*
   * If your data set is too big this may raise performance issue.
   * You should implement server side filtering instead.
   */
   private filterBooks(books: Book[], filterData: any): Observable<Book[]> {
-    const filteredBooks = books.filter(p => {
+    const filteredBooks = books.filter(book => {
       const match = {
         search: false,
         genre: false,
@@ -120,51 +123,61 @@ export class StoreService {
         rating: false
       };
       // Search
-      if (
-        !filterData.search
-        || p.title.toLowerCase().indexOf(filterData.search.toLowerCase()) > -1
-        || p.description.indexOf(filterData.search) > -1
-        || p.tags.indexOf(filterData.search) > -1
-      ) {
+      if (!filterData.search || book.title.toLowerCase().indexOf(filterData.search.toLowerCase()) > -1 || book.description.indexOf(filterData.search) > -1 || book.tags.indexOf(filterData.search) > -1) {
         match.search = true;
       } else {
         match.search = false;
       }
       // Category filter
-      if (
-        p.genres.includes(filterData.genre)
-        || !filterData.genre
-        || filterData.genre === 'all'
-      ) {
+      if (book.genres.includes(filterData.genre) || !filterData.genre || filterData.genre === 'all') {
         match.genre = true;
       } else {
         match.genre = false;
       }
       // Price filter
-      if (
-        p.price.amount >= filterData.minPrice
-        && p.price.amount <= filterData.maxPrice
-      ) {
+      if (book.price.amount >= filterData.minPrice && book.price.amount <= filterData.maxPrice) {
         match.price = true;
       } else {
         match.price = false;
       }
       // Rating filter
-      if (
-        p.ratings.rating >= filterData.minRating
-        && p.ratings.rating <= filterData.maxRating
-      ) {
+      if (book.ratings.rating >= filterData.minRating && book.ratings.rating <= filterData.maxRating) {
         match.rating = true;
       } else {
         match.rating = false;
       }
 
       for (const m in match) {
-        if (!match[m]) { return false; }
+        if (!match[m]) { 
+          return false; 
+        }
       }
 
       return true;
     });
+    
     return of(filteredBooks);
   }
+
+  public getOrders(): Observable<Order[]> {
+    const ordersDB = new OrdersDB();
+    return of(ordersDB.orders)
+    .pipe(
+      delay(500), 
+      map((data: Order[]) => {
+        this.orders = data;
+        return data;
+      })
+    );
+  }
+
+  public getOrderDetails(orderId: number): Observable<Order> {
+    const ordersDB = new OrdersDB();
+    const orders = ordersDB.orders.filter(order => order.orderId == orderId)[0];
+    if (!orders) {
+      return observableThrowError(new Error('Order not found!'));
+    }
+    return of(orders);
+  }
+
 }
