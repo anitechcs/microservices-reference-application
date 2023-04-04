@@ -73,9 +73,9 @@ cd microservices-reference-application
 - Grafana
 - Loki
 - Tempo
-- Ambassador
+- APISIX
 - Helm
-- ElasticSearch
+- Kafka
 - Redis
 - PostgreSQL
 - HashiCorp's Vault
@@ -115,6 +115,6 @@ cd microservices-reference-application
 
 Your valuable contribution is always precious for us to keep this repository up to date and relevant. If you have some cool idea or new features requirement, please feel free to open a Github issue. We will discuss and take it up from there. For small changes or optimizations, direct pull request are always welcome. Appriciate your help in advance.
 
-## Caution! :fire:
+## Declaration! :fire:
 
-> For simplicity we have created mono repo with all services source code. Never do that in your actual project, use separate repository for individual services instead.
+> For simplicity we have created mono repo with all services source code. Feel free to choose your own style based on your project requirements and size.
