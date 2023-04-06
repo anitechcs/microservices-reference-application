@@ -24,11 +24,11 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <p class="m-0">Min: {{filterForm.controls['minPrice']['value'] || 20 | currency:'USD'}}</p>
-              <mat-slider class="full-width mb-1 pl-0" [formControl]="filterForm.controls['minPrice']" [thumbLabel]="true" [max]="filterForm.controls['maxPrice']?.value - 5"
+              <mat-slider class="full-width mb-1 pl-0" [formControl]="filterForm.controls['minPrice']" [max]="filterForm.controls['maxPrice']?.value - 5"
                 [min]="20"></mat-slider>
 
               <p class="m-0">Max: {{filterForm.controls['maxPrice']['value'] || 40 | currency:'USD'}}</p>
-              <mat-slider class="full-width pl-0" [formControl]="filterForm.controls['maxPrice']" [thumbLabel]="true" [max]="50" [min]="filterForm.controls['minPrice']?.value + 5"></mat-slider>
+              <mat-slider class="full-width pl-0" [formControl]="filterForm.controls['maxPrice']" [max]="50" [min]="filterForm.controls['minPrice']?.value + 5"></mat-slider>
             </mat-expansion-panel>
             <!-- Ratings -->
             <mat-expansion-panel expanded="true">
@@ -38,11 +38,11 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <p class="m-0">Min: {{filterForm.controls['minRating']['value'] || 1}}</p>
-              <mat-slider class="full-width mb-1" [formControl]="filterForm.controls['minRating']" [thumbLabel]="true" [max]="filterForm.controls['maxRating']?.value - 1"
+              <mat-slider class="full-width mb-1" [formControl]="filterForm.controls['minRating']" [max]="filterForm.controls['maxRating']?.value - 1"
                 [min]="1"></mat-slider>
 
               <p class="m-0">Max: {{filterForm.controls['maxRating']['value'] || 5}}</p>
-              <mat-slider class="full-width mb-1" [formControl]="filterForm.controls['maxRating']" [thumbLabel]="true" [max]="5" [min]="filterForm.controls['minRating']?.value + 1"></mat-slider>
+              <mat-slider class="full-width mb-1" [formControl]="filterForm.controls['maxRating']" [max]="5" [min]="filterForm.controls['minRating']?.value + 1"></mat-slider>
             </mat-expansion-panel>
           </mat-accordion>
         </form>

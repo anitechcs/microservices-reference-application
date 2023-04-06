@@ -24,10 +24,14 @@
         </span>
       </p>
       <p class="text-muted p-line">
-        <mat-chip-list>
-          <strong>Tags: </strong>
-          <mat-chip *ngFor="let t of book.tags">{{t}}</mat-chip>
-        </mat-chip-list>
+        <mat-chip-listbox>
+          <mat-chip-option>
+            <strong>Tags: </strong>
+          </mat-chip-option>
+          <mat-chip-option>
+            <mat-chip *ngFor="let t of book.tags">{{t}}</mat-chip>
+          </mat-chip-option>
+        </mat-chip-listbox>
     </div>
     <div class="product-rating" *ngIf="book?.ratings?.rating">
       <star-rating [rating]="book?.ratings?.rating" [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'">

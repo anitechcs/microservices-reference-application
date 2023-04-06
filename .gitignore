@@ -95,13 +95,13 @@ deployment/terraform/*/terraform.tfstate.backup
 
 # Angular
 # compiled output
-/boostore/dist
-/boostore//tmp
-/boostore//out-tsc
+/bookstore/dist
+/bookstore/tmp
+/bookstore/out-tsc
 
 # profiling files
-/boostore/chrome-profiler-events*.json
-/boostore/speed-measure-plugin*.json
+/bookstore/chrome-profiler-events*.json
+/bookstore/speed-measure-plugin*.json
 
 # IDEs and editors
 /.idea
@@ -111,6 +111,7 @@ deployment/terraform/*/terraform.tfstate.backup
 *.launch
 .settings/
 *.sublime-workspace
+/bookstore/.angular
 
 # IDE - VSCode
 .vscode/*
