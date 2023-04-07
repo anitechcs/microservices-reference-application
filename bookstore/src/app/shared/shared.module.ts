@@ -26,6 +26,7 @@ import { HeaderTopComponent } from './components/header-top/header-top.component
 import { StoreSideNavFilterDirective } from './directives/store-side-nav-filter.directive';
 import { LoaderService } from './services/loader.service';
 import { AuthService } from './services/auth.service';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   imports: [
@@ -55,12 +56,14 @@ import { AuthService } from './services/auth.service';
     HeaderTopComponent,
     StoreLayoutComponent,
     LoaderComponent,
+    PageNotFoundComponent,
     StoreSideNavFilterDirective
   ],
   declarations: [
     HeaderTopComponent,
     StoreLayoutComponent,
     LoaderComponent,
+    PageNotFoundComponent,
     StoreSideNavFilterDirective
   ],
   providers: [

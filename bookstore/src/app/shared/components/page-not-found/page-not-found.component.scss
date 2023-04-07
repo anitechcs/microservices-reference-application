@@ -1,0 +1,19 @@
+.center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    background: whitesmoke;
+  }
+
+  .title {
+    font-weight: bolder;
+    font-size: 34px;
+  }
+
+  .message {
+    font-size: 18px;
+    margin: 40px 0;
+  }

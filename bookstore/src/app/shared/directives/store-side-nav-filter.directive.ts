@@ -28,10 +28,8 @@ export class StoreSideNavFilterDirective implements OnInit, OnDestroy {
 
   updateSidenav() {
     const self = this;
-    setTimeout(() => {
-      self.sideNav.opened = !self.isMobile;
-      self.sideNav.mode = self.isMobile ? 'over' : 'side';
-    });
+    self.sideNav.opened = !self.isMobile;
+    self.sideNav.mode = self.isMobile ? 'over' : 'side';
   }
 
   initSideNav() {
@@ -39,7 +37,9 @@ export class StoreSideNavFilterDirective implements OnInit, OnDestroy {
     this.updateSidenav();
     this.screenSizeWatcher = this.media.asObservable().subscribe((change: MediaChange[]) => {
       this.isMobile = (change[0].mqAlias === 'xs') || (change[0].mqAlias === 'sm');
-      this.updateSidenav();
+      setTimeout(() => {
+        this.updateSidenav();
+      }, 1000);
     });
   }
 
