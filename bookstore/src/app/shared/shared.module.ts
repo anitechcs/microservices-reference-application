@@ -20,13 +20,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
-
 import { StoreLayoutComponent } from './components/store-layout/store-layout.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { HeaderTopComponent } from './components/header-top/header-top.component';
-
 import { StoreSideNavFilterDirective } from './directives/store-side-nav-filter.directive';
-
 import { LoaderService } from './services/loader.service';
 import { AuthService } from './services/auth.service';
 

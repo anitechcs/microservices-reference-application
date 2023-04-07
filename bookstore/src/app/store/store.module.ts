@@ -21,11 +21,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatRippleModule } from '@angular/material/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
 import { StarRatingModule } from 'angular-star-rating';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from '../shared/shared.module';
-
 import { BooksComponent } from './books/books.component';
 import { StoreService } from '../shared/services/store.service';
 import { BookDetailsComponent } from './book-details/book-details.component';

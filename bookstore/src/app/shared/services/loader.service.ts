@@ -8,10 +8,8 @@ export class LoaderService {
   dialogRef!: MatDialogRef<LoaderComponent>;
   constructor(private dialog: MatDialog) { }
 
-  public open(title: string = 'Loading..'): Observable<boolean> {
-    this.dialogRef = this.dialog.open(LoaderComponent, { disableClose: true, backdropClass: 'light-backdrop'});
-    this.dialogRef.updateSize('120px');
-    this.dialogRef.componentInstance.title = title;
+  public open(): Observable<boolean> {
+    this.dialogRef = this.dialog.open(LoaderComponent, { disableClose: true, height: '80px', width: '80px'});
     return this.dialogRef.afterClosed();
   }
 

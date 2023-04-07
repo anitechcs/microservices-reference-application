@@ -44,6 +44,7 @@ export class BooksComponent implements OnInit {
     setTimeout(() => {
       this.loader.open();
     });
+    
     this.books$ = this.storeService
       .getFilteredBook(this.filterForm)
       .pipe(

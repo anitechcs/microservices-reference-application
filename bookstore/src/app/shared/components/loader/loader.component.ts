@@ -7,8 +7,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent {
-  title;
   constructor(public dialogRef: MatDialogRef<LoaderComponent>) {
-    this.title = 'Loading..';
+    
   }
 }

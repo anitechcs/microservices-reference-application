@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -12,7 +13,6 @@
   "private": false,
   "author": {
     "name": "Tapas Jena",
-    "email": "tapas.jena@anitechcs.com",
     "url": "https://tapasjena.com"
   },
   "license": "Apache 2",
@@ -31,28 +31,24 @@
     "angular-star-rating": "^6.0.0",
     "css-star-rating": "^1.2.4",
     "ngx-pagination": "^5.0.0",
-    "rxjs": "~6.6.0",
+    "rxjs": "~7.8.0",
     "sass": "^1.32.4",
-    "tslib": "^2.0.0",
-    "zone.js": "~0.13.0"
+    "tslib": "^2.3.0",
+    "zone.js": "~0.12.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~15.2.4",
-    "@angular/cli": "~15.2.4",
+    "@angular-devkit/build-angular": "^15.2.5",
+    "@angular/cli": "~15.2.5",
     "@angular/compiler-cli": "~15.2.4",
-    "@types/jasmine": "~3.6.0",
+    "@types/jasmine": "~4.3.0",
     "@types/node": "^12.11.1",
-    "codelyzer": "^6.0.0",
     "jasmine-core": "~4.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage": "~2.0.3",
-    "karma-jasmine": "~5.0.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "^2.0.0",
-    "protractor": "~7.0.0",
-    "ts-node": "~8.3.0",
-    "tslint": "~6.1.0",
-    "typescript": "~4.8.2"
+    "typescript": "~4.9.4"
   }
 }
