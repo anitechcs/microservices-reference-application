@@ -1,0 +1,52 @@
+version: "3.8"
+
+networks:
+  bookstore:
+    driver: bridge
+
+services:
+  apisix-dashboard:
+    image: apache/apisix-dashboard:latest
+    container_name: apisix-dashboard
+    restart: always
+    volumes:
+      - ./apisix/dashboard_conf/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml
+    ports:
+      - "9000:9000"
+    networks:
+      - bookstore
+
+  apisix:
+    image: apache/apisix:latest
+    container_name: apisix
+    restart: always
+    volumes:
+      - ./apisix/apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro
+    depends_on:
+      - etcd
+    ports:
+      - "8080:8080/tcp"
+      - "8443:8443/tcp"
+    networks:
+      - bookstore
+
+  etcd:
+    image: bitnami/etcd:latest
+    restart: always
+    container_name: etcd
+    volumes:
+      - etcd_data:/bitnami/etcd
+      - ./apisix/etcd_conf:/bitnami/etcd
+    environment:
+      ETCD_ENABLE_V2: "true"
+      ALLOW_NONE_AUTHENTICATION: "yes"
+      ETCD_ADVERTISE_CLIENT_URLS: "http://etcd:2379"
+      ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
+    ports:
+      - "2379:2379/tcp"
+    networks:
+      - bookstore
+
+volumes:
+  etcd_data:
+    driver: local

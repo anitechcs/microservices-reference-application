@@ -1,0 +1,14 @@
+body, html {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+  font-size: 14px;
+  color:rgba(0,0,0,.87);
+  margin:0;
+  height: 100%;
+}
+body {
+  margin: 0
+}

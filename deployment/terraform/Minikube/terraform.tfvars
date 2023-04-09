@@ -1,1 +1,0 @@
-namespace_name   = "bookstore"
